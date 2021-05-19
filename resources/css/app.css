@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'MyriadProRegular';
+  src: url("/fonts/myriadPro/MyriadProLight.otf") format("otf");
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,18 +16,19 @@
 @media only screen and (max-width: 481px) {
   body {
     color: #555;
-    font-family: "myriad-pro",sans-serif;
+    font-family: 'MyriadProRegular', sans-serif;
     line-height: 150%;
     font-size: 100%;
     font-style: normal;
     font-weight: 300;
     width: 100vw;
     height: 100vh;
+    overflow-x: none;
   }
   body .body-box {
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
     clear: none;
     float: none;
   }
@@ -52,6 +59,9 @@
     margin-top: 0.50em;
   }
   body .body-box header .reactive {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -60,7 +70,6 @@
   body .body-box header .reactive nav {
     display: block;
     width: 49.367%;
-    margin-left: 1.2658%;
     clear: none;
   }
   body .body-box header .reactive nav .nav {
@@ -96,18 +105,71 @@
     padding-left: 100px;
     width: 200px;
   }
+  body .body-box header .reactive .lang {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: absolute;
+    right: 50px;
+  }
+  body .body-box header .reactive .lang ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body .body-box header .reactive .lang ul li {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  body .body-box section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 70px;
+  }
+  body .body-box section .intro img {
+    width: 100%;
+  }
+  body .body-box section .intro .toggle-box {
+    display: none;
+  }
+  body .body-box section .intro .toggle-box + label {
+    cursor: pointer;
+    display: block;
+    text-decoration: underline;
+    margin-bottom: 2em;
+  }
+  body .body-box section .intro .toggle-box + label + .article {
+    display: none;
+  }
+  body .body-box section .intro .toggle-box:checked + label + .article {
+    display: block;
+  }
 }
 
 @media only screen and (min-width: 481px) {
   body {
     color: #555;
-    font-family: "myriad-pro",sans-serif;
+    font-family: 'MyriadProRegular', sans-serif;
     line-height: 150%;
     font-size: 100%;
     font-style: normal;
     font-weight: 300;
     width: 100vw;
     height: 100vh;
+    overflow-x: none;
   }
   body .body-box {
     margin-left: auto;
@@ -140,10 +202,13 @@
     color: #444;
   }
   body .body-box header .logo img {
-    width: 70%;
+    width: 50%;
     margin-top: 0.50em;
   }
   body .body-box header .reactive {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -152,7 +217,6 @@
   body .body-box header .reactive nav {
     display: block;
     width: 49.367%;
-    margin-left: 1.2658%;
     clear: none;
   }
   body .body-box header .reactive nav .nav {
@@ -188,24 +252,77 @@
     padding-left: 100px;
     width: 200px;
   }
+  body .body-box header .reactive .lang {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: absolute;
+    right: 50px;
+  }
+  body .body-box header .reactive .lang ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body .body-box header .reactive .lang ul li {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  body .body-box section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 70px;
+  }
+  body .body-box section .intro img {
+    width: 460px;
+  }
+  body .body-box section .intro .toggle-box {
+    display: none;
+  }
+  body .body-box section .intro .toggle-box + label {
+    cursor: pointer;
+    display: block;
+    text-decoration: underline;
+    margin-bottom: 2em;
+  }
+  body .body-box section .intro .toggle-box + label + .article {
+    display: none;
+  }
+  body .body-box section .intro .toggle-box:checked + label + .article {
+    display: block;
+  }
 }
 
 @media only screen and (min-width: 769px) {
   body {
     color: #555;
-    font-family: "myriad-pro",sans-serif;
+    font-family: 'MyriadProRegular', sans-serif;
     line-height: 150%;
     font-size: 100%;
     font-style: normal;
-    font-weight: 300;
     width: 100vw;
     height: 100vh;
+    overflow-x: none;
   }
   body .body-box {
     width: 90%;
     max-width: 1232px;
     margin-left: auto;
     margin-right: auto;
+    overflow-x: none;
   }
   body .body-box header {
     display: -webkit-box;
@@ -232,13 +349,25 @@
     width: 90%;
   }
   body .body-box header .reactive {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
   body .body-box header .reactive nav {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     width: 49.367%;
     margin-left: 1.2658%;
     clear: none;
@@ -273,8 +402,64 @@
     position: absolute;
     top: inherit;
     left: 10px;
-    padding-left: 100px;
+    margin-left: 50px;
     width: 200px;
+  }
+  body .body-box header .reactive .lang {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: absolute;
+    right: 150px;
+  }
+  body .body-box header .reactive .lang ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body .body-box header .reactive .lang ul li {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  body .body-box header .reactive .lang ul li:hover {
+    color: #444;
+  }
+  body .body-box section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-left: 360px;
+    margin-top: 70px;
+  }
+  body .body-box section .intro img {
+    width: 460px;
+  }
+  body .body-box section .intro .toggle-box {
+    display: none;
+  }
+  body .body-box section .intro .toggle-box + label {
+    cursor: pointer;
+    display: block;
+    text-decoration: underline;
+    margin-bottom: 2em;
+  }
+  body .body-box section .intro .toggle-box + label + .article {
+    display: none;
+  }
+  body .body-box section .intro .toggle-box:checked + label + .article {
+    display: block;
   }
 }
 /*# sourceMappingURL=app.css.map */

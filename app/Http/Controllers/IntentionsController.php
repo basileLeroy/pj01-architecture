@@ -8,7 +8,7 @@ class IntentionsController extends Controller
 {
     public function showIntentionsSite()
     {
-        return view('landing');
+        return view('intentionsWebsite');
     }
     public function showIntentionsProject()
     {

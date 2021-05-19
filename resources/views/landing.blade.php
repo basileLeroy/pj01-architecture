@@ -7,8 +7,11 @@
 
 @section('landing')
     <div class="fluid intro">
-        <figure><img src="{{url('/images/architecturer_logo.jpg')}}" alt="Allessandro Anselmi"></figure>
+        <img src="{{url('/images/home/allessandro.jpg')}}" title="Les ordres - Alessandro Anselmi" alt="Allessandro Anselmi">
         <input class="toggle-box" id="header1" type="checkbox" >
         <label for="header1">Les ordres - Alessandro Anselmi</label>
+        <div class="article">
+            {!! __('landing.article') !!}
+        </div>
     </div>
 @endsection

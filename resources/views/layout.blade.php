@@ -20,6 +20,7 @@
             </header>
             <section>
                 @yield('landing')
+                @yield('intentionsWebsite')
             </section>
         </div>
     </body>
