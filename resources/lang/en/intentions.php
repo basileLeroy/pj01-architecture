@@ -1,6 +1,6 @@
 <?php
 return [ 
-    'article' => 
+    'articleWebsite' => 
         "<p>brings to the knowledge and opens to the critic of everybody<br/>
         the work by the hand of Marc Belderbos.
         <br/><br/>

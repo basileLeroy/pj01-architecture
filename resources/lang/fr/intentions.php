@@ -1,6 +1,6 @@
 <?php
 return [ 
-    'article' => 
+    'articleWebsite' => 
         "<p>porte à la connaissance<br/>
         et ouvre à la critique de tous,<br/>
         le travail de la main de l’architecte Marc Belderbos<br/>
@@ -39,5 +39,36 @@ return [
         <br/><br/>
         Architecturer nous laisse vivre dans la connotation d’une proposition : sois un sujet et tenez-vous!</p>",
     
-    ]
+    'articleProjects' => 
+        "<p>Le fil des intentions auquel nous nous tenons<br/>
+        tout au cours de nos projets<br/>
+        est tendu vers le ‘bien-être’ de ceux qui vont vivre<br/>
+        avec notre architecture.
+        <br/><br/>
+        Ce ‘bien-être’ est une <span style='font-weight: 400;'>dignité</span> ou une <span style:'font-weight= 400;'>tenue</span> et non une jouissance de luxure. Le bien-être c’est vivre par une éthique.
+        <br/><br/>
+        L’architecture laisse les gens vivre avec une structure<br/>
+        et dans la connotation d’une tenue.
+        <br/><br/>
+        La tâche de l’architecte est de bâtir l’espace de vie des gens et d’ensuite les y laisser ‘vivre’. L’espace de vie sera connoté alors de cette structure que l’on nomme architecture.
+        <br/><br/>
+        Pour cela, la beauté de l’architecture consistera en un degré élevé de logique plutôt qu’en un sentiment esthétique.
+        <br/><br/>
+        L’architecture présentera aussi une idée<br/>
+        de la tenue ou de la dignité dans la société<br/>
+        de ceux qui y vivront<br/>
+        plutôt qu’une jouissance particulière.<br/>
+        Ceux qui construisent avec nous<br/>
+        sont des sujets et non des ‘particuliers’<br/>
+        et sauront vivre avec cette primitive (arke) structure invisible (tekton).
+        <br/><br/>
+        Sur le plan professionnel notre position est donc que le ‘design’ (dessin et projet) influe sur la vie des gens.
+        Notre effort permanent est d’atteindre un design de haute qualité pour obtenir une expérience signifiante dans tout le spectre de notre environnement bâti.
+        <br/><br/>
+        Excellence dans le design, intérêts multidisciplinaires continus, précision fine du contrôle du programme et du budget durant toutes les phases de la construction sont les bases de notre travail pour une architecture de la plus haute qualité.
+        <br/><br/>
+        Notre travail est animé par une approche ‘philosophique’ constante plutôt que par la proposition d’un ‘style’. Et nous visons à projeter des bâtiments détaillés qui sont intimement reliés à leur environnement comme aux expériences de vie et aux fonctions souhaitées.
+        <br/><br/>
+        D’intenses discussions entre toutes les parties sont donc l’origine d’une haute qualité de projet qui intègrent toujours pour le mieux une synthèse en un concept simple, de beauté, d’expérience de vie agréable et de fonctionnalité.</p>",
+]
 ?>

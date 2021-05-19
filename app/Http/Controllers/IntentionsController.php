@@ -12,6 +12,6 @@ class IntentionsController extends Controller
     }
     public function showIntentionsProject()
     {
-        return view('landing');
+        return view('intentionsProjects');
     }
 }

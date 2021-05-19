@@ -5,9 +5,9 @@
     Intentions
 @endsection
 
-@section('intentionsWebsite')
+@section('intentionsProjects')
     <div class="fluid intro" style="width: 650px;">
         <p>Architecturer.net</p>
-        {!! __('intentions.articleWebsite') !!}
+        {!! __('intentions.articleProjects') !!}
     </div>
 @endsection

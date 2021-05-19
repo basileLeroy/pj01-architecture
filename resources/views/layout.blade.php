@@ -21,6 +21,7 @@
             <section>
                 @yield('landing')
                 @yield('intentionsWebsite')
+                @yield('intentionsProjects')
             </section>
         </div>
     </body>
