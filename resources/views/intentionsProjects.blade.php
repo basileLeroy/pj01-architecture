@@ -7,7 +7,6 @@
 
 @section('intentionsProjects')
     <div class="fluid intro" style="width: 650px;">
-        <p>Architecturer.net</p>
         {!! __('intentions.articleProjects') !!}
     </div>
 @endsection
