@@ -41,5 +41,65 @@ return [
         To architect let us live in the connotation of this:<br/>
         Be a subject and have a holding!</p>",
     
+    'articleProjects' => 
+        "<p>The intentions where we are holding us<br/>
+        all along our projects<br/>
+        are tended to the ‘well being” of the ones who will live<br/>
+        with our architecture.
+        <br/><br/>
+        This “well being” is a <span style='font-weight: bold;'>dignity</span> or a <span style='font-weight: bold;'>holding</span><br/>
+        and not the fruition of a lust<br/>
+        Well being is to live by ethics.
+        <br/><br/>
+        Architecture let people live with a structure<br/>
+        and in the connotation of a holding.<br/>
+        <br/><br/>
+        The task of the architect<br/>
+        is to build the space of life of people<br/>
+        and then to let them live there.<br/>
+        The space of life will then be connoted<br/>
+        by this structure called architecture.
+        <br/><br/>
+        Therefor, the beauty of architecture<br/>
+        will consist in a high level of logic<br/>
+        more then in an esthetical sentiment.
+        <br/><br/>
+        Architecture will also bring at stake an idea<br/>
+        of the holding or of the dignity in the society<br/>
+        of the ones who will live there<br/>
+        more then a particular fruition.<br/>
+        The ones who build with us<br/>
+        are subjects and not ‘particulars’<br/>
+        and will be able to live with<br/>
+        this primitive (arke) invisible and mute structure (tekton).
+        <br/><br/>
+        In the professional field<br/>
+        our position is therefore<br/>
+        that design (drawing and project)<br/>
+        has an influence on people’s life<br/>
+        We attempt permanently<br/>
+        to reach a design of high quality<br/>
+        to obtain a significant experience<br/>
+        in all the spectrum of our build environment.
+        <br/><br/>
+        Excellence in design,<br/>
+        continuous multidisciplinary interests<br/>
+        fine precision of the control<br/>
+        of the programme and the budget<br/>
+        during all the phases of the construction<br/>
+        are the bases of our work<br/>
+        for an architecture of the highest quality.
+        <br/><br/>
+        Our work is animated<br/>
+        by a constant ‘philosophical’ approach<br/>
+        more than a proposition of ‘style’.<br/>
+        And we aim to design detailed buildings<br/>
+        which are intimately in relation with the environment<br/>
+        and with the wished life experience and functions.
+        <br/><br/>
+        Intense discussions between all parties<br/>
+        are at the base of a high quality of project<br/>
+        which brings always in the light a synthesis in a simple concept<br/>
+        of beauty, experience of well being and functionality.</p>",
     ]
 ?>

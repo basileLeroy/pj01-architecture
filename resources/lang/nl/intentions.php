@@ -42,35 +42,24 @@ return [
         zij een subject en heb een houding!</p>",
     
     'articleProjects' => 
-        "<p>Le fil des intentions auquel nous nous tenons<br/>
-        tout au cours de nos projets<br/>
-        est tendu vers le ‘bien-être’ de ceux qui vont vivre<br/>
-        avec notre architecture.
+        "<p>“Voor wat wij staan“ is het <span style='font-weight: bold;'>wel-zijn</span> van de mensen die met onze architectuur gaan leven.
+        Dit wel-zijn is een waardigheid of een houding meer dan een genot. En de waardigheid (dignitas) is ‘leven volgens een ethiek’ of volgens een houding die het concreet gezag is waardoor wij leven.
         <br/><br/>
-        Ce ‘bien-être’ est une dignité ou une tenue et non une jouissance de luxure. Le bien-être c’est vivre par une éthique.
+        Architectuur laat dus de mensen leven met een gebouwde structuur. Architectuur houdt samen of laat een houding aanwezig.
         <br/><br/>
-        L’architecture laisse les gens vivre avec une structure<br/>
-        et dans la connotation d’une tenue.
+        Het is de taak van de architect de ruimte van het leven op te bouwen en dan de mensen te laten leven met deze houding.
+        De ruimte van het leven is dan geconoteerd van de gebouwde structuur die men architectuur noemt.
         <br/><br/>
-        La tâche de l’architecte est de bâtir l’espace de vie des gens et d’ensuite les y laisser ‘vivre’. L’espace de vie sera connoté alors de cette structure que l’on nomme architecture.
+        Zo is de schoonheid van architectuur een hoge graad van logica meer als een esthetisch gevoel.
+        Zo brengt architectuur meer een idee van de houding van de mens, of van zijn waardigheid, in de maatschappij, als een particulier genot.
         <br/><br/>
-        Pour cela, la beauté de l’architecture consistera en un degré élevé de logique plutôt qu’en un sentiment esthétique.
+        Op professioneel gebied is onze positie dat de kwaliteit van het “design“ (tekenen en ontwerpen) het leven van de mensen beïnvloed.
+        Het is onze voortdurende inspanning van een hoge kwaliteit van design te bereiken tot een significante ervaring in de hele waaier van onze gebouwde omgeving.
         <br/><br/>
-        L’architecture présentera aussi une idée<br/>
-        de la tenue ou de la dignité dans la société<br/>
-        de ceux qui y vivront<br/>
-        plutôt qu’une jouissance particulière.<br/>
-        Ceux qui construisent avec nous<br/>
-        sont des sujets et non des ‘particuliers’<br/>
-        et sauront vivre avec cette primitive (arke) structure invisible (tekton).
+        Voortreffelijkheid in het design, voortdurende multidisciplinaire interesse, fijne en nauwkeurige programma- en budgetcontrole en deskundige beheersing van heel de bouwfase van een project zijn de basis van ons werk met als doel de beste architecturale kwaliteit te bieden.
         <br/><br/>
-        Sur le plan professionnel notre position est donc que le ‘design’ (dessin et projet) influe sur la vie des gens.
-        Notre effort permanent est d’atteindre un design de haute qualité pour obtenir une expérience signifiante dans tout le spectre de notre environnement bâti.
+        Ons werk is dus gedreven door een consistente filosofische benadering, meer als door het voorstellen van een stijl. En wij mikken gedetailleerde gebouwen te ontwerpen die intiem verbonden zijn met hun omgeving zoals met de gewenste levensgebeurtenissen die er plaats moet vinden.
         <br/><br/>
-        Excellence dans le design, intérêts multidisciplinaires continus, précision fine du contrôle du programme et du budget durant toutes les phases de la construction sont les bases de notre travail pour une architecture de la plus haute qualité.
-        <br/><br/>
-        Notre travail est animé par une approche ‘philosophique’ constante plutôt que par la proposition d’un ‘style’. Et nous visons à projeter des bâtiments détaillés qui sont intimement reliés à leur environnement comme aux expériences de vie et aux fonctions souhaitées.
-        <br/><br/>
-        D’intenses discussions entre toutes les parties sont donc l’origine d’une haute qualité de projet qui intègrent toujours pour le mieux une synthèse en un concept simple, de beauté, d’expérience de vie agréable et de fonctionnalité.</p>",
+        Intense besprekingen tussen alle partijen zijn dus de oorsprong van een hoge ontwerpkwaliteit die altijd een synthese van een eenvoudig concept, schoonheid, aangenaam levensgebeurtenissen en functies op de beste wijze integreren.</p>",
     ]
 ?>

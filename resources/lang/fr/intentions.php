@@ -45,7 +45,7 @@ return [
         est tendu vers le ‘bien-être’ de ceux qui vont vivre<br/>
         avec notre architecture.
         <br/><br/>
-        Ce ‘bien-être’ est une <span style='font-weight: 400;'>dignité</span> ou une <span style:'font-weight= 400;'>tenue</span> et non une jouissance de luxure. Le bien-être c’est vivre par une éthique.
+        Ce ‘bien-être’ est une <span style='font-weight: bold;'>dignité</span> ou une <span style='font-weight: bold;'>tenue</span> et non une jouissance de luxure. Le bien-être c’est vivre par une éthique.
         <br/><br/>
         L’architecture laisse les gens vivre avec une structure<br/>
         et dans la connotation d’une tenue.
