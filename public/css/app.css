@@ -121,6 +121,34 @@
   body .body-box section .intro .toggle-box:checked + label + .article {
     display: block;
   }
+  body .body-box section .projects {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  body .body-box section .projects .project-card {
+    flex-direction: column;
+    margin-right: 30px;
+    margin-bottom: 70px;
+  }
+  body .body-box section .projects .project-card a {
+    text-decoration: none;
+    color: #555;
+    text-decoration: underline;
+  }
+  body .body-box section .projects .project-card a img {
+    height: 100px;
+    max-width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  body .body-box section .projects .project-card a p {
+    width: 100px;
+    text-align: center;
+  }
 }
 @media only screen and (min-width: 481px) {
   body {
@@ -232,6 +260,34 @@
   body .body-box section .intro .toggle-box:checked + label + .article {
     display: block;
   }
+  body .body-box section .projects {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  body .body-box section .projects .project-card {
+    flex-direction: column;
+    margin-right: 20px;
+    margin-bottom: 70px;
+  }
+  body .body-box section .projects .project-card a {
+    text-decoration: none;
+    color: #555;
+    text-decoration: underline;
+  }
+  body .body-box section .projects .project-card a img {
+    height: 100px;
+    max-width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  body .body-box section .projects .project-card a p {
+    width: 100px;
+    text-align: center;
+  }
 }
 @media only screen and (min-width: 769px) {
   body {
@@ -245,8 +301,8 @@
     overflow-x: none;
   }
   body .body-box {
-    width: 90%;
-    max-width: 1232px;
+    width: 100%;
+    max-width: 1332px;
     margin-left: auto;
     margin-right: auto;
     overflow-x: none;
@@ -327,6 +383,10 @@
     flex-direction: column;
     margin-left: 360px;
     margin-top: 70px;
+    width: 850px;
+  }
+  body .body-box section .intro {
+    width: 650px;
   }
   body .body-box section .intro img {
     width: 460px;
@@ -345,5 +405,63 @@
   }
   body .body-box section .intro .toggle-box:checked + label + .article {
     display: block;
+  }
+  body .body-box section .intro a {
+    text-decoration: none;
+    color: #555;
+    text-decoration: underline;
+  }
+  body .body-box section .intro a:hover {
+    text-decoration: none;
+  }
+  body .body-box section .projects {
+    width: 850px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  body .body-box section .projects .project-card {
+    flex-direction: column;
+    margin-right: 40px;
+    margin-bottom: 70px;
+  }
+  body .body-box section .projects .project-card a {
+    text-decoration: none;
+    color: #555;
+    text-decoration: underline;
+  }
+  body .body-box section .projects .project-card a img {
+    height: 100px;
+    max-width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  body .body-box section .projects .project-card a p {
+    width: 100px;
+    text-align: center;
+  }
+  body .body-box section .projects .project-card a:hover {
+    text-decoration: none;
+    color: #2d86bd;
+  }
+  body .body-box section .link-group {
+    margin-top: 20px;
+    width: 850px;
+    display: flex;
+    flex-direction: column;
+  }
+  body .body-box section .link-group .link {
+    margin-right: 40px;
+    list-style-type: none;
+  }
+  body .body-box section .link-group .link a {
+    text-decoration: none;
+    color: #555;
+    text-decoration: underline;
+  }
+  body .body-box section .link-group .link a:hover {
+    text-decoration: none;
   }
 }

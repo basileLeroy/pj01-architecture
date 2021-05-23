@@ -16,7 +16,7 @@
                 <li><a href="{{ route('architectuur', app()->getLocale() ) }}">{{ __('nav.architectuur')}}</a></li>
                 <li><a href="{{ route('woorden', app()->getLocale() ) }}">{{ __('nav.woorden')}}</a>
                     <ul class="subnav">
-                        <li><a href="{{ route('marc-belderbos', app()->getLocale() ) }}">Marc Belderbos</a></li>
+                        <li><a href="{{ route('woorden', app()->getLocale() ) }}">Marc Belderbos</a></li>
                         <li><a href="{{ route('anderen', app()->getLocale() ) }}">{{ __('nav.anderen')}}</a></li>
                     </ul>
                 </li>

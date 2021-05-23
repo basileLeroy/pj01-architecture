@@ -13,9 +13,9 @@ return [
     |
     */
 
-    'previous' => 'Previous',
-    'next' => 'Next',
-    'overview' => 'To overview',
-    'thoughts' => 'Share your thoughts',
+    'previous' => 'Terug',
+    'next' => 'Volgende',
+    'overview' => 'Naar overzicht',
+    'thoughts' => 'Laat een gedachte achter',
 
 ];
