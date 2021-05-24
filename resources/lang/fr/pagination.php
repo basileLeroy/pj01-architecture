@@ -17,5 +17,5 @@ return [
     'next' => 'Suivant',
     'overview' => 'Au sommaire',
     'thoughts' => 'Laissez une pensée',
-
+    'notAvailable' => 'Aucun contenu disponible pour le moment.'
 ];

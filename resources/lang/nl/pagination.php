@@ -17,5 +17,7 @@ return [
     'next' => 'Volgende',
     'overview' => 'Naar overzicht',
     'thoughts' => 'Laat een gedachte achter',
+    'noTranslation' => 'Er is momenteel nog geen nederlands-talige vertaling beschikbaar.',
+    'notAvailable' => 'Nog geen inhoud beschikbaar.'
 
 ];

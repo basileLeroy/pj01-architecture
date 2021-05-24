@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class ThoughtsController extends Controller
 {
-    //
+    public function showThoughts()
+    {
+        return view('thoughts');
+    }
 }
