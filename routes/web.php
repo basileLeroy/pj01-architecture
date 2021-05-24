@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IntentionsController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::redirect('/', '/nl');
+Route::redirect('/', '/{locale}');
 
-Route::group(['prefix' => '{language}'], function () {
+Route::prefix('/{locale}')->group(function () {
 
     Route::get('/', 'App\Http\Controllers\Controller@showLanding')->name('home');
 
@@ -23,7 +24,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('intenties-bij-een-ontwerp', 'App\Http\Controllers\IntentionsController@showIntentionsProject')->name('intenties-bij-een-ontwerp');
     Route::get('architectuur', 'App\Http\Controllers\ArchitectureController@showArchitecture')->name('architectuur');
 
-    Route::get('architectuur/{project}', ['uses' => 'App\Http\Controllers\ArchitectureController@showProject'])->name('title');
+    Route::get('architectuur/{project}',  'App\Http\Controllers\ArchitectureController@showProject')->name('project-title');
 
 
     // Route::get('architectuur/1978-reel-boom', 'App\Http\Controllers\ArchitectureController@showReelBoom')->name('1978-reel-boom');

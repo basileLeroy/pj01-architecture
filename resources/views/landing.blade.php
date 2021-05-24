@@ -1,3 +1,7 @@
+<?php
+
+use GuzzleHttp\Psr7\Uri;
+?>
 @extends('layout')
 @extends('header')
 

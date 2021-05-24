@@ -30,6 +30,7 @@
                 @yield('words04')
                 @yield('words05')
                 @yield('contact')
+                @yield('project')
             </section>
         </div>
     </body>
