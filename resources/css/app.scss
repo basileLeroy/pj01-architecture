@@ -150,6 +150,33 @@
                     .toggle-box:checked + label + .article {
                         display: block;
                     }
+
+                    .gallery {
+                        display: flex;
+                        width: 50%;
+                        overflow-x: scroll;
+                        white-space: normal;
+                        transition: all 0.2s;
+
+                        will-change: transform;
+                        user-select: none;
+                        cursor: pointer;
+
+                        
+
+                        a img {
+                            height: 200px;
+                            width: auto;
+                            margin-left: 2px;
+                            margin-right: 2px;
+                        }
+                    }
+                    .gallery.active {
+                        background: rgba(255,255,255,0.3);
+                        cursor: grabbing;
+                        cursor: -webkit-grabbing;
+                        
+                    }
                 }
 
                 .projects {
@@ -184,6 +211,16 @@
                             }
                         }
 
+                    }
+                }
+
+                .project-gallery {
+                    display: flex;
+                    flex-direction: column;
+
+                    
+                    h1 {
+                        margin-bottom: 10px;
                     }
                 }
             }
@@ -322,6 +359,35 @@
                     .toggle-box:checked + label + .article {
                         display: block;
                     }
+
+                    
+                    .gallery {
+                        display: flex;
+                        position: relative;
+                        width: 100%;
+                        overflow-x: scroll;
+                        overflow-y: hidden;
+                        white-space: nowrap;
+                        transition: all 0.2s;
+                        transform: scale(0.98);
+                        will-change: transform;
+                        user-select: none;
+                        cursor: pointer;
+
+                        max-height: 300px;
+                        width: 100%;
+
+                        a img {
+                            height: 300px;
+                            width: auto;
+                        }
+                    }
+                    .gallery.active {
+                        background: rgba(255,255,255,0.3);
+                        cursor: grabbing;
+                        cursor: -webkit-grabbing;
+                        
+                    }
                 }
 
                 .projects {
@@ -358,6 +424,16 @@
 
                     }
                 }
+
+                .project-gallery {
+                    display: flex;
+                    flex-direction: column;
+
+                    
+                    h1 {
+                        margin-bottom: 10px;
+                    }
+                }
             }
         }
     }
@@ -374,14 +450,12 @@
         
     
         width: 100vw;
-        height: 100vh;
+        height: 100%;
         overflow-x: none;
 
         .body-box {
             width: 100%;
             max-width: 1332px;
-            margin-left: auto;
-            margin-right: auto;
             overflow-x: none;
 
             header {
@@ -414,7 +488,7 @@
                         display: flex;
                         flex-direction: column;
                         width: 49.367%;
-                        margin-left: 1.2658%;
+                        // margin-left: 1.2658%;
                         clear: none;
         
                         .nav {
@@ -427,6 +501,7 @@
                             li {
                                 display: flex;
                                 flex-direction: row;
+                                width: 200px;
         
                                 .subnav {
                                     display: none;
@@ -476,6 +551,7 @@
 
                 margin-left: 360px;
                 margin-top: 70px;
+                padding-bottom: 50px;
                 width: 850px;
                 .intro {
                     width: 650px;
@@ -508,6 +584,36 @@
                     }
                     a:hover {
                         text-decoration: none;
+                    }
+
+                    .gallery {
+                        display: flex;
+                        position: relative;
+                        width: 100%;
+                        overflow-x: scroll;
+                        overflow-y: hidden;
+                        white-space: nowrap;
+                        transition: all 0.2s;
+                        transform: scale(0.98);
+                        will-change: transform;
+                        user-select: none;
+                        cursor: pointer;
+
+                        max-height: 400px;
+                        width: 150%;
+
+                        a img {
+                            height: 400px;
+                            width: auto;
+                            margin-left: 2px;
+                            margin-right: 2px;
+                        }
+                    }
+                    .gallery.active {
+                        background: rgba(255,255,255,0.3);
+                        cursor: grabbing;
+                        cursor: -webkit-grabbing;
+                        
                     }
                 }
 
@@ -569,7 +675,23 @@
                         }
                     }
                 }
-                
+
+                .project-gallery {
+                    display: flex;
+                    flex-direction: row;
+                    position: relative;
+                    left: -200px;
+
+                    .project-card {
+                        h1 {
+                            margin-bottom: 50px;
+                        }
+                        img {
+                            height: 100px;
+                            max-width: 100px;
+                        }
+                    }
+                }
             }
         }
     }

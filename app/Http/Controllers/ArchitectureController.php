@@ -34,10 +34,11 @@ class ArchitectureController extends Controller
         // ]);
     }
     
-    public function showProject()
+    public function showProject($locale, $project)
     {
         
-        return view('projects.project');
+
+        return view('projects.project')->with('project', $project);
     }
     
     // public function showReelBoom()

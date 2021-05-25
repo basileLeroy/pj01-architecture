@@ -157,6 +157,33 @@
   body .body-box section .intro .toggle-box:checked + label + .article {
     display: block;
   }
+  body .body-box section .intro .gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50%;
+    overflow-x: scroll;
+    white-space: normal;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    will-change: transform;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: pointer;
+  }
+  body .body-box section .intro .gallery a img {
+    height: 200px;
+    width: auto;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  body .body-box section .intro .gallery.active {
+    background: rgba(255, 255, 255, 0.3);
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+  }
   body .body-box section .projects {
     width: 100%;
     display: -webkit-box;
@@ -194,6 +221,18 @@
   body .body-box section .projects .project-card a p {
     width: 100px;
     text-align: center;
+  }
+  body .body-box section .project-gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .body-box section .project-gallery h1 {
+    margin-bottom: 10px;
   }
 }
 
@@ -342,6 +381,37 @@
   body .body-box section .intro .toggle-box:checked + label + .article {
     display: block;
   }
+  body .body-box section .intro .gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    will-change: transform;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: pointer;
+    max-height: 300px;
+    width: 100%;
+  }
+  body .body-box section .intro .gallery a img {
+    height: 300px;
+    width: auto;
+  }
+  body .body-box section .intro .gallery.active {
+    background: rgba(255, 255, 255, 0.3);
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+  }
   body .body-box section .projects {
     width: 90%;
     display: -webkit-box;
@@ -381,6 +451,18 @@
     width: 100px;
     text-align: center;
   }
+  body .body-box section .project-gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .body-box section .project-gallery h1 {
+    margin-bottom: 10px;
+  }
 }
 
 @media only screen and (min-width: 769px) {
@@ -391,14 +473,12 @@
     font-size: 100%;
     font-style: normal;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     overflow-x: none;
   }
   body .body-box {
     width: 100%;
     max-width: 1332px;
-    margin-left: auto;
-    margin-right: auto;
     overflow-x: none;
   }
   body .body-box header {
@@ -446,7 +526,6 @@
         -ms-flex-direction: column;
             flex-direction: column;
     width: 49.367%;
-    margin-left: 1.2658%;
     clear: none;
   }
   body .body-box header .reactive nav .nav {
@@ -464,6 +543,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    width: 200px;
   }
   body .body-box header .reactive nav .nav li .subnav {
     display: none;
@@ -519,6 +599,7 @@
             flex-direction: column;
     margin-left: 360px;
     margin-top: 70px;
+    padding-bottom: 50px;
     width: 850px;
   }
   body .body-box section .intro {
@@ -549,6 +630,39 @@
   }
   body .body-box section .intro a:hover {
     text-decoration: none;
+  }
+  body .body-box section .intro .gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    will-change: transform;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: pointer;
+    max-height: 400px;
+    width: 150%;
+  }
+  body .body-box section .intro .gallery a img {
+    height: 400px;
+    width: auto;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  body .body-box section .intro .gallery.active {
+    background: rgba(255, 255, 255, 0.3);
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
   }
   body .body-box section .projects {
     width: 850px;
@@ -615,6 +729,24 @@
   }
   body .body-box section .link-group .link a:hover {
     text-decoration: none;
+  }
+  body .body-box section .project-gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: relative;
+    left: -200px;
+  }
+  body .body-box section .project-gallery .project-card h1 {
+    margin-bottom: 50px;
+  }
+  body .body-box section .project-gallery .project-card img {
+    height: 100px;
+    max-width: 100px;
   }
 }
 /*# sourceMappingURL=app.css.map */

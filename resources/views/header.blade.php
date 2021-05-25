@@ -31,9 +31,11 @@
         </nav>
         <div class="lang">
             <ul>
-                <li><a href="{{ route(Route::currentRouteName(), 'nl') }}">nl</a></li>
-                <li><a href="{{ route(Route::currentRouteName(), 'fr') }}">fr</a></li>
-                <li><a href="{{ route(Route::currentRouteName(), 'en') }}">en</a></li>
+            @foreach (['nl', 'fr', 'en'] as $lang)
+                <li>
+                    <a href="{{ route(Route::CurrentRouteName(), array_merge(request()->route()->parameters, ['locale' => $lang])) }}">{{ $lang }}</a>
+                </li>
+            @endforeach
             </ul>
         </div>
     </div>

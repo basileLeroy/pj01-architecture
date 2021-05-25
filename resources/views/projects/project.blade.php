@@ -6,17 +6,27 @@
 @endsection
 
 @section('project')
-    <div class="fluid intro" style="width: 650px;">
-        <h1>Marc BELDERBOS</h1>
-        <br>
-        <p>
-            Leiedam, 200 <br>
-            9800 – DEINZE <br>
-            BELGIQUE
-        </p>
-        <br>
-        <p>+ 32 477 75 62 58</p>
-        <br>
-        <a class="link" href="mailto:marc.belderbos@architecturer.net">marc.belderbos@architecturer.net</a>
+<div class="project-gallery">
+    <div class="fluid projects">
+        <div class="project-card">
+            <?php 
+            $title = str_replace("-", " ", $project)
+            ?>
+            <h1>{{ucwords($title)}}</h1>
+            <img alt="{{$project}}" title="{{$project}}" src="{{url('/images/architectuur/icons/'.$project.'.jpg')}}">
+        </div>
     </div>
+
+    <div class="fluid intro" style="width: 650px;">
+
+        <div class="gallery">
+
+            @foreach(File::glob(public_path('images/architectuur/slider/').$project.'/*') as $path)
+                <a href="{{ str_replace(public_path(), '', $path) }}" data-lightbox="roadtrip"><img src="{{ str_replace(public_path(), '', $path) }}" alt=""></a>
+            @endforeach
+
+        </div>
+        
+    </div>
+</div>
 @endsection

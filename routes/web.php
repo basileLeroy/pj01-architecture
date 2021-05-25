@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::redirect('/', '/{locale}');
+Route::redirect('/', '/nl');
 
 Route::prefix('/{locale}')->group(function () {
 
@@ -24,7 +24,7 @@ Route::prefix('/{locale}')->group(function () {
     Route::get('intenties-bij-een-ontwerp', 'App\Http\Controllers\IntentionsController@showIntentionsProject')->name('intenties-bij-een-ontwerp');
     Route::get('architectuur', 'App\Http\Controllers\ArchitectureController@showArchitecture')->name('architectuur');
 
-    Route::get('architectuur/{project}',  'App\Http\Controllers\ArchitectureController@showProject')->name('project-title');
+    Route::get('architectuur/{project}', 'App\Http\Controllers\ArchitectureController@showProject')->name('project-title', 'project');
 
 
     // Route::get('architectuur/1978-reel-boom', 'App\Http\Controllers\ArchitectureController@showReelBoom')->name('1978-reel-boom');
