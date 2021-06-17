@@ -29,7 +29,7 @@ class AdminPanelController extends Controller
         $adminName = $request->input('email');
         $adminPwd = $request->input('password');
 
-
+        //TODO: Find error on connection to admins table
 
         return view('Admin.login');
     }
