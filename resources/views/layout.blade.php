@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        @yield('seo');
 
         <title>Architecturer - @yield('title', 'Marc Belderbos')</title>
 
@@ -21,6 +22,7 @@
             </header>
             <section>
                 @yield('landing')
+                @yield('admin')
                 @yield('intentionsWebsite')
                 @yield('intentionsProjects')
                 @yield('architecture')

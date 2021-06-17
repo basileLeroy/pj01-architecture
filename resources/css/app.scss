@@ -692,6 +692,71 @@
                         }
                     }
                 }
+
+                .login-card{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: absolute;
+                    top: 40%;
+                    left: 50%;
+                    margin-top: -100px;
+                    margin-left: -200px;
+                    padding: 10px;
+                    width: 400px;
+                    border: 2px solid gray;
+
+                    .form-heading{
+                        font-size: 24px;
+                        font-weight: 700;
+                    }
+
+                    .login-form{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        .panel{
+                            margin-top: 20px;
+                            margin-bottom: 20px;
+                            width: 240px;
+                            font-size: 14px;
+                        }
+
+                        #Login{
+                            width: 260px;
+
+                            .form-control{
+                                background: #f7f7f7 none repeat scroll 0 0;
+                                border: 1px solid #d4d4d4;
+                                border-radius: 4px;
+                                font-size: 14px;
+                                height: 50px;
+                                width: 100%;
+                                line-height: 50px;
+                                padding-left: 10px;
+                            }
+
+                            .forgot{
+                                font-size: 12px;
+                                a{
+                                    color: black;
+                                }
+                            }
+
+                            button{
+                                background: #ff9900;
+                                width: 50%;
+                                height: 35px;
+                                margin-top: 20px;
+                            }
+                            button:hover{
+                                background: #f8b248;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
