@@ -41,10 +41,9 @@ Route::prefix('/{locale}')->group(function () {
     Route::get('contact', 'App\Http\Controllers\ContactController@showContact')->name('contact');
     Route::get('gedachten', 'App\Http\Controllers\ThoughtsController@showthoughts')->name('gedachten');
 
-    Route::get('admin-dashboard', function () {
-        //only admin
-    })->middleware('auth');
+    Route::get('admin-dashboard', 'App\Http\Controllers\AdminPanelController@login')->middleware('auth');
     
-    Route::get('/admin/login', 'App\Http\Controllers\AdminPanelController@login')->name('login');
-    Route::POST('/admin/login', 'App\Http\Controllers\AdminPanelController@checkAuth')->name('login');
+    Route::get('/admin/login', 'App\Http\Controllers\AdminPanelController@login')->name('login')->middleware('guest');
+    Route::get('admin-dashboard', 'App\Http\Controllers\AdminPanelController@logout')->name('logout')->middleware('auth');
+    Route::post('admin/dashboard', 'App\Http\Controllers\AdminPanelController@checkAuth')->name('checkAuth');
 });

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Monolog\Handler\ZendMonitorHandler;
-use App\Models\Admin;
+use App\Models\User;
+use Illuminate\Validation\ValidationException;
 
 class AdminPanelController extends Controller
 {
@@ -19,18 +20,30 @@ class AdminPanelController extends Controller
     public function checkAuth(Request $request)
     {
 
-        $request->validate([
-            'email' => 'required|max:255|email:rfc,dns',
+        $attributes = $request->validate([
+            'email' => 'required|max:255|email',
             'password' => 'required',
         ]);
 
-        $admin = Admin::all();
-        dd($admin);
-        $adminName = $request->input('email');
-        $adminPwd = $request->input('password');
+        
 
-        //TODO: Find error on connection to admins table
+        if (auth()->attempt($attributes)) {
+            
+            return view('Admin.dashboard')->with('success', 'Logged in as administrator!');
+        };
+
+        throw ValidationException::withMessages([
+            'email' => 'This email is is not defined', 
+            'password' => 'Password does not match'
+        ]);
 
         return view('Admin.login');
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        
+        return redirect('/');
     }
 }

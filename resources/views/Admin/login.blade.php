@@ -14,7 +14,7 @@
         <div class="panel">
             <p>Please enter your email and password</p>
         </div>
-        <form id="Login" method="POST" action="{{ route('login', ['locale' => app()->getLocale()] ) }}">
+        <form id="Login" method="POST" action="{{ route('checkAuth', ['locale' => app()->getLocale()] ) }}">
         {{ csrf_field() }}
             <div class="form-group">
                 <input type="email" class="form-control" name="email" id="email" placeholder="Email Address">

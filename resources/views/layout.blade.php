@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 
         <!-- Styles -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" />
@@ -21,6 +22,13 @@
                 @yield('header')
             </header>
             <section>
+
+            @auth
+                <p>hi admin</p>
+            @else
+                <p>hi visitor</p>
+            @endauth
+
                 @yield('landing')
                 @yield('admin')
                 @yield('intentionsWebsite')
@@ -35,6 +43,7 @@
                 @yield('contact')
                 @yield('project')
             </section>
+            @yield('flash')
         </div>
         <script src="{{ asset('js/lightbox/lightbox-plus-jquery.js') }}"></script>
         <script>
