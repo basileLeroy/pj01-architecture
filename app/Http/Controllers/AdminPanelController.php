@@ -25,11 +25,10 @@ class AdminPanelController extends Controller
             'password' => 'required',
         ]);
 
-        
 
         if (auth()->attempt($attributes)) {
             
-            return view('Admin.dashboard')->with('success', 'Logged in as administrator!');
+            return view('landing')->with('success', 'Logged in as administrator!');
         };
 
         throw ValidationException::withMessages([

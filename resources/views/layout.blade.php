@@ -9,6 +9,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 
         <!-- Styles -->
@@ -18,6 +20,15 @@
 
     <body>
         <div class="body-box">
+            @auth
+                <div class="admin-logged-in">
+                    <p>You are logged in as administrator</p>
+
+                    <li>
+                        <a href="{{ route('logout', ['locale' => app()->getLocale()] ) }}">Log out</a>
+                    </li>
+                </div>
+            @endauth
             <header>
                 @yield('header')
             </header>
@@ -45,6 +56,14 @@
             </section>
             @yield('flash')
         </div>
+        <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
+        <script>
+            tinymce.init({
+                selector:'textarea.description',
+                width: 700,
+                height: 300
+            });
+        </script>
         <script src="{{ asset('js/lightbox/lightbox-plus-jquery.js') }}"></script>
         <script>
             lightbox.option({

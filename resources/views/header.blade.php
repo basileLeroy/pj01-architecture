@@ -36,11 +36,6 @@
                     <a href="{{ route(Route::CurrentRouteName(), array_merge(request()->route()->parameters, ['locale' => $lang])) }}">{{ $lang }}</a>
                 </li>
             @endforeach
-            @auth
-                <li>
-                    <a href="{{ route('logout', ['locale' => app()->getLocale()] ) }}">Log out</a>
-                </li>
-            @endauth
             </ul>
         </div>
     </div>

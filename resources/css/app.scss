@@ -458,6 +458,31 @@
             max-width: 1332px;
             overflow-x: none;
 
+            .admin-logged-in {
+                background-color: burlywood;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding-left: 20px;
+                padding-right: 20px;
+                p{
+                    
+                    font-weight: 600;
+                }
+                li {
+                    list-style-type: none;
+                    padding: 0.125em 0;   
+
+                    a, a:visited {
+                        
+                        text-decoration: none;
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
             header {
                 display: flex;
                 flex-direction: row;

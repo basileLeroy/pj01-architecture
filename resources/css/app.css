@@ -481,6 +481,34 @@
     max-width: 1332px;
     overflow-x: none;
   }
+  body .body-box .admin-logged-in {
+    background-color: burlywood;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  body .body-box .admin-logged-in p {
+    font-weight: 600;
+  }
+  body .body-box .admin-logged-in li {
+    list-style-type: none;
+    padding: 0.125em 0;
+  }
+  body .body-box .admin-logged-in li a, body .body-box .admin-logged-in li a:visited {
+    text-decoration: none;
+  }
+  body .body-box .admin-logged-in li a:hover {
+    text-decoration: underline;
+  }
   body .body-box header {
     display: -webkit-box;
     display: -ms-flexbox;
