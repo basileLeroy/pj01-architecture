@@ -24,6 +24,8 @@ Route::prefix('/{locale}')->group(function () {
     Route::get('intenties-van-de-site', 'App\Http\Controllers\IntentionsController@showIntentionsSite')->name('intenties-van-de-site');
     Route::get('intenties-bij-een-ontwerp', 'App\Http\Controllers\IntentionsController@showIntentionsProject')->name('intenties-bij-een-ontwerp');
     Route::get('architectuur', 'App\Http\Controllers\ArchitectureController@showArchitecture')->name('architectuur');
+    Route::post('architectuur', 'App\Http\Controllers\ArchitectureController@addProject')->name('architectuur')->middleware('auth');
+    Route::get('architectuur/admin/edit', 'App\Http\Controllers\ArchitectureController@update')->name('update-projects');
 
     Route::get('architectuur/{project}', 'App\Http\Controllers\ArchitectureController@showProject')->name('project-title', 'project');
 

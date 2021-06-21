@@ -692,6 +692,62 @@
     cursor: grabbing;
     cursor: -webkit-grabbing;
   }
+  body .body-box section .editProjects {
+    margin-bottom: 20px;
+  }
+  body .body-box section .editProjects .toggle-box {
+    display: none;
+  }
+  body .body-box section .editProjects .toggle-box + label {
+    cursor: pointer;
+    display: block;
+    text-decoration: underline;
+    margin-bottom: 2em;
+  }
+  body .body-box section .editProjects .toggle-box + label + .addProject {
+    display: none;
+  }
+  body .body-box section .editProjects .toggle-box:checked + label + .addProject {
+    display: block;
+  }
+  body .body-box section .editProjects .projectUploader {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 50%;
+    border: 2px solid black;
+    padding: 4px;
+  }
+  body .body-box section .editProjects .projectUploader #projectTitle {
+    border: 2px solid gray;
+    margin-top: 2px;
+    margin-bottom: 10px;
+  }
+  body .body-box section .editProjects .projectUploader #projectTitle::-webkit-input-placeholder {
+    font-style: italic;
+  }
+  body .body-box section .editProjects .projectUploader #projectTitle:-ms-input-placeholder {
+    font-style: italic;
+  }
+  body .body-box section .editProjects .projectUploader #projectTitle::-ms-input-placeholder {
+    font-style: italic;
+  }
+  body .body-box section .editProjects .projectUploader #projectTitle::placeholder {
+    font-style: italic;
+  }
+  body .body-box section .editProjects .projectUploader button {
+    background: #cacaca;
+    height: 35px;
+    margin-top: 20px;
+  }
+  body .body-box section .editProjects .projectUploader button:hover {
+    background: gray;
+    cursor: pointer;
+  }
   body .body-box section .projects {
     width: 850px;
     display: -webkit-box;

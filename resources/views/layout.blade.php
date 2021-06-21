@@ -34,12 +34,6 @@
             </header>
             <section>
 
-            @auth
-                <p>hi admin</p>
-            @else
-                <p>hi visitor</p>
-            @endauth
-
                 @yield('landing')
                 @yield('admin')
                 @yield('intentionsWebsite')
