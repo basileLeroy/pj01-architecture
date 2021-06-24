@@ -18,9 +18,10 @@ class Controller extends BaseController
     {
         $title = 'landing_Article'; 
         $localeLanguage = App::getLocale();
-        $matchThese = ['title' => $title, 'language' => $localeLanguage];
 
-        $articles = Article::where($matchThese)->get();
+        $articles = Article::get()
+            ->where('title', '=', $title)
+            ->where('language', '=', $localeLanguage);
 
         
         return view('landing')->with('articles', $articles);

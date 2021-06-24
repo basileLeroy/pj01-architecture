@@ -41,12 +41,6 @@
                 @yield('architecture')
                 @yield('words')
                 @yield('words01')
-                @yield('words02')
-                @yield('words03')
-                @yield('words04')
-                @yield('words05')
-                @yield('contact')
-                @yield('project')
             </section>
             @yield('flash')
         </div>

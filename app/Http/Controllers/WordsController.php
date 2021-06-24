@@ -2,32 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class WordsController extends Controller
 {
     public function showWords() 
     {
-        return view('words');
+        $page = 'words'; 
+        $localeLanguage = App::getLocale();
+
+        $articles = Article::get()
+            ->where('language', '=', $localeLanguage)
+            ->where('page', '=', $page);
+        
+        return view('words')->with('articles', $articles);
     }
-    public function showLesLices() 
+
+
+    public function showLink($locale, $title) 
     {
-        return view('words.lesLices');
+        $article = Article::get()
+            ->where('title', '=', $title)
+            ->where('language', '=', $locale)
+            ->first();
+        
+        
+        return view('words.article')->with('article', $article);
     }
-    public function showPurity() 
-    {
-        return view('words.purity');
-    }
-    public function showLaVerite() 
-    {
-        return view('words.verite');
-    }
-    public function showLaRaison() 
-    {
-        return view('words.raison');
-    }
-    public function showEnonciation() 
-    {
-        return view('words.enonciation');
-    }
+
 }

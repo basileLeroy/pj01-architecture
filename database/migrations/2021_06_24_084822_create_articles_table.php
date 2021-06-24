@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->string('language');
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
+            $table->string('page');
         });
     }
 

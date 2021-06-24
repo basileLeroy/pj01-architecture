@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Monolog\Handler\ZendMonitorHandler;
 use App\Models\User;
+use Illuminate\Support\Facades\App;
 use Illuminate\Validation\ValidationException;
 
 class AdminPanelController extends Controller
@@ -27,8 +29,15 @@ class AdminPanelController extends Controller
 
 
         if (auth()->attempt($attributes)) {
+
+            $title = 'landing_Article'; 
+            $localeLanguage = App::getLocale();
+
+            $articles = Article::get()
+                ->where('title', '=', $title)
+                ->where('language', '=', $localeLanguage);
             
-            return view('landing')->with('success', 'Logged in as administrator!');
+            return view('landing')->with('articles', $articles);
         };
 
         throw ValidationException::withMessages([

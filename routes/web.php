@@ -35,11 +35,7 @@ Route::prefix('/{locale}')->group(function () {
 
     Route::get('woorden', 'App\Http\Controllers\WordsController@showWords')->name('woorden');
     
-    Route::get('woorden/les-lices-de-lactualite-2003', 'App\Http\Controllers\WordsController@showLesLices')->name('les-lices-de-lactualite-2003');
-    Route::get('woorden/purity-lies-in-the-incompletion-1997', 'App\Http\Controllers\WordsController@showPurity')->name('purity-lies-in-the-incompletion-1997');
-    Route::get('woorden/la-verite-est-oblique-1993', 'App\Http\Controllers\WordsController@showLaVerite')->name('la-verite-est-oblique-1993');
-    Route::get('woorden/la-raison-de-laugure-1992', 'App\Http\Controllers\WordsController@showLaRaison')->name('la-raison-de-laugure-1992');
-    Route::get('woorden/enonciation-dangoisse-et-dinnocence-1978', 'App\Http\Controllers\WordsController@showEnonciation')->name('enonciation-dangoisse-et-dinnocence-1978');
+    Route::get('woorden/{words}', 'App\Http\Controllers\WordsController@showLink')->name('words-title', 'words');
 
     // Route::get('marc-belderbos', 'App\Http\Controllers\AuthorController@showMarcBelderbos')->name('marc-belderbos');
     Route::get('anderen', 'App\Http\Controllers\OthersController@showOthers')->name('anderen');
