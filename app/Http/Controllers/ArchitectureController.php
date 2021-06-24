@@ -33,7 +33,7 @@ class ArchitectureController extends Controller
         };
 
 
-        $projects = Project::create([
+        Project::create([
             'project_name' => $request->input('projectTitle'),
             'project_image' => $addNewImage
         ]);

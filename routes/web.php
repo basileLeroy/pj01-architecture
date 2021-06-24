@@ -20,12 +20,16 @@ Route::redirect('/', '/nl');
 Route::prefix('/{locale}')->group(function () {
 
     Route::get('/', 'App\Http\Controllers\Controller@showLanding')->name('home');
+    Route::post('/', 'App\Http\Controllers\Controller@updateArticle')->name('home')->middleware('auth');
 
     Route::get('intenties-van-de-site', 'App\Http\Controllers\IntentionsController@showIntentionsSite')->name('intenties-van-de-site');
+    Route::post('intenties-van-de-site', 'App\Http\Controllers\IntentionsController@updateIntentionsSite')->name('intenties-van-de-site')->middleware('auth');
     Route::get('intenties-bij-een-ontwerp', 'App\Http\Controllers\IntentionsController@showIntentionsProject')->name('intenties-bij-een-ontwerp');
+    Route::post('intenties-bij-een-ontwerp', 'App\Http\Controllers\IntentionsController@updateIntentionsProject')->name('intenties-bij-een-ontwerp')->middleware('auth');
+
     Route::get('architectuur', 'App\Http\Controllers\ArchitectureController@showArchitecture')->name('architectuur');
     Route::post('architectuur', 'App\Http\Controllers\ArchitectureController@addProject')->name('architectuur')->middleware('auth');
-    Route::get('architectuur/admin/edit', 'App\Http\Controllers\ArchitectureController@update')->name('update-projects');
+
 
     Route::get('architectuur/{project}', 'App\Http\Controllers\ArchitectureController@showProject')->name('project-title', 'project');
 

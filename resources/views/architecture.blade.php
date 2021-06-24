@@ -7,17 +7,17 @@
 
 @section('architecture')
     @auth
-    <div class="editProjects w3-display-container">
+    <div class="editSection w3-display-container">
         <input class="toggle-box" id="header1" type="checkbox" >
         <label for="header1"><i class="fa fa-edit w3-xxlarge w3-display-topleft"></i></label>
 
-        <div class="addProject">
-            <form action="{{ route('architectuur', ['locale' => app()->getLocale()] ) }}" method="POST" class="projectUploader" enctype="multipart/form-data">
+        <div class="addSection">
+            <form action="{{ route('architectuur', ['locale' => app()->getLocale()] ) }}" method="POST" class="sectionUploader" enctype="multipart/form-data">
             {{ csrf_field() }}
                 <label for="projectTitle">Project title: </label>
-                <input type="text" id="projectTitle" name="projectTitle" placeholder=" (example: 1978-Reel-Boom)">
-                <input type="file" id="projectCover" name="projectCover">
-                <button type="submit" id="uploadNewProject" name="uploadNewProject" value="Upload">Upload new project</button>
+                <input type="text" id="sectionTitle" name="projectTitle" placeholder=" (example: 1978-Reel-Boom)">
+                <input type="file" id="sectionCover" name="projectCover">
+                <button type="submit" id="uploadNewSection" name="uploadNewProject" value="Upload">Upload new project</button>
             </form>
         </div>
 

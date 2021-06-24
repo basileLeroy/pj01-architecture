@@ -5,11 +5,11 @@
     Woorden
 @endsection
 
-@section('words03')
+@section('words02')
     <div class="fluid intro" style="width: 650px;">
-        {!! __('words.title3') !!}
+        {!! __('words.title2') !!}
         <br/><br/>
-        {!! __('words.text3') !!}
+        {!! __('words.text2') !!}
     </div>
 
 @endsection
