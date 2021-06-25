@@ -24,11 +24,14 @@ class IntentionsController extends Controller
         $articleContent = $request->description; 
         $localeLanguage = App::getLocale();
 
-        Article::create([
-            'title' => $title,
-            'article_content' => $articleContent,
-            'language' => $localeLanguage,
-        ]);
+        $articles = Article::get()
+            ->where('language', '=', $localeLanguage)
+            ->where('page', '=', $title)
+            ->first();
+
+        $articles->article_content = $articleContent;
+
+        $articles->save();
         
         return redirect()->back();
     }
@@ -49,11 +52,14 @@ class IntentionsController extends Controller
         $articleContent = $request->description; 
         $localeLanguage = App::getLocale();
 
-        Article::create([
-            'title' => $title,
-            'article_content' => $articleContent,
-            'language' => $localeLanguage,
-        ]);
+        $articles = Article::get()
+            ->where('language', '=', $localeLanguage)
+            ->where('page', '=', $title)
+            ->first();
+
+        $articles->article_content = $articleContent;
+
+        $articles->save();
         
         return redirect()->back();
     }

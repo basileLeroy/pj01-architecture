@@ -40,7 +40,9 @@
                 @yield('intentionsProjects')
                 @yield('architecture')
                 @yield('words')
+                @yield('project')
                 @yield('words01')
+                @yield('contact')
             </section>
             @yield('flash')
         </div>

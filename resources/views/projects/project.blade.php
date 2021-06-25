@@ -20,7 +20,7 @@
     <div class="fluid intro" style="width: 650px;">
 
         <div class="gallery">
-
+            
             @foreach(File::glob(public_path('images/architectuur/slider/').$project.'/*') as $path)
                 <a href="{{ str_replace(public_path(), '', $path) }}" data-lightbox="roadtrip"><img src="{{ str_replace(public_path(), '', $path) }}" alt=""></a>
             @endforeach

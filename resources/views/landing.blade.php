@@ -23,7 +23,7 @@ use GuzzleHttp\Psr7\Uri;
                     {{ csrf_field() }}
                         <textarea class="description" id="sectionContent" name="description">
                             @foreach ($articles as $article)
-                                <?= $article->article_content ?>
+                                {{ $article->article_content }}
                             @endforeach
                         </textarea>
                         <button type="submit" id="uploadNewSection" name="uploadNewProject" value="Upload">Save</button>

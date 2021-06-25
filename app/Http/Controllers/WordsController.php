@@ -16,8 +16,16 @@ class WordsController extends Controller
         $articles = Article::get()
             ->where('language', '=', $localeLanguage)
             ->where('page', '=', $page);
-        
-        return view('words')->with('articles', $articles);
+
+        $introPage = 'words-home'; 
+        $introArticles = Article::get()
+            ->where('language', '=', $localeLanguage)
+            ->where('page', '=', $introPage);
+
+        return view('words')->with([
+            'articles' => $articles,
+            'introArticles' => $introArticles
+        ]);
     }
 
 
@@ -31,5 +39,22 @@ class WordsController extends Controller
         
         return view('words.article')->with('article', $article);
     }
+    
+    public function showIntro(Request $request) 
+    {
+        $page = 'words-home'; 
+        $localeLanguage = App::getLocale();
+        $articleContent = $request->description; 
 
+        $articles = Article::get()
+            ->where('language', '=', $localeLanguage)
+            ->where('page', '=', $page)
+            ->first();
+
+        $articles->article_content = $articleContent;
+
+        $articles->save();
+        
+        return redirect()->back();
+    }
 }

@@ -29,15 +29,18 @@ class Controller extends BaseController
 
     public function updateArticle(Request $request)
     {
-        $title = 'landing_Article';
+        $page = 'home';
         $articleContent = $request->description; 
         $localeLanguage = App::getLocale();
 
-        Article::create([
-            'title' => $title,
-            'article_content' => $articleContent,
-            'language' => $localeLanguage,
-        ]);
+        $articles = Article::get()
+            ->where('language', '=', $localeLanguage)
+            ->where('page', '=', $page)
+            ->first();
+
+        $articles->article_content = $articleContent;
+
+        $articles->save();
         
         return redirect()->back();
     }

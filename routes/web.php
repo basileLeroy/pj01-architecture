@@ -34,14 +34,18 @@ Route::prefix('/{locale}')->group(function () {
     Route::get('architectuur/{project}', 'App\Http\Controllers\ArchitectureController@showProject')->name('project-title', 'project');
 
     Route::get('woorden', 'App\Http\Controllers\WordsController@showWords')->name('woorden');
+    Route::post('woorden', 'App\Http\Controllers\WordsController@showIntro')->name('woorden');
     
     Route::get('woorden/{words}', 'App\Http\Controllers\WordsController@showLink')->name('words-title', 'words');
 
     // Route::get('marc-belderbos', 'App\Http\Controllers\AuthorController@showMarcBelderbos')->name('marc-belderbos');
     Route::get('anderen', 'App\Http\Controllers\OthersController@showOthers')->name('anderen');
     Route::get('bio', 'App\Http\Controllers\BiographyController@showBio')->name('biografie');
+    Route::post('bio', 'App\Http\Controllers\BiographyController@updateBio')->name('biografie');
     Route::get('contact', 'App\Http\Controllers\ContactController@showContact')->name('contact');
+    Route::post('contact', 'App\Http\Controllers\ContactController@updateContact')->name('contact');
     Route::get('gedachten', 'App\Http\Controllers\ThoughtsController@showthoughts')->name('gedachten');
+    Route::post('gedachten', 'App\Http\Controllers\ThoughtsController@updateThoughts')->name('gedachten');
 
     Route::get('admin-dashboard', 'App\Http\Controllers\AdminPanelController@login')->middleware('auth');
     
