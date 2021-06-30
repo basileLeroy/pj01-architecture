@@ -46,6 +46,8 @@
             </section>
             @yield('flash')
         </div>
+
+        <!-- WYSIWYG Text-editor --> 
         <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
         <script>
             tinymce.init({
@@ -54,6 +56,8 @@
                 height: 300
             });
         </script>
+
+        <!-- LightBox image gallery framework --> 
         <script src="{{ asset('js/lightbox/lightbox-plus-jquery.js') }}"></script>
         <script>
             lightbox.option({

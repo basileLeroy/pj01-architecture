@@ -10,10 +10,10 @@
     <div class="fluid projects">
         <div class="project-card">
             <?php 
-            $title = str_replace("-", " ", $project)
+                $title = str_replace("-", " ", $project)
             ?>
-            <h1>{{ucwords($title)}}</h1>
-            <img alt="{{$project}}" title="{{$project}}" src="{{url('/images/architectuur/icons/'.$project.'.jpg')}}">
+            <h3>{{ucwords($title)}}</h3>
+            <img alt="{{ $cover->project_name }}" title="{{ $cover->project_name }}" src="{{url('/images/architectuur/icons/'.$cover->project_image)}}">
         </div>
     </div>
 
