@@ -10,7 +10,7 @@ class ArchitectureController extends Controller
     public function showArchitecture()
     {
         $projects = Project::all();
-        return view('architecture')->with('projects', $projects);
+        return view('projects.architecture')->with('projects', $projects);
     }
     
     public function showProject($locale, $project)

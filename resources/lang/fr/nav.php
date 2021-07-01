@@ -9,5 +9,6 @@ return [
     'ontwerper' => 'concepteur',
     'bio' => 'biographie',
     'gedachten' => 'pensées',
+    'shop' => 'edition',
     ]
 ?>

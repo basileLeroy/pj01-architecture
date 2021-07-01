@@ -27,6 +27,7 @@
                     </ul>
                 </li>
                 <li><a href="{{ route('gedachten', ['locale' => app()->getLocale()] ) }}">{{ __('nav.gedachten')}}</a></li>
+                <li><a href="{{ route('shop', ['locale' => app()->getLocale()] ) }}">{{ __('nav.shop')}}</a></li>
             </ul>
         </nav>
         <div class="lang">
