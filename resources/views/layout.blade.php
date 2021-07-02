@@ -41,6 +41,8 @@
                 @yield('architecture')
                 @yield('words')
                 @yield('project')
+                @yield('shop')
+                @yield('book')
                 @yield('words01')
                 @yield('contact')
             </section>

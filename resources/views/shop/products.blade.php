@@ -2,10 +2,10 @@
 @extends('header')
 
 @section('title')
-    Architecture
+    Products
 @endsection
 
-@section('architecture')
+@section('shop')
     @auth
     <div class="editSection w3-display-container">
         <input class="toggle-box" id="header1" type="checkbox" >
@@ -27,7 +27,20 @@
 
     </div>
     @endauth
-    <div class="fluid projects">
-
+    <div class="fluid book">
+        @foreach ($products as $product)
+                <a href="{{ route('product-title', ['product' => $product->title, 'locale' => app()->getLocale() ] ) }}" class="fullsizable">
+                    <div class="book-container">
+                        <div class="book-cover">
+                            <img src="{{url('/images/architectuur/' . $product->cover)}}" alt="blank book cover">
+                        </div>
+                        <div class="book-context">
+                            <h1>{{ $product->title }} <span class="author">- {{ $product->author }}</span></h1>
+                            <p>{{ $product->about }}</p>
+                            <span class="price">{{ $product->currency . " " . $product->price }}</span>
+                        </div>
+                    </div>
+                </a>
+        @endforeach
     </div>
 @endsection

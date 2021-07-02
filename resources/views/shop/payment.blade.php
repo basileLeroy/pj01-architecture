@@ -28,16 +28,6 @@
     </div>
     @endauth
     <div class="fluid book">
-        <div class="book-container">
-            <div class="book-cover">
-                <img src="{{url('/images/architectuur/' . $book->cover)}}" alt="blank book cover">
-            </div>
-            <div class="book-context">
-                <h1>{{ $book->title }} <span class="author">- {{ $book->author }}</span></h1>
-                <p>{{ $book->about }}</p>
-                <span class="price">{{ $book->currency . " " . $book->price }}</span>
-            </div>
-        </div>
-        <button><a href="{{ route('order-product', ['product' => $book->title, 'locale' => app()->getLocale() ] ) }}">{!! __('pagination.OrderNow') !!}</a></button>
+
     </div>
 @endsection

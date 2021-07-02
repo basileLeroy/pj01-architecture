@@ -18,6 +18,7 @@ return [
     'overview' => 'Naar overzicht',
     'thoughts' => 'Laat een gedachte achter',
     'noTranslation' => 'Er is momenteel nog geen nederlands-talige vertaling beschikbaar.',
-    'notAvailable' => 'Nog geen inhoud beschikbaar.'
+    'notAvailable' => 'Nog geen inhoud beschikbaar.',
+    'OrderNow' => 'Bestel hier'
 
 ];

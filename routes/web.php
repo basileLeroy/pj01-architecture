@@ -32,6 +32,8 @@ Route::prefix('/{locale}')->group(function () {
 
 
     Route::get('architectuur/{project}', 'App\Http\Controllers\ArchitectureController@showProject')->name('project-title', 'project');
+    
+
 
     Route::get('woorden', 'App\Http\Controllers\WordsController@showWords')->name('woorden');
     Route::post('woorden', 'App\Http\Controllers\WordsController@showIntro')->name('woorden')->middleware('auth');
@@ -49,6 +51,9 @@ Route::prefix('/{locale}')->group(function () {
 
     Route::get('products', 'App\Http\Controllers\ShopController@showProducts')->name('shop');
     Route::post('products', 'App\Http\Controllers\ShopController@updateProducts')->name('shop')->middleware('auth');
+    Route::get('products/{product}', 'App\Http\Controllers\ShopController@showProduct')->name('product-title', 'product');
+
+    Route::get('order/{product}', 'App\Http\Controllers\ShopController@showPaymentForm')->name('order-product', 'product');
 
     Route::get('admin-dashboard', 'App\Http\Controllers\AdminPanelController@login')->middleware('auth');
     

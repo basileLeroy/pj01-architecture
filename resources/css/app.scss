@@ -709,6 +709,45 @@
                     }
                 }
 
+                .book {
+                    display: flex;
+                    flex-direction: column;
+
+                    a {
+                        text-decoration: none;
+                    }
+
+                    .book-container {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+
+                        margin-bottom: 80px;
+
+                        .book-cover {
+                            width: 100%;
+                            margin-right: 50px;
+                            img {
+                                width: 300px;
+                                height: auto;
+                            }
+                        }
+    
+                        .book-context {
+                            h1 {
+                                padding-bottom: 10px;
+                            }
+                            p {
+                                padding-top: 10px;
+                                padding-bottom: 10px;
+                            }
+                            span {
+                                padding-top: 10px;
+                            }
+                        }
+                    }
+                }
+
                 .projects {
                     width: 850px;
                     display: flex;
