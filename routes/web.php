@@ -3,6 +3,7 @@
 use App\Http\Controllers\IntentionsController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MollieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,10 @@ Route::prefix('/{locale}')->group(function () {
     Route::get('products/{product}', 'App\Http\Controllers\ShopController@showProduct')->name('product-title', 'product');
 
     Route::get('order/{product}', 'App\Http\Controllers\ShopController@showPaymentForm')->name('order-product', 'product');
+    Route::post('order/initialise', 'App\Http\Controllers\ShopController@initPayment')->name('initPayment');
+
+    Route::post('mollie-payment',[MollieController::Class,'preparePayment'])->name('mollie.payment');
+    Route::get('payment-success',[MollieController::Class, 'paymentSuccess'])->name('payment.success');
 
     Route::get('admin-dashboard', 'App\Http\Controllers\AdminPanelController@login')->middleware('auth');
     

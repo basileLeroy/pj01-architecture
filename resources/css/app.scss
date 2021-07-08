@@ -746,6 +746,45 @@
                             }
                         }
                     }
+                    .payment-form {
+                        display: flex;
+                        flex-direction: column;
+
+                        margin-bottom: 10px;
+
+                        .form-section {
+                            .title{
+                                .order-form-label {
+                                    font-weight: 600;
+                                }
+                            }
+                            .single-input {
+                                input {
+
+                                    width: 50%;
+                                    border: 2px solid black ;
+                                    padding: 4px;
+                                    
+                                }
+                                select {
+
+                                    width: 25%;
+                                    border: 2px solid black ;
+                                    padding: 4px;
+                                }
+                                margin-bottom: 10px;
+                            }
+                            .double-input {
+                                input {
+
+                                    width: 25%;
+                                    border: 2px solid black ;
+                                    padding: 4px;
+                                }
+                                margin-bottom: 10px;
+                            }
+                        }
+                    }
                 }
 
                 .projects {
@@ -887,6 +926,15 @@
                             }
                         }
                     }
+                }
+                .flashMessage {
+                    position: fixed;
+                    bottom: 15px;
+                    left: 45%;
+                    background-color: rgb(0, 110, 255);
+                    border-radius: 8px;
+                    color: white;
+                    padding: 4px;
                 }
             }
         }

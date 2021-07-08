@@ -45,8 +45,12 @@
                 @yield('book')
                 @yield('words01')
                 @yield('contact')
+                @if (session('PaymentSuccess'))
+                <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 4000)" x-show="show" class="flashMessage">
+                    <p>{{ session('PaymentSuccess') }}</p>
+                </div>
+                @endif
             </section>
-            @yield('flash')
         </div>
 
         <!-- WYSIWYG Text-editor --> 

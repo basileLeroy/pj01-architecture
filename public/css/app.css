@@ -623,6 +623,35 @@
   body .body-box section .book .book-container .book-context span {
     padding-top: 10px;
   }
+  body .body-box section .book .payment-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  body .body-box section .book .payment-form .form-section .title .order-form-label {
+    font-weight: 600;
+  }
+  body .body-box section .book .payment-form .form-section .single-input {
+    margin-bottom: 10px;
+  }
+  body .body-box section .book .payment-form .form-section .single-input input {
+    width: 50%;
+    border: 2px solid black;
+    padding: 4px;
+  }
+  body .body-box section .book .payment-form .form-section .single-input select {
+    width: 25%;
+    border: 2px solid black;
+    padding: 4px;
+  }
+  body .body-box section .book .payment-form .form-section .double-input {
+    margin-bottom: 10px;
+  }
+  body .body-box section .book .payment-form .form-section .double-input input {
+    width: 25%;
+    border: 2px solid black;
+    padding: 4px;
+  }
   body .body-box section .projects {
     width: 850px;
     display: flex;
@@ -742,5 +771,14 @@
   body .body-box section .login-card .login-form #Login button:hover {
     background: #f8b248;
     cursor: pointer;
+  }
+  body .body-box section .flashMessage {
+    position: fixed;
+    bottom: 15px;
+    left: 45%;
+    background-color: #006eff;
+    border-radius: 8px;
+    color: white;
+    padding: 4px;
   }
 }
