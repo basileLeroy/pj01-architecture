@@ -81,7 +81,7 @@
                     <input class="order-form-input" name="country" required placeholder="Country">
                 </div>
             </div>
-        </div>
+
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -91,7 +91,8 @@
                     </ul>
                 </div>
             @endif
-        <button type="submit" id="uploadNewSection" name="uploadNewProject" value="Upload">{!! __('pagination.OrderNow') !!}</button>
+            <button type="submit" id="uploadNewSection" name="uploadNewProject" value="Upload">{!! __('pagination.ConfirmOrder') !!}</button>
+        </div>
         </form>
     </div>
 @endsection

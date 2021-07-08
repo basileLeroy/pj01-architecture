@@ -46,6 +46,7 @@ class MollieController extends Controller
 
         Customer::create([
             'purchase_id' => $payment->id,
+            'payment_status' => 'Open',
             'first_name' => $request->firstName,
             'last_name' => $request->lastName,
             'email' => $request->email,
@@ -60,8 +61,19 @@ class MollieController extends Controller
 
         session()->put([
             'Order_Number' => $payment->id,
+            'first_name' => $request->firstName,
+            'last_name' => $request->lastName,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'street' => $request->street,
+            'city' => $request->city,
+            'region' => $request->region,
+            'postal' => $request->postal,
+            'country' => $request->country,
         ]);
         session()->save();
+
+        session()->flash('PaymentSuccess', 'Purchass has been completed! .. An email has been sent.');
     
         // redirect customer to Mollie checkout page
         return redirect($payment->getCheckoutUrl(), 303);
@@ -74,7 +86,7 @@ class MollieController extends Controller
      */
     public function paymentSuccess() {
 
-        session()->flash('PaymentSuccess', 'Purchass has been completed! .. An email has been sent.');
+        
 
         $updateCustomer = Customer::get()
         ->where('purchase_id', '=', session('Order_Number'))

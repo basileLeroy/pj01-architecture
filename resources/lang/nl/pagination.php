@@ -19,6 +19,8 @@ return [
     'thoughts' => 'Laat een gedachte achter',
     'noTranslation' => 'Er is momenteel nog geen nederlands-talige vertaling beschikbaar.',
     'notAvailable' => 'Nog geen inhoud beschikbaar.',
-    'OrderNow' => 'Bestel hier'
+    'OrderNow' => 'Bestel hier',
+    'ConfirmOrder' => 'Bevestig je aankoop'
+    
 
 ];

@@ -38,6 +38,6 @@
                 <span class="price">{{ $book->currency . " " . $book->price }}</span>
             </div>
         </div>
-        <button><a href="{{ route('order-product', ['product' => $book->title, 'locale' => app()->getLocale() ] ) }}">{!! __('pagination.OrderNow') !!}</a></button>
+        <a href="{{ route('order-product', ['product' => $book->title, 'locale' => app()->getLocale() ] ) }}" class="orderHere"><button>{!! __('pagination.OrderNow') !!}</button></a>
     </div>
 @endsection

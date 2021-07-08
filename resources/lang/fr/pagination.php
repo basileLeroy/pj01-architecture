@@ -18,5 +18,6 @@ return [
     'overview' => 'Au sommaire',
     'thoughts' => 'Laissez une pensée',
     'notAvailable' => 'Aucun contenu disponible pour le moment.',
-    'OrderNow' => 'Commander ici'
+    'OrderNow' => 'Commander ici',
+    'ConfirmOrder' => 'Confirmer la commande'
 ];
