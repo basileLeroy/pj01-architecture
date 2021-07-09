@@ -34,7 +34,7 @@
 
         <div class="book-container">
             <div class="book-cover">
-                <img src="{{url('/images/architectuur/' . $book->cover)}}" alt="blank book cover">
+                <img src="{{url('/images/architectuur/products/' . $book->cover)}}" alt="blank book cover">
             </div>
             <div class="book-context">
                 <h1>{{ $book->title }} <span class="author">- {{ $book->author }}</span></h1>
