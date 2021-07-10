@@ -139,6 +139,9 @@
             flex-direction: column;
     margin-top: 70px;
   }
+  body .body-box section .intro {
+    width: 100%;
+  }
   body .body-box section .intro img {
     width: 100%;
   }
@@ -161,11 +164,12 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 50%;
+    width: 100%;
     overflow-x: scroll;
     white-space: normal;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
+    margin-bottom: 100px;
     will-change: transform;
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -209,7 +213,6 @@
   body .body-box section .projects .project-card a {
     text-decoration: none;
     color: #555;
-    text-decoration: underline;
   }
   body .body-box section .projects .project-card a img {
     height: 100px;
@@ -230,6 +233,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    overflow-x: none;
   }
   body .body-box section .project-gallery h1 {
     margin-bottom: 10px;
@@ -560,7 +564,6 @@
   body .body-box section .projects .project-card a {
     text-decoration: none;
     color: #555;
-    text-decoration: underline;
   }
   body .body-box section .projects .project-card a img {
     height: 100px;
@@ -1026,6 +1029,17 @@
     text-decoration: none;
     border-bottom: none;
   }
+  body .body-box section .book button:hover {
+    cursor: pointer;
+  }
+  body .body-box section .book .review {
+    width: auto;
+    height: auto;
+    margin: auto;
+  }
+  body .body-box section .book .review button {
+    padding: 4px;
+  }
   body .body-box section .book .book-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1037,7 +1051,7 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    margin-bottom: 80px;
+    opacity: 70%;
   }
   body .body-box section .book .book-container .book-cover {
     width: 100%;
@@ -1069,6 +1083,9 @@
     font-weight: 800;
     position: absolute;
     right: 30px;
+  }
+  body .body-box section .book .book-container:hover {
+    opacity: 100%;
   }
   body .body-box section .book .payment-form {
     margin-bottom: 10px;
@@ -1125,7 +1142,6 @@
   body .body-box section .projects .project-card a {
     text-decoration: none;
     color: #555;
-    text-decoration: underline;
   }
   body .body-box section .projects .project-card a img {
     height: 100px;
@@ -1140,7 +1156,7 @@
   }
   body .body-box section .projects .project-card a:hover {
     text-decoration: none;
-    color: #2d86bd;
+    color: black;
   }
   body .body-box section .link-group {
     margin-top: 20px;

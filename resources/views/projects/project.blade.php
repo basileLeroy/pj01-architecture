@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="fluid intro" style="width: 650px;">
+    <div class="fluid intro">
 
         <div class="gallery">
             

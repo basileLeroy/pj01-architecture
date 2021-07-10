@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Product;
 use App\Models\Project;
 use Illuminate\Contracts\Session\Session;
@@ -53,10 +54,13 @@ class ShopController extends Controller
         $book = Product::get()
         ->where('title', '=', $product)
         ->first();
+        $contact = Author::get()
+        ->first();
 
         return view('shop.book')
             ->with('product', $product)
-            ->with('book', $book);
+            ->with('book', $book)
+            ->with('contact', $contact);
     }
 
     public function showPaymentForm($locale, $product)

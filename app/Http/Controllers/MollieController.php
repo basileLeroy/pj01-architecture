@@ -33,12 +33,16 @@ class MollieController extends Controller
             'country' => 'required|max:225',
         ]);
 
+        $product = Product::get()
+        ->where('title', '=', session('Title'))
+        ->first();
+
         $payment = Mollie::api()->payments()->create([
         'amount' => [
-            'currency' => session('Currency'), // Type of currency you want to send
-            'value' => session('Price'), // You must send the correct number of decimals, thus we enforce the use of strings
+            'currency' => $product->currency, // Type of currency you want to send
+            'value' => $product->price, // You must send the correct number of decimals, thus we enforce the use of strings
         ],
-        'description' => session('Title'), 
+        'description' => $product->title, 
         'redirectUrl' => route('payment.success', ['locale' => app()->getLocale() ] ), // after the payment completion where you to redirect
         ]);
     

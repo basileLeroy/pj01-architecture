@@ -130,6 +130,7 @@
                 flex-direction: column;
                 margin-top: 70px;
                 .intro {
+                    width: 100%;
                     img {
                         width: 100%;
                     }
@@ -153,10 +154,12 @@
 
                     .gallery {
                         display: flex;
-                        width: 50%;
+                        width: 100%;
                         overflow-x: scroll;
                         white-space: normal;
                         transition: all 0.2s;
+
+                        margin-bottom: 100px;
 
                         will-change: transform;
                         user-select: none;
@@ -196,7 +199,6 @@
                             
                             text-decoration: none;
                             color: #555;
-                            text-decoration: underline;
 
                             img {
                                 height: 100px;
@@ -217,6 +219,7 @@
                 .project-gallery {
                     display: flex;
                     flex-direction: column;
+                    overflow-x: none;
 
                     
                     h1 {
@@ -286,6 +289,7 @@
                             padding-bottom: 10px;
                         }
                     }
+
                     .payment-form {
                         display: flex;
                         flex-direction: column;
@@ -514,15 +518,12 @@
 
                     .project-card {
                         flex-direction: column;
-                        
                         margin-right: 20px;
                         margin-bottom: 70px;
 
                         a {
-                            
                             text-decoration: none;
                             color: #555;
-                            text-decoration: underline;
 
                             img {
                                 height: 100px;
@@ -536,7 +537,6 @@
                                 text-align: center;
                             }
                         }
-
                     }
                 }
 
@@ -948,19 +948,31 @@
                     display: flex;
                     flex-direction: column;
 
-                    
-
                     a {
                         text-decoration: none;
                         border-bottom: none;
+                    }
+                    button:hover {
+                        cursor: pointer;
+                    }
+
+                    .review {
+                        width: auto;
+                        height: auto;
+                        margin: auto;
+
+                        button {
+                            padding: 4px;
+                        }
                     }
 
                     .book-container {
                         display: flex;
                         flex-direction: row;
                         justify-content: space-between;
+                        
 
-                        margin-bottom: 80px;
+                        opacity: 70%;
 
                         .book-cover {
                             width: 100%;
@@ -995,6 +1007,11 @@
                             }
                         }
                     }
+
+                    .book-container:hover {
+                        opacity: 100%;
+                    }
+
                     .payment-form {
                         margin-bottom: 10px;
                         margin-left: 200px;
@@ -1049,8 +1066,6 @@
                             
                             text-decoration: none;
                             color: #555;
-                            text-decoration: underline;
-
 
                             img {
                                 height: 100px;
@@ -1066,7 +1081,7 @@
                         }
                         a:hover {
                             text-decoration: none;
-                            color: rgb(45, 134, 189);
+                            color: rgb(0, 0, 0);
                         }
                     }
                 }
