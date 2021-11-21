@@ -15,7 +15,7 @@ class AdminPanelController extends Controller
     public function login()
     {
         // $pwd = Hash::make('n60&e4KVWErv');
-        
+
         return view('Admin.login');
     }
 
@@ -30,18 +30,18 @@ class AdminPanelController extends Controller
 
         if (auth()->attempt($attributes)) {
 
-            $title = 'landing_Article'; 
+            $title = 'landing_Article';
             $localeLanguage = App::getLocale();
 
             $articles = Article::get()
                 ->where('title', '=', $title)
                 ->where('language', '=', $localeLanguage);
-            
-            return view('landing')->with('articles', $articles);
+
+            return redirect('/')->with('articles', $articles);
         };
 
         throw ValidationException::withMessages([
-            'email' => 'This email is is not defined', 
+            'email' => 'This email is is not defined',
             'password' => 'Password does not match'
         ]);
 
@@ -51,7 +51,7 @@ class AdminPanelController extends Controller
     public function logout()
     {
         auth()->logout();
-        
+
         return redirect('/');
     }
 }

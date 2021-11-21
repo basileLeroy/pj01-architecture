@@ -8,16 +8,16 @@ use Illuminate\Support\Facades\App;
 
 class WordsController extends Controller
 {
-    public function showWords() 
+    public function showWords()
     {
-        $page = 'words'; 
+        $page = 'words';
         $localeLanguage = App::getLocale();
 
         $articles = Article::get()
             ->where('language', '=', $localeLanguage)
             ->where('page', '=', $page);
 
-        $introPage = 'words-home'; 
+        $introPage = 'words-home';
         $introArticles = Article::get()
             ->where('language', '=', $localeLanguage)
             ->where('page', '=', $introPage);
@@ -29,22 +29,22 @@ class WordsController extends Controller
     }
 
 
-    public function showLink($locale, $title) 
+    public function showLink($locale, $title)
     {
         $article = Article::get()
             ->where('title', '=', $title)
             ->where('language', '=', $locale)
             ->first();
-        
-        
+
+
         return view('words.article')->with('article', $article);
     }
-    
-    public function showIntro(Request $request) 
+
+    public function showIntro(Request $request)
     {
-        $page = 'words-home'; 
+        $page = 'words-home';
         $localeLanguage = App::getLocale();
-        $articleContent = $request->description; 
+        $articleContent = $request->description;
 
         $articles = Article::get()
             ->where('language', '=', $localeLanguage)
@@ -54,7 +54,8 @@ class WordsController extends Controller
         $articles->article_content = $articleContent;
 
         $articles->save();
-        
+
         return redirect()->back();
     }
 }
+//TODO: Add content to articles

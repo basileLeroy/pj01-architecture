@@ -2,25 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ConfirmationOrder;
 use App\Models\Customer;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Mollie\Laravel\Facades\Mollie;
 
 class MollieController extends Controller
-{   
+{
 
     public function  __construct() {
+
         Mollie::api()->setApiKey('test_pg9VavKdz39DpWhAvPeq2ytg36vHRa'); // your mollie test api key
     }
 
-    /**
+    /*
      * Redirect the user to the Payment Gateway.
      *
      * @return Response
      */
     public function preparePayment(Request $request)
-    {   
+    {
         $request->validate([
             'firstName' => 'required|regex:/^[a-zA-Z]+$/u|max:255',
             'lastName' => 'required|regex:/^[a-zA-Z]+$/u|max:255',
@@ -42,10 +45,10 @@ class MollieController extends Controller
             'currency' => $product->currency, // Type of currency you want to send
             'value' => $product->price, // You must send the correct number of decimals, thus we enforce the use of strings
         ],
-        'description' => $product->title, 
-        'redirectUrl' => route('payment.success', ['locale' => app()->getLocale() ] ), // after the payment completion where you to redirect
+        'description' => $product->title,
+        'redirectUrl' => route('payment.check', ['locale' => app()->getLocale(), 'purchase_id' => $product->id ] ), // after the payment completion where you to redirect
         ]);
-    
+
         $payment = Mollie::api()->payments()->get($payment->id);
 
         Customer::create([
@@ -77,29 +80,40 @@ class MollieController extends Controller
         ]);
         session()->save();
 
-        session()->flash('PaymentSuccess', 'Purchass has been completed! .. An email has been sent.');
-    
+
+
         // redirect customer to Mollie checkout page
         return redirect($payment->getCheckoutUrl(), 303);
     }
 
-    /**
-     * Page redirection after the successfull payment
+    /*
+     * Page redirection after the successful payment
      *
      * @return Response
      */
-    public function paymentSuccess() {
-
-        
-
-        $updateCustomer = Customer::get()
-        ->where('purchase_id', '=', session('Order_Number'))
-        ->first();
-
-        $updateCustomer->payment_status = 'Paid';
-        $updateCustomer->save();
-
+    public function checkTransaction() {
+        $payment = Mollie::api()->payments()->get(session("Order_Number"));
         $products = Product::all();
+
+        if ($payment->status === "paid") {
+            $product = Product::get()
+                ->where('title', '=', session('Title'))
+                ->first();
+
+            $updateCustomer = Customer::get()
+                ->where('purchase_id', '=', session('Order_Number'))
+                ->first();
+
+            $updateCustomer->payment_status = 'Paid';
+            $updateCustomer->save();
+
+            Mail::to(session('email'))
+                ->queue(new ConfirmationOrder(session('first_name'), session('last_name'), $product->title, $product->price, "Paid"));
+
+            session()->flash('PaymentMessage', 'Purchase has been completed! .. An email has been sent.');
+        } else {
+            session()->flash('PaymentMessage', 'There has been an issue, your payment did not go through.');
+        }
         return view('shop.products')->with('products', $products);
     }
 }

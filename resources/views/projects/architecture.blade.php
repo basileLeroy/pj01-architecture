@@ -32,7 +32,7 @@
         @foreach ($projects as $project)
         <?php $title = str_replace("-", " ", $project->project_name) ?>
         <div class="project-card">
-            <a href="{{ route('project-title', ['project' => $project->project_name, 'locale' => app()->getLocale() ] ) }}" class="fullsizable">
+            <a href="{{ route('project-title', ['project' => $project->project_name, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
                 <img alt="1978 Reel Boom" title="1978 Reel Boom" src="{{url('/images/architectuur/icons/'.$project->project_image)}}">
                 <p>{{ ucwords($title) }}</p>
             </a>

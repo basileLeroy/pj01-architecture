@@ -33,12 +33,12 @@ Route::prefix('/{locale}')->group(function () {
 
 
     Route::get('architectuur/{project}', 'App\Http\Controllers\ArchitectureController@showProject')->name('project-title', 'project');
-    
+
 
 
     Route::get('woorden', 'App\Http\Controllers\WordsController@showWords')->name('woorden');
     Route::post('woorden', 'App\Http\Controllers\WordsController@showIntro')->name('woorden')->middleware('auth');
-    
+
     Route::get('woorden/{words}', 'App\Http\Controllers\WordsController@showLink')->name('words-title', 'words');
 
     // Route::get('marc-belderbos', 'App\Http\Controllers\AuthorController@showMarcBelderbos')->name('marc-belderbos');
@@ -59,9 +59,10 @@ Route::prefix('/{locale}')->group(function () {
 
     Route::post('mollie-payment',[MollieController::Class,'preparePayment'])->name('mollie.payment');
     Route::get('payment-success',[MollieController::Class, 'paymentSuccess'])->name('payment.success');
+    Route::get('product-transaction',[MollieController::Class, 'checkTransaction'])->name('payment.check');
 
     Route::get('admin-dashboard', 'App\Http\Controllers\AdminPanelController@login')->middleware('auth');
-    
+
     Route::get('/admin/login', 'App\Http\Controllers\AdminPanelController@login')->name('login')->middleware('guest');
     Route::get('admin-dashboard', 'App\Http\Controllers\AdminPanelController@logout')->name('logout')->middleware('auth');
     Route::post('admin/dashboard', 'App\Http\Controllers\AdminPanelController@checkAuth')->name('checkAuth');

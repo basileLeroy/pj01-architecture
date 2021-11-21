@@ -45,15 +45,15 @@
                 @yield('book')
                 @yield('words01')
                 @yield('contact')
-                @if (session('PaymentSuccess'))
+                @if (session('PaymentMessage'))
                 <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 4000)" x-show="show" class="flashMessage">
-                    <p>{{ session('PaymentSuccess') }}</p>
+                    <p>{{ session('PaymentMessage') }}</p>
                 </div>
                 @endif
             </section>
         </div>
 
-        <!-- WYSIWYG Text-editor --> 
+        <!-- WYSIWYG Text-editor -->
         <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
         <script>
             tinymce.init({
@@ -63,7 +63,7 @@
             });
         </script>
 
-        <!-- LightBox image gallery framework --> 
+        <!-- LightBox image gallery framework -->
         <script src="{{ asset('js/lightbox/lightbox-plus-jquery.js') }}"></script>
         <script>
             lightbox.option({
@@ -71,7 +71,7 @@
                 'imageFadeDuration': 200,
                 'fadeDuration' : 100,
                 'wrapAround': true,
-                
+
             })
         </script>
         <script>
