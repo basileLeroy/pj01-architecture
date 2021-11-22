@@ -1,15 +1,27 @@
 @component('mail::message')
-# Hey, {{ $first_name }}
+# {{ __('order.greeting')}}{{ $first_name }}
 
-Thank you for purchasing our products!
+{{ __('order.order received')}}
 
-## Details:
-{{ $product }}
+{{ __('order.order number')}}`{{ $order_number }}`
+
+***
+
+## {{ __('order.thank you message')}}
+
+### {{ __('order.client details')}}
+> {{ $first_name }} {{ $last_name }} <br>
+> Tel: {{ $phone }} <br>
+> {{ $street }}, {{ $zip }} {{ $city }} <br>
+> {{ $region }} - {{ $country }} <br>
 
 
-{{ $price }}
+@component('mail::table')
+    | Image         | Product       | Price    |
+    | ------------- |:-------------:| --------:|
+    | image         | {{ $product }} | {{ $price }} |
+@endcomponent
 
-
-Thanks,<br>
+{{ __('order.signature')}},<br>
 {{ config('app.name') }}
 @endcomponent

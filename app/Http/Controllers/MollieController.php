@@ -100,6 +100,10 @@ class MollieController extends Controller
                 ->where('title', '=', session('Title'))
                 ->first();
 
+            $customer = Customer::get()
+                ->where('purchase_id', '=', session('Order_Number'))
+                ->first();
+
             $updateCustomer = Customer::get()
                 ->where('purchase_id', '=', session('Order_Number'))
                 ->first();
@@ -108,7 +112,7 @@ class MollieController extends Controller
             $updateCustomer->save();
 
             Mail::to(session('email'))
-                ->queue(new ConfirmationOrder(session('first_name'), session('last_name'), $product->title, $product->price, "Paid"));
+                ->queue(new ConfirmationOrder($customer->first_name, $customer->last_name, $customer->email, $customer->phone, $customer->country, $customer->region, $customer->postal, $customer->city, $customer->street, $product->title, $product->price, $customer->payment_status, $customer->purchase_id));
 
             session()->flash('PaymentMessage', 'Purchase has been completed! .. An email has been sent.');
         } else {
