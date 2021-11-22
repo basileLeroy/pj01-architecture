@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
 
 class ConfirmationOrder extends Mailable
@@ -30,6 +31,7 @@ class ConfirmationOrder extends Mailable
     public $price;
     public $status;
     public $order_number;
+    public $date;
 
     public function __construct(string $first_name, string $last_name, string $email, string $phone, string $country, string $region, string $zip, string $city, string $street, string $product, string $price, string $status, string $order_number)
     {
@@ -46,6 +48,7 @@ class ConfirmationOrder extends Mailable
         $this->price = $price;
         $this->status = $status;
         $this->order_number = $order_number;
+        $this->date = Carbon::now();
     }
 
     /**

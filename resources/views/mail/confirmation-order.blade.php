@@ -1,7 +1,7 @@
 @component('mail::message')
 # {{ __('order.greeting')}}{{ $first_name }}
 
-{{ __('order.order received')}}
+{{ __('order.order received')}}{{ $date }}
 
 {{ __('order.order number')}}`{{ $order_number }}`
 
