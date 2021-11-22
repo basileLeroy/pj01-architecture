@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ConfirmationOrder;
+use App\Mail\PurchaseReport;
 use App\Models\Customer;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -107,12 +108,42 @@ class MollieController extends Controller
             $updateCustomer = Customer::get()
                 ->where('purchase_id', '=', session('Order_Number'))
                 ->first();
-
             $updateCustomer->payment_status = 'Paid';
             $updateCustomer->save();
 
             Mail::to(session('email'))
-                ->queue(new ConfirmationOrder($customer->first_name, $customer->last_name, $customer->email, $customer->phone, $customer->country, $customer->region, $customer->postal, $customer->city, $customer->street, $product->title, $product->price, $customer->payment_status, $customer->purchase_id));
+                ->queue(new ConfirmationOrder(
+                    $customer->first_name,
+                    $customer->last_name,
+                    $customer->email,
+                    $customer->phone,
+                    $customer->country,
+                    $customer->region,
+                    $customer->postal,
+                    $customer->city,
+                    $customer->street,
+                    $product->title,
+                    $product->price,
+                    $customer->payment_status,
+                    $customer->purchase_id
+                ));
+
+            Mail::to(env('MAIL_ADMIN'))
+                ->queue(new PurchaseReport(
+                    $customer->first_name,
+                    $customer->last_name,
+                    $customer->email,
+                    $customer->phone,
+                    $customer->country,
+                    $customer->region,
+                    $customer->postal,
+                    $customer->city,
+                    $customer->street,
+                    $product->title,
+                    $product->price,
+                    $customer->payment_status,
+                    $customer->purchase_id
+                ));
 
             session()->flash('PaymentMessage', 'Purchase has been completed! .. An email has been sent.');
         } else {

@@ -17,9 +17,9 @@
 
 
 @component('mail::table')
-    | Image         | Product       | Price    |
-    | ------------- |:-------------:| --------:|
-    | image         | {{ $product }} | {{ $price }} |
+| Image | Product        | Price        |
+| ----- |:--------------:| ------------:|
+| image | {{ $product }} | {{ $price }} |
 @endcomponent
 
 {{ __('order.signature')}},<br>
