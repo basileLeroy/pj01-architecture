@@ -17,7 +17,7 @@
 > {{ $street }}, {{ $zip }} {{ $city }} <br>
 > {{ $region }} - {{ $country }} <br>
 
-@component('mail::button', ['url' => config('app.url')])
+@component('mail::button', ['url' => config('app.url') . ':8000'])
 Bevestig dat de bestelling is verzonden naar klant
 @endcomponent
 
