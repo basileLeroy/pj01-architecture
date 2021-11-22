@@ -14,11 +14,11 @@
                 <form action="{{ route('gedachten', ['locale' => app()->getLocale()] ) }}" method="POST">
                 {{ csrf_field() }}
                     <textarea class="description" id="sectionContent" name="description">
-                        
+
                         @foreach ($articles as $article)
                             {{ $article->article_content }}
                         @endforeach
-                        
+
                     </textarea>
                     <button type="submit" id="uploadNewSection" name="uploadNewProject" value="Upload">Save</button>
                 </form>
@@ -29,5 +29,8 @@
         @foreach ($articles as $article)
             <?= $article->article_content ?>
         @endforeach
+    </div>
+    <div class="fluid book" style="margin-top:50px">
+        <a class="thoughts" href="mailto:{{ env('MAIL_ADMIN') }}"><button>{!! __('pagination.thoughts') !!}</button></a>
     </div>
 @endsection

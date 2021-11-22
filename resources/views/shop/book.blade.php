@@ -39,6 +39,6 @@
             </div>
         </div>
         <a href="{{ route('order-product', ['product' => $book->title, 'locale' => app()->getLocale() ] ) }}" class="orderHere"><button>{!! __('pagination.OrderNow') !!}</button></a>
-        <a class="review" href="mailto:{{ $contact->email }}"><button>{!! __('pagination.thoughts') !!}</button></a>
+        <a class="thoughts" href="mailto:{{ $contact->email }}"><button>{!! __('pagination.thoughts') !!}</button></a>
     </div>
 @endsection
