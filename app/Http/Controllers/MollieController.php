@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ConfirmationOrder;
+use App\Mail\OrderShipped;
 use App\Mail\PurchaseReport;
 use App\Models\Customer;
 use App\Models\Product;
@@ -122,6 +123,7 @@ class MollieController extends Controller
                     $customer->postal,
                     $customer->city,
                     $customer->street,
+                    $product->cover,
                     $product->title,
                     $product->price,
                     $customer->payment_status,
@@ -139,6 +141,7 @@ class MollieController extends Controller
                     $customer->postal,
                     $customer->city,
                     $customer->street,
+                    $product->cover,
                     $product->title,
                     $product->price,
                     $customer->payment_status,
@@ -150,5 +153,41 @@ class MollieController extends Controller
             session()->flash('PaymentMessage', 'There has been an issue, your payment did not go through.');
         }
         return view('shop.products')->with('products', $products);
+    }
+
+    public function sendPackageMail() {
+        $product = Product::get()
+            ->where('title', '=', session('Title'))
+            ->first();
+
+        $customer = Customer::get()
+            ->where('purchase_id', '=', session('Order_Number'))
+            ->first();
+
+        $updateCustomer = Customer::get()
+            ->where('purchase_id', '=', session('Order_Number'))
+            ->first();
+        $updateCustomer->delivery_status = 'Package sent';
+        $updateCustomer->save();
+
+        Mail::to(session('email'))
+            ->queue(new OrderShipped(
+                $customer->first_name,
+                $customer->last_name,
+                $customer->email,
+                $customer->phone,
+                $customer->country,
+                $customer->region,
+                $customer->postal,
+                $customer->city,
+                $customer->street,
+                $product->cover,
+                $product->title,
+                $product->price,
+                $customer->payment_status,
+                $customer->purchase_id
+            ));
+
+        return view('shop.confirmation');
     }
 }

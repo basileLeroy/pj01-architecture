@@ -43,6 +43,7 @@
                 @yield('project')
                 @yield('shop')
                 @yield('book')
+                @yield('confirmation')
                 @yield('words01')
                 @yield('contact')
                 @if (session('PaymentMessage'))

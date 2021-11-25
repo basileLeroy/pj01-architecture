@@ -20,6 +20,7 @@ class PurchaseReport extends Mailable
     public $zip;
     public $city;
     public $street;
+    public $bookCover;
     public $product;
     public $price;
     public $status;
@@ -29,7 +30,7 @@ class PurchaseReport extends Mailable
      *
      * @return void
      */
-    public function __construct(string $first_name, string $last_name, string $email, string $phone, string $country, string $region, string $zip, string $city, string $street, string $product, string $price, string $status, string $order_number)
+    public function __construct(string $first_name, string $last_name, string $email, string $phone, string $country, string $region, string $zip, string $city, string $street, string $bookCover, string $product, string $price, string $status, string $order_number)
     {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
@@ -40,6 +41,7 @@ class PurchaseReport extends Mailable
         $this->zip = $zip;
         $this->city = $city;
         $this->street = $street;
+        $this->bookCover = $bookCover;
         $this->product = $product;
         $this->price = $price;
         $this->status = $status;

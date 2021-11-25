@@ -9,7 +9,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
 
-class ConfirmationOrder extends Mailable
+class OrderShipped extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -60,7 +60,7 @@ class ConfirmationOrder extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.confirmation-order')
-            ->subject('Architecturer - ' . Lang::get('order.title') );
+        return $this->markdown('mail.orderShipped')
+            ->subject('Architecturer - Status: ' . Lang::get('order.title') );
     }
 }

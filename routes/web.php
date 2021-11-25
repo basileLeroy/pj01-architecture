@@ -66,4 +66,6 @@ Route::prefix('/{locale}')->group(function () {
     Route::get('/admin/login', 'App\Http\Controllers\AdminPanelController@login')->name('login')->middleware('guest');
     Route::get('admin-dashboard', 'App\Http\Controllers\AdminPanelController@logout')->name('logout')->middleware('auth');
     Route::post('admin/dashboard', 'App\Http\Controllers\AdminPanelController@checkAuth')->name('checkAuth');
+
+    Route::get('intercept/order-sent/order-id/{orderId}', [MollieController::Class, 'sendPackageMail'])->name('confirmation', 'orderId');
 });
