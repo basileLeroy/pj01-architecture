@@ -100,13 +100,13 @@ class MollieController extends Controller
             $product = Product::where('title', '=', session('Title'))
                 ->first();
 
-            $customer = Customer::where('purchase_id', '=', session('Order_Number'))
-                ->first();
-
             $updateCustomer = Customer::where('purchase_id', '=', session('Order_Number'))
                 ->first();
             $updateCustomer->payment_status = 'Paid';
             $updateCustomer->save();
+
+            $customer = Customer::where('purchase_id', '=', session('Order_Number'))
+                ->first();
 
             Mail::to(session('email'))
                 ->queue(new ConfirmationOrder(
