@@ -10,17 +10,17 @@ class ThoughtsController extends Controller
 {
     public function showThoughts()
     {
-        $page = 'thoughts'; 
+        $page = 'thoughts';
         $localeLanguage = App::getLocale();
 
-        $articles = Article::get()
-            ->where('language', '=', $localeLanguage)
-            ->where('page', '=', $page);
+        $articles = Article::where('language', '=', $localeLanguage)
+            ->where('page', '=', $page)
+            ->get();
 
-        $introPage = 'words-home'; 
-        $introArticles = Article::get()
-            ->where('language', '=', $localeLanguage)
-            ->where('page', '=', $introPage);
+        $introPage = 'words-home';
+        $introArticles = Article::where('language', '=', $localeLanguage)
+            ->where('page', '=', $introPage)
+            ->get();
 
         return view('thoughts')->with([
             'articles' => $articles,
@@ -30,19 +30,18 @@ class ThoughtsController extends Controller
 
     public function updateThoughts(Request $request)
     {
-        $page = 'thoughts'; 
+        $page = 'thoughts';
         $localeLanguage = App::getLocale();
-        $articleContent = $request->description; 
+        $articleContent = $request->description;
 
-        $articles = Article::get()
-            ->where('language', '=', $localeLanguage)
+        $articles = Article::where('language', '=', $localeLanguage)
             ->where('page', '=', $page)
             ->first();
 
         $articles->article_content = $articleContent;
 
         $articles->save();
-        
+
         return redirect()->back();
     }
 }

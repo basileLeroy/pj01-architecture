@@ -10,17 +10,17 @@ class BiographyController extends Controller
 {
     public function showBio()
     {
-        $page = 'biography'; 
+        $page = 'biography';
         $localeLanguage = App::getLocale();
 
-        $articles = Article::get()
-            ->where('language', '=', $localeLanguage)
-            ->where('page', '=', $page);
+        $articles = Article::where('language', '=', $localeLanguage)
+            ->where('page', '=', $page)
+            ->get();
 
-        $introPage = 'words-home'; 
-        $introArticles = Article::get()
-            ->where('language', '=', $localeLanguage)
-            ->where('page', '=', $introPage);
+        $introPage = 'words-home';
+        $introArticles = Article::where('language', '=', $localeLanguage)
+            ->where('page', '=', $introPage)
+            ->get();
 
         return view('biography')->with([
             'articles' => $articles,
@@ -30,19 +30,18 @@ class BiographyController extends Controller
 
     public function updateBio(Request $request)
     {
-        $page = 'biography'; 
+        $page = 'biography';
         $localeLanguage = App::getLocale();
-        $articleContent = $request->description; 
+        $articleContent = $request->description;
 
-        $articles = Article::get()
-            ->where('language', '=', $localeLanguage)
+        $articles = Article::where('language', '=', $localeLanguage)
             ->where('page', '=', $page)
             ->first();
 
         $articles->article_content = $articleContent;
 
         $articles->save();
-        
+
         return redirect()->back();
     }
 

@@ -45,17 +45,15 @@ class ShopController extends Controller
             'price' => $request->price,
             'currency' => "EUR",
         ]);
-        
+
         return redirect()->back();
     }
 
     public function showProduct($locale, $product)
     {
-        $book = Product::get()
-        ->where('title', '=', $product)
-        ->first();
-        $contact = Author::get()
-        ->first();
+        $book = Product::where('title', '=', $product)
+            ->first();
+        $contact = Author::first();
 
         return view('shop.book')
             ->with('product', $product)
@@ -65,9 +63,8 @@ class ShopController extends Controller
 
     public function showPaymentForm($locale, $product)
     {
-        $orderedBook = Product::get()
-        ->where('title', '=', $product)
-        ->first();
+        $orderedBook = Product::where('title', '=', $product)
+            ->first();
 
         session()->put([
             'Title' => $orderedBook->title,
@@ -86,6 +83,6 @@ class ShopController extends Controller
         $bookTitle = session('Title');
         $bookPrice = session('Price');
         $request->all();
-        
+
     }
 }

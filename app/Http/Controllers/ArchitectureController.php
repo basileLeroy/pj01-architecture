@@ -12,11 +12,10 @@ class ArchitectureController extends Controller
         $projects = Project::all();
         return view('projects.architecture')->with('projects', $projects);
     }
-    
+
     public function showProject($locale, $project)
     {
-        $cover = Project::get()
-        ->where('project_name', '=', $project)
+        $cover = Project::where('project_name', '=', $project)
         ->first();
 
         return view('projects.project')
@@ -49,7 +48,7 @@ class ArchitectureController extends Controller
 
                 $image->move(public_path('images\architectuur\slider\\' . $request->projectTitle), $singleImage);
             };
-            
+
         }
 
         Project::create([
@@ -57,7 +56,7 @@ class ArchitectureController extends Controller
             'project_image' => $addNewImage,
             'project_gallery' => $gallery,
         ]);
-        
+
         return redirect()->back();
 
         // return view('architecture')->with('projects', $projects);

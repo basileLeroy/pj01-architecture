@@ -33,9 +33,9 @@ class AdminPanelController extends Controller
             $title = 'landing_Article';
             $localeLanguage = App::getLocale();
 
-            $articles = Article::get()
-                ->where('title', '=', $title)
-                ->where('language', '=', $localeLanguage);
+            $articles = Article::where('title', '=', $title)
+                ->where('language', '=', $localeLanguage)
+                ->get();
 
             return redirect('/')->with('articles', $articles);
         };

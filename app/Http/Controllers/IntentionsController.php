@@ -10,57 +10,55 @@ class IntentionsController extends Controller
 {
     public function showIntentionsSite()
     {
-        $title = 'intentions_Site'; 
+        $title = 'intentions_Site';
         $localeLanguage = App::getLocale();
         $matchThese = ['title' => $title, 'language' => $localeLanguage];
 
         $articles = Article::where($matchThese)->get();
-        
+
         return view('intentionsWebsite')->with('articles', $articles);
     }
     public function updateIntentionsSite(Request $request)
     {
         $title = 'intentions_Site';
-        $articleContent = $request->description; 
+        $articleContent = $request->description;
         $localeLanguage = App::getLocale();
 
-        $articles = Article::get()
-            ->where('language', '=', $localeLanguage)
+        $articles = Article::where('language', '=', $localeLanguage)
             ->where('page', '=', $title)
             ->first();
 
         $articles->article_content = $articleContent;
 
         $articles->save();
-        
+
         return redirect()->back();
     }
     public function showIntentionsProject()
     {
-        $title = 'intentions_Projects'; 
+        $title = 'intentions_Projects';
         $localeLanguage = App::getLocale();
         $matchThese = ['title' => $title, 'language' => $localeLanguage];
 
         $articles = Article::where($matchThese)->get();
-        
+
         return view('intentionsProjects')->with('articles', $articles);
 
     }
     public function updateIntentionsProject(Request $request)
     {
         $title = 'intentions_Projects';
-        $articleContent = $request->description; 
+        $articleContent = $request->description;
         $localeLanguage = App::getLocale();
 
-        $articles = Article::get()
-            ->where('language', '=', $localeLanguage)
+        $articles = Article::where('language', '=', $localeLanguage)
             ->where('page', '=', $title)
             ->first();
 
         $articles->article_content = $articleContent;
 
         $articles->save();
-        
+
         return redirect()->back();
     }
 }

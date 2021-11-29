@@ -16,7 +16,7 @@ class MollieController extends Controller
 
     public function  __construct() {
 
-        Mollie::api()->setApiKey('test_pg9VavKdz39DpWhAvPeq2ytg36vHRa'); // your mollie test api key
+        Mollie::api()->setApiKey(env('MOLLIE_KEY')); // your mollie test api key
     }
 
     /*
@@ -38,8 +38,7 @@ class MollieController extends Controller
             'country' => 'required|max:225',
         ]);
 
-        $product = Product::get()
-        ->where('title', '=', session('Title'))
+        $product = Product::where('title', '=', session('Title'))
         ->first();
 
         $payment = Mollie::api()->payments()->create([
@@ -98,16 +97,13 @@ class MollieController extends Controller
         $products = Product::all();
 
         if ($payment->status === "paid") {
-            $product = Product::get()
-                ->where('title', '=', session('Title'))
+            $product = Product::where('title', '=', session('Title'))
                 ->first();
 
-            $customer = Customer::get()
-                ->where('purchase_id', '=', session('Order_Number'))
+            $customer = Customer::where('purchase_id', '=', session('Order_Number'))
                 ->first();
 
-            $updateCustomer = Customer::get()
-                ->where('purchase_id', '=', session('Order_Number'))
+            $updateCustomer = Customer::where('purchase_id', '=', session('Order_Number'))
                 ->first();
             $updateCustomer->payment_status = 'Paid';
             $updateCustomer->save();
@@ -156,16 +152,14 @@ class MollieController extends Controller
     }
 
     public function sendPackageMail() {
-        $product = Product::get()
-            ->where('title', '=', session('Title'))
+        $product = Product::where('title', '=', session('Title'))
             ->first();
 
-        $customer = Customer::get()
-            ->where('purchase_id', '=', session('Order_Number'))
+
+        $customer = Customer::where('purchase_id', '=', session('Order_Number'))
             ->first();
 
-        $updateCustomer = Customer::get()
-            ->where('purchase_id', '=', session('Order_Number'))
+        $updateCustomer = Customer::where('purchase_id', '=', session('Order_Number'))
             ->first();
         $updateCustomer->delivery_status = 'Package sent';
         $updateCustomer->save();

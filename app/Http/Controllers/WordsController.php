@@ -13,14 +13,14 @@ class WordsController extends Controller
         $page = 'words';
         $localeLanguage = App::getLocale();
 
-        $articles = Article::get()
-            ->where('language', '=', $localeLanguage)
-            ->where('page', '=', $page);
+        $articles = Article::where('language', '=', $localeLanguage)
+            ->where('page', '=', $page)
+            ->get();
 
         $introPage = 'words-home';
-        $introArticles = Article::get()
-            ->where('language', '=', $localeLanguage)
-            ->where('page', '=', $introPage);
+        $introArticles = Article::where('language', '=', $localeLanguage)
+            ->where('page', '=', $introPage)
+            ->get();
 
         return view('words')->with([
             'articles' => $articles,
@@ -31,8 +31,7 @@ class WordsController extends Controller
 
     public function showLink($locale, $title)
     {
-        $article = Article::get()
-            ->where('title', '=', $title)
+        $article = Article::where('title', '=', $title)
             ->where('language', '=', $locale)
             ->first();
 
@@ -46,8 +45,7 @@ class WordsController extends Controller
         $localeLanguage = App::getLocale();
         $articleContent = $request->description;
 
-        $articles = Article::get()
-            ->where('language', '=', $localeLanguage)
+        $articles = Article::where('language', '=', $localeLanguage)
             ->where('page', '=', $page)
             ->first();
 

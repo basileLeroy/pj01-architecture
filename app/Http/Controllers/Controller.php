@@ -16,32 +16,31 @@ class Controller extends BaseController
 
     public function showLanding()
     {
-        $title = 'landing_Article'; 
+        $title = 'landing_Article';
         $localeLanguage = App::getLocale();
 
-        $articles = Article::get()
-            ->where('title', '=', $title)
-            ->where('language', '=', $localeLanguage);
+        $articles = Article::where('title', '=', $title)
+            ->where('language', '=', $localeLanguage)
+            ->get();
 
-        
+
         return view('landing')->with('articles', $articles);
     }
 
     public function updateArticle(Request $request)
     {
         $page = 'home';
-        $articleContent = $request->description; 
+        $articleContent = $request->description;
         $localeLanguage = App::getLocale();
 
-        $articles = Article::get()
-            ->where('language', '=', $localeLanguage)
+        $articles = Article::where('language', '=', $localeLanguage)
             ->where('page', '=', $page)
             ->first();
 
         $articles->article_content = $articleContent;
 
         $articles->save();
-        
+
         return redirect()->back();
     }
 }

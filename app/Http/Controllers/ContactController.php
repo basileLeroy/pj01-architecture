@@ -10,9 +10,9 @@ class ContactController extends Controller
 {
     public function showContact()
     {
-        $contact = Author::get()
-            ->first();
-        
+        $contact = Author::first();
+
+
         return view('contact')->with('contact', $contact);
     }
 
@@ -35,8 +35,7 @@ class ContactController extends Controller
             'email' => 'required',
         ]);
 
-        $contact = Author::get()
-            ->first();
+        $contact = Author::first();
 
         $contact->adress = $request->adress;
         $contact->postal_code = $request->region;
@@ -45,7 +44,7 @@ class ContactController extends Controller
         $contact->email = $request->email;
 
         $contact->save();
-        
+
         return redirect()->back();
     }
 }
