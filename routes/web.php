@@ -15,10 +15,11 @@ use App\Http\Controllers\MollieController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::redirect('/', '/nl');
 
+Route::get('/', 'App\Http\Controllers\Controller@localeRedirect');
 
 Route::prefix('/{locale}')->group(function () {
+
 
     Route::get('/', 'App\Http\Controllers\Controller@showLanding')->name('home');
     Route::post('/', 'App\Http\Controllers\Controller@updateArticle')->name('home')->middleware('auth');

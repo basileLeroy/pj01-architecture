@@ -14,6 +14,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function localeRedirect()
+    {
+        return redirect(route('home', ['locale' => 'fr']));
+    }
+
     public function showLanding()
     {
         $title = 'landing_Article';
