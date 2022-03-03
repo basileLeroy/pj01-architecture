@@ -1,6 +1,10 @@
 @extends('layout')
 @extends('header')
 
+@section('seo')
+belderbos, marc, contact, email, phone, adress, architecturer, about
+@endsection
+
 @section('title')
     Contact
 @endsection

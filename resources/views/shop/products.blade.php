@@ -1,8 +1,12 @@
 @extends('layout')
 @extends('header')
 
+@section('seo')
+belderbos, marc, architecturer, shop, products, books, book, uitgeverij, edition
+@endsection
+
 @section('title')
-    Products
+    {{ __('nav.shop') }}
 @endsection
 
 @section('shop')

@@ -1,6 +1,12 @@
 @extends('layout')
 @extends('header')
 
+@section('seo')
+    belderbos, marc, architecturer, projects, intentions
+@endsection
+
+
+
 @section('title')
     Intentions
 @endsection
@@ -24,10 +30,10 @@
         </div>
     @endauth
     <div class="fluid intro" style="width: 650px;">
-            
+
         @foreach ($articles as $article)
             <?= $article->article_content ?>
         @endforeach
-        
+
     </div>
 @endsection

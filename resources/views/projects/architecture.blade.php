@@ -1,6 +1,10 @@
 @extends('layout')
 @extends('header')
 
+@section('seo')
+belderbos, marc, architecturer, projects, projecten, projets, portfolio, achievements, images, gallery
+@endsection
+
 @section('title')
     Architecture
 @endsection

@@ -1,6 +1,10 @@
 @extends('layout')
 @extends('header')
 
+@section('seo')
+    belderbos, marc, architecturer, mots, woorden, words
+@endsection
+
 @section('title')
     Woorden
 @endsection
@@ -14,11 +18,11 @@
                 <form action="{{ route('woorden', ['locale' => app()->getLocale()] ) }}" method="POST">
                 {{ csrf_field() }}
                     <textarea class="description" id="sectionContent" name="description">
-                        
+
                         @foreach ($introArticles as $article)
                             {{ $article->article_content }}
                         @endforeach
-                        
+
                     </textarea>
                     <button type="submit" id="uploadNewSection" name="uploadNewProject" value="Upload">Save</button>
                 </form>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        @yield('seo')
+        <meta name="description" content="@yield('seo', 'marc belderbos, architecturer, architecture')" />
 
         <title>Architecturer - @yield('title', 'Marc Belderbos')</title>
 

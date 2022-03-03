@@ -5,6 +5,10 @@ use GuzzleHttp\Psr7\Uri;
 @extends('layout')
 @extends('header')
 
+@section('seo')
+    belderbos, marc, architecturer, home, architecture
+@endsection
+
 @section('title')
     Home
 @endsection
@@ -31,11 +35,11 @@ use GuzzleHttp\Psr7\Uri;
                 </div>
             </div>
             @endauth
-            
+
             @foreach ($articles as $article)
                 <?= $article->article_content ?>
             @endforeach
-            
+
         </div>
     </div>
 @endsection

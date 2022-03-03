@@ -1,8 +1,12 @@
 @extends('layout')
 @extends('header')
 
+@section('seo')
+belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
+@endsection
+
 @section('title')
-    Project
+    <?php echo str_replace("-", " ", $project) ?>
 @endsection
 
 @section('project')

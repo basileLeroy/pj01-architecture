@@ -1,6 +1,10 @@
 @extends('layout')
 @extends('header')
 
+@section('seo')
+    belderbos, marc, architecturer, thoughts, gedachten, pansées, reviews, feedback
+@endsection
+
 @section('title')
     Gedachten
 @endsection

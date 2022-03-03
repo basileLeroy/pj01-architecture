@@ -1,6 +1,10 @@
 @extends('layout')
 @extends('header')
 
+@section('seo')
+    belderbos, marc, architecturer, others, autres, anderen
+@endsection
+
 @section('title')
     Anderen
 @endsection

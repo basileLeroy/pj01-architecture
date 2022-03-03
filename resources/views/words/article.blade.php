@@ -1,6 +1,10 @@
 @extends('layout')
 @extends('header')
 
+@section('seo')
+belderbos, marc, architecturer, words, woorden, mots
+@endsection
+
 @section('title')
     Woorden
 @endsection
