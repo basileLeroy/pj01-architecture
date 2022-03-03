@@ -21,7 +21,7 @@ class Product extends Model
         'author',
         'publisher',
         'published',
-        'price',
+        'url',
         'currency'
     ];
 

@@ -20,8 +20,8 @@
                 <input type="text" id="sectionTitle" name="author" placeholder=" (example: Annie M.G. Schmidt)">
                 <label for="bookIntro">Intro text </label>
                 <textarea class="bookIntro" id="sectionInput" name="bookIntro"></textarea>
-                <label for="price">Price </label>
-                <input type="text" id="sectionTitle" name="price" placeholder=" (example: 36.00)">
+                <label for="url">URL </label>
+                <input type="text" id="sectionTitle" name="url" placeholder=" (example: https://www.amazon.com/your-product)">
                 <label for="published">Published at  </label>
                 <input type="date" id="sectionTitle" name="published">
                 <label for="publisher">Publisher </label>
@@ -46,20 +46,21 @@
     </div>
     @endauth
     <div class="fluid book">
-        @foreach ($products as $product)
-                <a href="{{ route('product-title', ['product' => $product->title, 'locale' => app()->getLocale() ] ) }}" class="fullsizable">
-                    <div class="book-container">
-                        <div class="book-cover">
-                            <img src="{{url('/images/architectuur/products/' . $product->cover)}}" alt="blank book cover">
+            @foreach ($products as $product)
+                    <a href="{{ $product->url }}" class="fullsizable">
+                        <div class="book-container">
+                            <div class="book-cover">
+                                <img src="{{url('/images/architectuur/products/' . $product->cover)}}" alt="blank book cover">
+                            </div>
+                            <div class="book-context">
+                                <h1>{{ $product->title }} <span class="author">- {{ $product->author }}</span></h1>
+                                <p>{{ $product->about }}</p>
+                            </div>
                         </div>
-                        <div class="book-context">
-                            <h1>{{ $product->title }} <span class="author">- {{ $product->author }}</span></h1>
-                            <p>{{ $product->about }}</p>
-                            <span class="price">{{ $product->currency . " " . $product->price }}</span>
-                        </div>
-                    </div>
-                </a>
-                
-        @endforeach
+                    </a>
+            @endforeach
+        @if(count($products) === 0)
+            <p>{{ __('products.notFound') }}</p>
+        @endif
     </div>
 @endsection

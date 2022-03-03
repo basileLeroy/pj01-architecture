@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->text('author');
             $table->text('published');
             $table->text('publisher');
-            $table->text('price');
+            $table->text('url');
             $table->text('currency');
             $table->timestamps();
         });

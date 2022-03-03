@@ -22,7 +22,7 @@ class ShopController extends Controller
             'bookTitle' => 'required',
             'author' => 'required',
             'bookIntro' => 'required',
-            'price' => 'required',
+            'url' => 'required|url',
             'published' => 'required|date',
             'publisher' => 'required',
             'bookCover' => 'image|mimes:jpg,png,jpeg|max:5048',
@@ -42,7 +42,7 @@ class ShopController extends Controller
             'author' => $request->author,
             'published' => $request->published,
             'publisher' => $request->publisher,
-            'price' => $request->price,
+            'url' => $request->url,
             'currency' => "EUR",
         ]);
 
