@@ -44,6 +44,9 @@
         </div>
 
     </div>
+    @if(count($products) === 0)
+        <p>Ajouter de nouveaux produits en cliquant sur l'icône ci-dessus.</p>
+    @endif
     @endauth
     <div class="fluid book">
             @foreach ($products as $product)
