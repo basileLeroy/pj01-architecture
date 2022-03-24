@@ -55,5 +55,22 @@ class WordsController extends Controller
 
         return redirect()->back();
     }
+    //TODO: Add content to articles
+    public function updateArticle(Request $request)
+    {
+        $page = 'words';
+        $articleContent = $request->description;
+        $localeLanguage = App::getLocale();
+
+        $articles = Article::where('language', '=', $localeLanguage)
+            ->where('page', '=', $page)
+            ->first();
+
+        $articles->article_content = $articleContent;
+
+        $articles->save();
+
+        return redirect()->back();
+    }
 }
-//TODO: Add content to articles
+

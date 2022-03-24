@@ -15,7 +15,7 @@ belderbos, marc, architecturer, words, woorden, mots
         <input class="toggle-box" id="header1" type="checkbox" >
         <label for="header1"><i class="fa fa-edit w3-xxlarge w3-display-topleft"></i></label>
             <div class="addSection">
-                <form action="{{ route('intenties-bij-een-ontwerp', ['locale' => app()->getLocale()] ) }}" method="POST">
+                <form action="{{ route('words-title', ['words' => $article->title, 'locale' => app()->getLocale() ] ) }}" method="POST">
                 {{ csrf_field() }}
                     <textarea class="description" id="sectionContent" name="description">
 
@@ -36,7 +36,7 @@ belderbos, marc, architecturer, words, woorden, mots
 
         <br><br>
 
-        {{ $article->article_content }}
+        {!! $article->article_content !!}
 
     </div>
     <div class="fluid book" style="margin-top:50px">

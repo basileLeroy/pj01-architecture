@@ -41,6 +41,7 @@ Route::prefix('/{locale}')->group(function () {
     Route::post('woorden', 'App\Http\Controllers\WordsController@showIntro')->name('woorden')->middleware('auth');
 
     Route::get('woorden/{words}', 'App\Http\Controllers\WordsController@showLink')->name('words-title', 'words');
+    Route::post('woorden/{words}', 'App\Http\Controllers\WordsController@updateArticle')->name('words-title', 'words')->middleware('auth');
 
     // Route::get('marc-belderbos', 'App\Http\Controllers\AuthorController@showMarcBelderbos')->name('marc-belderbos');
     Route::get('anderen', 'App\Http\Controllers\OthersController@showOthers')->name('anderen');

@@ -12,7 +12,8 @@
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "mollie/laravel-mollie": "^2.15",
-        "nesbot/carbon": "^2.54"
+        "nesbot/carbon": "^2.54",
+        "tinymce/tinymce": "^6.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

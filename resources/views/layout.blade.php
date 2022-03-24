@@ -16,6 +16,8 @@
         <!-- Styles -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/lightbox/lightbox.css') }}" />
+
+        @yield('tinyMce-config')
     </head>
 
     <body>
@@ -54,7 +56,15 @@
             </section>
         </div>
 
-        <!-- WYSIWYG Text-editor -->
+{{--        <!-- WYSIWYG Text-editor -->--}}
+{{--        <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>--}}
+{{--        <script>--}}
+{{--            tinymce.init({--}}
+{{--                selector: 'textarea#description', // Replace this CSS selector to match the placeholder element for TinyMCE--}}
+{{--                width: 700,--}}
+{{--                height: 300--}}
+{{--            });--}}
+{{--        </script>--}}
         <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
         <script>
             tinymce.init({
