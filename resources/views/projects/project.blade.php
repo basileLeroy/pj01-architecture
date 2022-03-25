@@ -28,7 +28,7 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
         <div class="gallery">
 
             @foreach(File::glob(public_path('images/architectuur/slider/').$project.'/*') as $path)
-                <a href="{{ str_replace(public_path(), '', $path) }}" data-lightbox="roadtrip"><img src="{{ str_replace(public_path(), '', $path) }}" alt=""></a>
+                <a href="{{ str_replace(public_path(), '', $path) }}" data-lightbox="roadtrip"><img src="{{ str_replace(public_path(), '', $path) }}" alt="{{$path}}"></a>
             @endforeach
 
         </div>
