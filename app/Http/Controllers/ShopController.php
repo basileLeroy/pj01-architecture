@@ -32,6 +32,8 @@ class ShopController extends Controller
         $filepath = '.\images\architectuur\products';
 
         if($request->bookCover) {
+
+            dd($request->bookCover);
             $addNewImage = time().'-'.$request->bookTitle.'.'.$request->bookCover->extension();
             $request->bookCover->move(public_path($filepath), $addNewImage);
         };
