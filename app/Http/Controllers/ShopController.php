@@ -33,7 +33,6 @@ class ShopController extends Controller
 
         if($request->bookCover) {
 
-            dd($request->bookCover);
             $addNewImage = time().'-'.$request->bookTitle.'.'.$request->bookCover->extension();
             $request->bookCover->move(public_path($filepath), $addNewImage);
         };
