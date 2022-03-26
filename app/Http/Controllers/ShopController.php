@@ -29,7 +29,7 @@ class ShopController extends Controller
         ]);
 
         $addNewImage = null;
-        $filepath = "images\\architectuur\\products";
+        $filepath = '.\images\architectuur\products';
 
         if($request->bookCover) {
             $addNewImage = time().'-'.$request->bookTitle.'.'.$request->bookCover->extension();
