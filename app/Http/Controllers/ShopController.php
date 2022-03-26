@@ -29,10 +29,11 @@ class ShopController extends Controller
         ]);
 
         $addNewImage = null;
+        $filepath = "images\\architectuur\\products";
 
         if($request->bookCover) {
             $addNewImage = time().'-'.$request->bookTitle.'.'.$request->bookCover->extension();
-            $request->bookCover->move(public_path('images\architectuur\products'), $addNewImage);
+            $request->bookCover->move(public_path($filepath), $addNewImage);
         };
 
         Product::create([
