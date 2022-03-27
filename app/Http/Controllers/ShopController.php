@@ -12,7 +12,7 @@ class ShopController extends Controller
 {
     public function showProducts()
     {
-        $dir = public_path('.\images\architectuur\products\1648373739-Test2.png');
+        $dir = public_path('.\images\architectuur\products\1648373558-Test.jpg');
 
         if(!is_writable($dir)){
             echo "cannot write to file";
