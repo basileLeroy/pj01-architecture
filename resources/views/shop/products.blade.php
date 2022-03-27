@@ -54,7 +54,7 @@ belderbos, marc, architecturer, shop, products, books, book, uitgeverij, edition
     @endauth
 
     <?php
-    $dir = "/images/architectuur/products";
+    $dir = public_path('.\images\architectuur\products');
     if(!is_writable($dir)){
         echo "cannot write to file";
     }
