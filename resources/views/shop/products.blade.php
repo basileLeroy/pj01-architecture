@@ -58,7 +58,7 @@ belderbos, marc, architecturer, shop, products, books, book, uitgeverij, edition
                     <a href="{{ $product->url }}" class="fullsizable">
                         <div class="book-container">
                             <div class="book-cover">
-                                <img src="{{asset('storage/' . $product->cover)}}" alt="{{ $product->title }}">
+                                <img src="{{ asset('storage/' . $product->cover)}}" alt="{{ $product->title }}">
                             </div>
                             <div class="book-context">
                                 <h1>{{ $product->title }} <span class="author">- {{ $product->author }}</span></h1>

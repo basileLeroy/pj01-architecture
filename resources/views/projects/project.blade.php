@@ -17,7 +17,7 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
                 $title = str_replace("-", " ", $project)
             ?>
             <h3>{{ucwords($title)}}</h3>
-            <img alt="{{ $cover->project_name }}" title="{{ $cover->project_name }}" src="{{url('/images/architectuur/icons/'.$cover->project_image)}}">
+            <img alt="{{ucwords($title)}}" title="{{ ucwords($title) }}" src="{{ asset('storage/' . $cover->project_image) }}">
             <a class="thoughts" href="mailto:{{ env('MAIL_ADMIN') }}"><button>{!! __('pagination.thoughts') !!}</button></a>
 
         </div>
@@ -27,8 +27,8 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
 
         <div class="gallery">
 
-            @foreach(File::glob(public_path('images/architectuur/slider/').$project.'/*') as $path)
-                <a href="{{ str_replace(public_path(), '', $path) }}" data-lightbox="roadtrip"><img src="{{ str_replace(public_path(), '', $path) }}" alt="{{$path}}"></a>
+            @foreach($cover->project_gallery as $sliderImage)
+                <a href="{{ asset('storage/' . $sliderImage) }}" data-lightbox="roadtrip"><img src="{{ asset('storage/' . $sliderImage) }}" alt="{{$title}}"></a>
             @endforeach
 
         </div>

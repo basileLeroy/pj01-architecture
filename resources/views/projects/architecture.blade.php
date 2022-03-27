@@ -37,7 +37,7 @@ belderbos, marc, architecturer, projects, projecten, projets, portfolio, achieve
         <?php $title = str_replace("-", " ", $project->project_name) ?>
         <div class="project-card">
             <a href="{{ route('project-title', ['project' => $project->project_name, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
-                <img alt="1978 Reel Boom" title="1978 Reel Boom" src="{{url('/images/architectuur/icons/'.$project->project_image)}}">
+                <img alt="{{ $title }}" title="{{ $title }}" src="{{ asset('storage/' . $project->project_image)}}">
                 <p>{{ ucwords($title) }}</p>
             </a>
         </div>

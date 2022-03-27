@@ -33,9 +33,6 @@ class ShopController extends Controller
 
         if($request->bookCover) {
             $addNewImage = $request->file('bookCover')->store('images/architecture/products');
-//            $addNewImage = time().'-'.$request->bookTitle.'.'.$request->bookCover->extension();
-//            $request->bookCover->move(public_path($filepath), $addNewImage);
-
         };
 
         Product::create([

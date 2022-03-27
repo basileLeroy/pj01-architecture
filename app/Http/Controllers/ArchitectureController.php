@@ -17,6 +17,7 @@ class ArchitectureController extends Controller
     {
         $cover = Project::where('project_name', '=', $project)
         ->first();
+//        ddd($cover);
 
         return view('projects.project')
             ->with('project', $project)
@@ -35,20 +36,15 @@ class ArchitectureController extends Controller
         $gallery = [];
 
         if($request->projectCover) {
-            $addNewImage = time().'-'.$request->projectTitle.'.'.$request->projectCover->extension();
-            $request->projectCover->move(public_path('images\architectuur\icons'), $addNewImage);
+            $addNewImage = $request->file('projectCover')->store('images/architecture/icons');
         };
 
         if($request->projectGallery) {
             $i = 1;
-
             foreach($request->projectGallery as $image) {
-                $singleImage = time().'-'.$request->projectTitle.'-'.$i++.'.'.$image->extension();
-                array_push($gallery, $singleImage);
-
-                $image->move(public_path('images\architectuur\slider\\' . $request->projectTitle), $singleImage);
+                $singleImage = $image->store('images/architecture/slider');
+                $gallery[] = $singleImage;
             };
-
         }
 
         Project::create([
