@@ -12,6 +12,13 @@ class ShopController extends Controller
 {
     public function showProducts()
     {
+        $dir = public_path('.\images\architectuur\products\1648373739-Test2.png');
+
+        if(!is_writable($dir)){
+            echo "cannot write to file";
+        } else {
+            echo "Can write to file";
+        }
         $products = Product::all();
         return view('shop.products')->with('products', $products);
     }
@@ -27,6 +34,13 @@ class ShopController extends Controller
             'publisher' => 'required',
             'bookCover' => 'image|mimes:jpg,png,jpeg|max:5048',
         ]);
+
+        $dir = public_path('.\images\architectuur\products\1648373739-Test2.png');
+        if(!is_writable($dir)){
+            echo "cannot write to file";
+        } else {
+            echo "Can write to file";
+        }
 
         $addNewImage = null;
         $filepath = '.\images\architectuur\products';

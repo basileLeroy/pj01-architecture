@@ -53,13 +53,6 @@ belderbos, marc, architecturer, shop, products, books, book, uitgeverij, edition
     @endif
     @endauth
 
-    <?php
-    $dir = public_path('.\images\architectuur\products');
-    if(!is_writable($dir)){
-        echo "cannot write to file";
-    }
-    ?>
-
     <div class="fluid book">
             @foreach ($products as $product)
                     <a href="{{ $product->url }}" class="fullsizable">
