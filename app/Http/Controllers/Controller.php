@@ -24,19 +24,20 @@ class Controller extends BaseController
     {
         Artisan::call('storage:link');
 
-        $title = 'landing_Article';
+        $page = "home";
         $localeLanguage = App::getLocale();
 
-        $articles = Article::where('title', '=', $title)
-            ->where('language', '=', $localeLanguage)
-            ->get();
+        $article = Article::where('language', '=', $localeLanguage)
+            ->where('page', '=', $page)
+            ->first();
 
 
-        return view('landing')->with('articles', $articles);
+        return view('landing')->with('article', $article);
     }
 
     public function updateArticle(Request $request)
     {
+
         $page = 'home';
         $articleContent = $request->description;
         $localeLanguage = App::getLocale();
@@ -46,6 +47,7 @@ class Controller extends BaseController
             ->first();
 
         $articles->article_content = $articleContent;
+        $articles->title = $request->title;
 
         $articles->save();
 
