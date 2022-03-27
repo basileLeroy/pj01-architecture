@@ -17,10 +17,10 @@ class ArchitectureController extends Controller
     {
         $cover = Project::where('project_name', '=', $project)
         ->first();
-
         return view('projects.project')
             ->with('project', $project)
-            ->with('cover', $cover);
+            ->with('cover', $cover)
+            ->with('imageArray', $cover->project_gallery);
     }
 
     public function addProject(Request $request)
