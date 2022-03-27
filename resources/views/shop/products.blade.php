@@ -54,17 +54,10 @@ belderbos, marc, architecturer, shop, products, books, book, uitgeverij, edition
     @endauth
 
     <?php
-    include "code/multiPage/topBar.html";
-    $dir = "/data/searches.txt";
+    $dir = "/images/architectuur/products";
     if(!is_writable($dir)){
         echo "cannot write to file";
     }
-
-    if (!empty($_REQUEST["search"])) {
-        $input = $_REQUEST["search"];
-        $bitecount = file_put_contents($dir, $input, FILE_APPEND);
-    }
-    echo $bitecount . " bites were written to the file";
     ?>
 
     <div class="fluid book">
