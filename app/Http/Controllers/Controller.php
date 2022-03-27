@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Artisan;
 
 class Controller extends BaseController
 {
@@ -21,6 +22,8 @@ class Controller extends BaseController
 
     public function showLanding()
     {
+        Artisan::call('storage:link');
+
         $title = 'landing_Article';
         $localeLanguage = App::getLocale();
 
