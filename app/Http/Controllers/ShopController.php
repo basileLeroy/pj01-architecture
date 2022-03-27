@@ -25,6 +25,7 @@ class ShopController extends Controller
 
     public function updateProducts(Request $request)
     {
+//        ddd($request->file("bookCover"));
         $request->validate([
             'bookTitle' => 'required',
             'author' => 'required',
@@ -34,6 +35,8 @@ class ShopController extends Controller
             'publisher' => 'required',
             'bookCover' => 'image|mimes:jpg,png,jpeg|max:5048',
         ]);
+
+
 
         $dir = public_path('.\images\architectuur\products');
         if(!is_writable($dir)){
@@ -46,9 +49,10 @@ class ShopController extends Controller
         $filepath = '.\images\architectuur\products';
 
         if($request->bookCover) {
+            $addNewImage = $request->file('bookCover')->store('images/architecture/products');
+//            $addNewImage = time().'-'.$request->bookTitle.'.'.$request->bookCover->extension();
+//            $request->bookCover->move(public_path($filepath), $addNewImage);
 
-            $addNewImage = time().'-'.$request->bookTitle.'.'.$request->bookCover->extension();
-            $request->bookCover->move(public_path($filepath), $addNewImage);
         };
 
         Product::create([
