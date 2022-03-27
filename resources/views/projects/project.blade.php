@@ -18,7 +18,7 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
             ?>
             <h3>{{ucwords($title)}}</h3>
             <img alt="{{ucwords($title)}}" title="{{ ucwords($title) }}" src="{{ asset('storage/' . $cover->project_image) }}">
-            <a class="thoughts" href="mailto:{{ env('MAIL_ADMIN') }}"><button>{!! __('pagination.thoughts') !!}</button></a>
+            <a class="thoughts" href="{{ route('gedachten', ['locale' => app()->getLocale()] ) }}"><button>{!! __('pagination.thoughts') !!}</button></a>
 
         </div>
     </div>

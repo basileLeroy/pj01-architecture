@@ -40,7 +40,7 @@ belderbos, marc, architecturer, words, woorden, mots
 
     </div>
     <div class="fluid book" style="margin-top:50px">
-        <a class="thoughts" href="mailto:{{ env('MAIL_ADMIN') }}"><button>{!! __('pagination.thoughts') !!}</button></a>
+        <a class="thoughts" href="{{ route('gedachten', ['locale' => app()->getLocale()] ) }}"><button>{!! __('pagination.thoughts') !!}</button></a>
     </div>
 
 @endsection
