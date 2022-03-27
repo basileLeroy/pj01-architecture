@@ -17,7 +17,6 @@ class ArchitectureController extends Controller
     {
         $cover = Project::where('project_name', '=', $project)
         ->first();
-//        ddd($cover);
 
         return view('projects.project')
             ->with('project', $project)

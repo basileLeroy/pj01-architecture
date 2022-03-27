@@ -26,11 +26,11 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
     <div class="fluid intro">
 
         <div class="gallery">
-
+        @if($cover->project_gellery)
             @foreach($cover->project_gallery as $sliderImage)
                 <a href="{{ asset('storage/' . $sliderImage) }}" data-lightbox="roadtrip"><img src="{{ asset('storage/' . $sliderImage) }}" alt="{{$title}}"></a>
             @endforeach
-
+        @endif
         </div>
     </div>
 </div>
