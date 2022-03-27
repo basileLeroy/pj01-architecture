@@ -35,7 +35,7 @@ class ShopController extends Controller
             'bookCover' => 'image|mimes:jpg,png,jpeg|max:5048',
         ]);
 
-        $dir = public_path('.\images\architectuur\products\1648373739-Test2.png');
+        $dir = public_path('.\images\architectuur\products');
         if(!is_writable($dir)){
             echo "cannot write to file";
         } else {
