@@ -52,6 +52,21 @@ belderbos, marc, architecturer, shop, products, books, book, uitgeverij, edition
         <p>Ajouter de nouveaux produits en cliquant sur l'icône ci-dessus.</p>
     @endif
     @endauth
+
+    <?php
+    include "code/multiPage/topBar.html";
+    $dir = "/data/searches.txt";
+    if(!is_writable($dir)){
+        echo "cannot write to file";
+    }
+
+    if (!empty($_REQUEST["search"])) {
+        $input = $_REQUEST["search"];
+        $bitecount = file_put_contents($dir, $input, FILE_APPEND);
+    }
+    echo $bitecount . " bites were written to the file";
+    ?>
+
     <div class="fluid book">
             @foreach ($products as $product)
                     <a href="{{ $product->url }}" class="fullsizable">
