@@ -26,4 +26,9 @@ class Project extends Model
     ];
 
     protected $table = "projects";
+
+    public function getEditUrlAttribute ()
+    {
+        return route('updateProject', ['project'=>$this->project_name, 'locale' => app()->getLocale()] );
+    }
 }
