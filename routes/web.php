@@ -34,6 +34,7 @@ Route::prefix('/{locale}')->group(function () {
 
     Route::get('architectuur/{project}', 'App\Http\Controllers\ArchitectureController@showProject')->name('project-title', 'project');
     Route::post('update-project/{project}', 'App\Http\Controllers\ArchitectureController@updateProject')->name('updateProject')->middleware('auth');
+    Route::get('delete-project/{project}', 'App\Http\Controllers\ArchitectureController@deleteProject')->name("deleteProject")->middleware('auth');
 
 
     Route::get('woorden', 'App\Http\Controllers\WordsController@showWords')->name('woorden');

@@ -109,4 +109,14 @@ class ArchitectureController extends Controller
         return redirect()->back();
     }
 
+    public function deleteProject ($locale, $project)
+    {
+        $projects = Project::all();
+        $currentProject = Project::where('project_name', '=', $project)
+            ->first();
+        $currentProject->delete();
+
+        return redirect(route('architectuur', ['locale' => app()->getLocale()] ));
+    }
+
 }

@@ -16,7 +16,12 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
             <?php
                 $title = str_replace("-", " ", $project)
             ?>
-            <h3>{{ucwords($title)}}</h3>
+            <h3>
+                {{ucwords($title)}}
+                @auth
+                    <a href="{{ route('deleteProject', ['project'=>$project, 'locale' => app()->getLocale()] ) }}" style="margin: 10px;"><button style="background-color: lightcoral; color: white; border-radius: 5px;padding:10px;">Delete</button></a>
+                @endauth
+            </h3>
             <img alt="{{ucwords($title)}}" title="{{ ucwords($title) }}" src="{{ asset('storage/' . $cover->project_image) }}">
             <a class="thoughts" href="{{ route('gedachten', ['locale' => app()->getLocale()] ) }}"><button>{!! __('pagination.thoughts') !!}</button></a>
         </div>
