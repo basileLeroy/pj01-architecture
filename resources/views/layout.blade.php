@@ -70,7 +70,8 @@
             tinymce.init({
                 selector:'textarea.description',
                 width: 700,
-                height: 300
+                height: 300,
+                plugins: 'link',
             });
         </script>
 
