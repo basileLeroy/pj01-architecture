@@ -30,7 +30,8 @@
         </div>
     @endauth
 <div class="fluid intro" style="width: 650px;">
-        {!! __('pagination.notAvailable') !!}
-
+        @foreach ($articles as $article)
+            <?= $article->article_content ?>
+        @endforeach
     </div>
 @endsection
