@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Storage;
 
 class OthersController extends Controller
 {
@@ -25,16 +26,32 @@ class OthersController extends Controller
     {
         $page = 'others';
         $localeLanguage = App::getLocale();
-        $articleContent = $request->description;
-
         $articles = Article::where('language', '=', $localeLanguage)
             ->where('page', '=', $page)
             ->first();
+//        dd($localeLanguage, $articles, $request);
+        $request->validate([
+            'image' => 'image|mimes:jpg,png,jpeg|max:5048',
+        ]);
 
-        $articles->article_content = $articleContent;
+        $addNewImage = null;
 
+        $imageExists = Storage::exists($articles->image);
+
+
+        if($request->image) {
+            // TODO: remove current cover image
+            if($imageExists) {
+                Storage::delete($articles->image);
+            }
+            // TODO: store new image in storage
+            $addNewImage = $request->file('image')->store('images/architecture/articles');
+
+            //TODO: update cover in DB
+            $articles->image = $addNewImage;
+        };
+        $articles->article_content = $request->description;
         $articles->save();
-
         return redirect()->back();
     }
 }

@@ -71,7 +71,9 @@
                 selector:'textarea.description',
                 width: 700,
                 height: 300,
-                plugins: 'link',
+                plugins: [
+                    'link',
+                    ],
             });
         </script>
 

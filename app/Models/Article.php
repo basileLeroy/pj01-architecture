@@ -18,7 +18,8 @@ class Article extends Model
         'title',
         'article_content',
         'language',
-        'page'
+        'page',
+        'image'
     ];
 
     protected $table = "articles";
