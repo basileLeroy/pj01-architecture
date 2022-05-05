@@ -74,30 +74,24 @@ class ArchitectureController extends Controller
         $coverExists = Storage::exists($currentProject->project_image);
 
         if($request->projectCover) {
-            // TODO: remove current cover image
             if($coverExists) {
                 Storage::delete($currentProject->project_image);
             }
-            // TODO: store new image in storage
             $addNewImage = $request->file('projectCover')->store('images/architecture/icons');
 
-            //TODO: update cover in DB
             $currentProject->project_image = $addNewImage;
         };
 
         if($request->projectGallery) {
-            //TODO: remove gallery from storage
             foreach ($currentProject->project_gallery as $image){
                 Storage::delete($image);
             }
 
-            //TODO: update new gallery to storage
             foreach($request->projectGallery as $image) {
                 $singleImage = $image->store('images/architecture/slider');
                 $gallery[] = $singleImage;
             };
 
-            //TODO: update slider to DB
             $currentProject->project_gallery = $gallery;
         }
 

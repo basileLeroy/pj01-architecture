@@ -40,14 +40,11 @@ class OthersController extends Controller
 
 
         if($request->image) {
-            // TODO: remove current cover image
             if($imageExists) {
                 Storage::delete($articles->image);
             }
-            // TODO: store new image in storage
             $addNewImage = $request->file('image')->store('images/architecture/articles');
 
-            //TODO: update cover in DB
             $articles->image = $addNewImage;
         };
         $articles->article_content = $request->description;
