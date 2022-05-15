@@ -55,7 +55,7 @@ class WordsController extends Controller
 
         return redirect()->back();
     }
-    //TODO: Add content to articles
+
     public function updateArticle(Request $request)
     {
         $page = 'words';
