@@ -29,6 +29,16 @@ class OthersController extends Controller
         ]);
     }
 
+    public function showDetailPage($locale, $article)
+    {
+        $articles = Article::where('title', '=', $article)
+            ->get();
+        return view('others.detailPage')
+            ->with([
+                'articles' => $articles
+            ]);
+    }
+
     public function updateOthers(Request $request)
     {
         $page = 'others';

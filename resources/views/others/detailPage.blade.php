@@ -40,18 +40,11 @@
             </div>
         </div>
     @endauth
-<div class="fluid intro" style="width: 650px;">
+    <div class="fluid intro" style="width: 650px;">
         @foreach ($articles as $article)
             {!! $article->article_content !!}
             <br>
         @endforeach
     </div>
 
-    <ul class="link-group">
-        @foreach ($detailPages as $article)
-            <?php $title = str_replace("-", " ", $article->title) ?>
-            <li class="link"><a href="{{ route('otherPages', ['article' => $article->title, 'locale' => app()->getLocale() ] ) }}">{{ ucwords($title) }}</a></li>
-        @endforeach
-
-    </ul>
 @endsection
