@@ -17,8 +17,8 @@
             <div class="addSection">
                 <form action="{{ route('updateOthers', ['locale' => app()->getLocale()] ) }}" method="POST" enctype="multipart/form-data" >
                     {{ csrf_field() }}
-                    <label for="image">Add Image</label>
-                    <input type="file" id="image" name="image">
+                    <h3>Updating current article</h3>
+
                     <br>
                     <textarea class="description" id="sectionContent" name="description">
 
@@ -27,7 +27,15 @@
                         @endforeach
 
                     </textarea>
-                    <button type="submit" id="updateArticle" name="updateArticle" value="Upload">Save</button>
+                    <hr >
+                    <br>
+                    <h3>Creating new detail page</h3>
+                    <br>
+                    <label for="newArticle">Title of the new article: </label>
+                    <input type="text" id="newArticle" name="newArticle" style="border: 1px solid black; padding-left: 5px;">
+                    <br>
+
+                    <button type="submit" id="updateArticle" name="updateArticle" value="Upload" style="margin-top: 10px; padding: 10px;">Save</button>
                 </form>
             </div>
         </div>
