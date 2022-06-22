@@ -23,7 +23,7 @@ class OthersController extends Controller
             ->where('page', '=', $detailPage)
             ->get();
 
-        return view('others')->with([
+        return view('others.others')->with([
             'articles' => $articles,
             'detailPages' => $detailArticles
         ]);
@@ -31,11 +31,11 @@ class OthersController extends Controller
 
     public function showDetailPage($locale, $article)
     {
-
         $page = "others-detail";
 
         $articles = Article::where('language', '=', $locale)
             ->where('page', '=', $page)
+            ->where('title','=',$article)
             ->first();
 
 
@@ -56,6 +56,10 @@ class OthersController extends Controller
 
         if($request->newArticle) {
 
+            $request->validate([
+                'image' => 'image|mimes:jpg,png,jpeg|max:5048',
+            ]);
+
             $detailTitle =  str_replace(" ", "-", $request->newArticle);
             $languages = ["nl", "fr", "en"];
             foreach ($languages as $lang) {
@@ -67,46 +71,73 @@ class OthersController extends Controller
                 } else {
                     $noContentMessage = "No content available yet.";
                 }
+                $addNewImage = null;
+
+                $imageExists = Storage::exists($articles->image);
+
+                if($request->image) {
+                    if($imageExists) {
+                        Storage::delete($articles->image);
+                    }
+                    $addNewImage = $request->file('image')->store('images/architecture/articles');
+
+                    $articles->image = $addNewImage;
+                };
                 Article::create([
                     'title' => $detailTitle,
                     'article_content' => $noContentMessage,
                     'language' => $lang,
-                    'page' => "others-detail"
+                    'page' => "others-detail",
+                    'image' => $addNewImage
                 ]);
             }
         };
+
         $articles->article_content = $request->description;
         $articles->save();
         return redirect()->back();
     }
 
-    public function updateDetailPage (Request $request)
+    public function updateDetailPage ($locale, $project, Request $request)
     {
-        $page = 'others-detail';
-        $localeLanguage = App::getLocale();
-        $articles = Article::where('language', '=', $localeLanguage)
-            ->where('page', '=', $page)
-            ->first();
-//        dd($localeLanguage, $articles, $request);
+
+        $languages = ["nl", "fr", "en"];
+//        ddd($locale, $project, $request);
+
         $request->validate([
             'image' => 'image|mimes:jpg,png,jpeg|max:5048',
         ]);
 
-        $addNewImage = null;
+        foreach($languages as $lang) {
+            $currentProject = Article::where('title', '=', $project)
+                ->where('language','=',$lang)
+                ->first();
 
-        $imageExists = Storage::exists($articles->image);
+            $addNewImage = null;
 
+            $coverExists = Storage::exists($currentProject->image);
 
-        if($request->image) {
-            if($imageExists) {
-                Storage::delete($articles->image);
-            }
-            $addNewImage = $request->file('image')->store('images/architecture/articles');
+            if($request->image) {
+                if($coverExists) {
+                    Storage::delete($currentProject->image);
+                }
+                $addNewImage = $request->file('image')->store('images/architecture/other/icons');
 
-            $articles->image = $addNewImage;
-        };
-        $articles->article_content = $request->description;
-        $articles->save();
+                $currentProject->image = $addNewImage;
+            };
+
+            $currentProject->save();
+        }
+
+        if($request->description) {
+            $localeLanguage = App::getLocale();
+            $langSpecificProject = Article::where('title', '=', $project)
+                ->where('language','=',$localeLanguage)
+                ->first();
+            $langSpecificProject->article_content = $request->description;
+
+            $langSpecificProject->save();
+        }
         return redirect()->back();
     }
 }

@@ -9,7 +9,7 @@ belderbos, marc, architecturer, shop, products, books, book, uitgeverij, edition
     {{ __('nav.shop') }}
 @endsection
 
-@section('shop')
+@section('content')
     @auth
     <div class="editSection w3-display-container">
         <input class="toggle-box" id="header1" type="checkbox" >

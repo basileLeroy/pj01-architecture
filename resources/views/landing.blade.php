@@ -13,7 +13,7 @@ use GuzzleHttp\Psr7\Uri;
     Home
 @endsection
 
-@section('landing')
+@section('content')
     <div class="fluid intro">
         <img src="{{url('/images/home/allessandro.jpg')}}" title="Les ordres - Alessandro Anselmi" alt="Allessandro Anselmi">
         <input class="toggle-box" id="header1" type="checkbox" >

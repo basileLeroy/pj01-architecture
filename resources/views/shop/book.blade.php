@@ -5,7 +5,7 @@
     {{ $book->title }}
 @endsection
 
-@section('book')
+@section('content')
     @auth
     <div class="editSection w3-display-container">
         <input class="toggle-box" id="header1" type="checkbox" >

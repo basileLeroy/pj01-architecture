@@ -7,7 +7,7 @@
     Admin
 @endsection
 
-@section('admin')
+@section('content')
 <div class="login-card">
     <h1 class="form-heading">Admin Login</h1>
     <div class="login-form">

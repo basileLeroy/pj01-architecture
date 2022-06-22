@@ -9,7 +9,7 @@ belderbos, marc, contact, email, phone, adress, architecturer, about
     Contact
 @endsection
 
-@section('contact')
+@section('content')
     @auth
         <div class="editSection w3-display-container">
             <input class="toggle-box" id="header1" type="checkbox" >

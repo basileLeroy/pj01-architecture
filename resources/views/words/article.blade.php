@@ -9,7 +9,7 @@ belderbos, marc, architecturer, words, woorden, mots
     Woorden
 @endsection
 
-@section('words01')
+@section('content')
     @auth
         <div class="editSection w3-display-container">
         <input class="toggle-box" id="header1" type="checkbox" >

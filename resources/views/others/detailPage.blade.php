@@ -9,15 +9,15 @@
     Anderen
 @endsection
 
-@section('contact')
+@section('content')
     @auth
         <div class="editSection w3-display-container">
             <input class="toggle-box" id="header1" type="checkbox" >
             <label for="header1"><i class="fa fa-edit w3-xxlarge w3-display-topleft"></i></label>
             <div class="addSection">
-                <form action="{{ route('updateDetailPage', ['locale' => app()->getLocale()] ) }}" method="POST" enctype="multipart/form-data" >
+                <form action="{{ route('updateDetailPage', ['article' => $articles->title, 'locale' => app()->getLocale()] ) }}" method="POST" enctype="multipart/form-data" >
                     {{ csrf_field() }}
-                    <label for="image">Add Image</label>
+                    <label for="image">Add Cover Image</label>
                     <input type="file" id="image" name="image">
                     <br>
                     <textarea class="description" id="sectionContent" name="description">

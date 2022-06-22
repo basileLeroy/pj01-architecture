@@ -36,18 +36,10 @@
             </header>
             <section>
 
-                @yield('landing')
                 @yield('admin')
-                @yield('intentionsWebsite')
-                @yield('intentionsProjects')
-                @yield('architecture')
-                @yield('words')
-                @yield('project')
-                @yield('shop')
-                @yield('book')
+                @yield('content')
                 @yield('confirmation')
-                @yield('words01')
-                @yield('contact')
+
                 @if (session('PaymentMessage'))
                 <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 4000)" x-show="show" class="flashMessage">
                     <p>{{ session('PaymentMessage') }}</p>

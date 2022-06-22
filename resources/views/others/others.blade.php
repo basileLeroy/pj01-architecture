@@ -9,7 +9,7 @@
     Anderen
 @endsection
 
-@section('contact')
+@section('content')
     @auth
         <div class="editSection w3-display-container">
             <input class="toggle-box" id="header1" type="checkbox" >
@@ -34,24 +34,32 @@
                     <label for="newArticle">Title of the new article: </label>
                     <input type="text" id="newArticle" name="newArticle" style="border: 1px solid black; padding-left: 5px;">
                     <br>
-
+                    <label for="image">Add Cover Image</label>
+                    <input type="file" id="image" name="image">
+                    <br>
                     <button type="submit" id="updateArticle" name="updateArticle" value="Upload" style="margin-top: 10px; padding: 10px;">Save</button>
                 </form>
             </div>
         </div>
     @endauth
 <div class="fluid intro" style="width: 650px;">
-        @foreach ($articles as $article)
-            {!! $article->article_content !!}
-            <br>
-        @endforeach
-    </div>
+    @foreach ($articles as $article)
+        {!! $article->article_content !!}
+        <br>
+    @endforeach
+        <hr>
+</div>
 
-    <ul class="link-group">
+    <div class="fluid projects">
+
         @foreach ($detailPages as $article)
             <?php $title = str_replace("-", " ", $article->title) ?>
-            <li class="link"><a href="{{ route('otherPages', ['article' => $article->title, 'locale' => app()->getLocale() ] ) }}">{{ ucwords($title) }}</a></li>
+            <div class="project-card">
+                <a href="{{ route('otherPages', ['article' => $article->title, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
+                    <img alt="{{ $title }}" title="{{ $title }}" src="{{ asset('storage/' . $article->image)}}">
+                    <p>{{ ucwords($title) }}</p>
+                </a>
+            </div>
         @endforeach
-
-    </ul>
+    </div>
 @endsection

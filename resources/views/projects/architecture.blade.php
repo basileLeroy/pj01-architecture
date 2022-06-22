@@ -9,7 +9,7 @@ belderbos, marc, architecturer, projects, projecten, projets, portfolio, achieve
     Architecture
 @endsection
 
-@section('architecture')
+@section('content')
     @auth
     <div class="editSection w3-display-container">
         <input class="toggle-box" id="header1" type="checkbox" >

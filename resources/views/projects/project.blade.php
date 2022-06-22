@@ -9,7 +9,7 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
     <?php echo str_replace("-", " ", $project) ?>
 @endsection
 
-@section('project')
+@section('content')
 <div class="project-gallery">
     <div class="fluid projects">
         <div class="project-card">
