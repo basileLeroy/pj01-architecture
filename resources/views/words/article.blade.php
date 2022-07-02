@@ -6,7 +6,7 @@ belderbos, marc, architecturer, words, woorden, mots
 @endsection
 
 @section('title')
-    Woorden
+    Mots
 @endsection
 
 @section('content')

@@ -31,8 +31,9 @@ class WordsController extends Controller
 
     public function showLink($locale, $title)
     {
+        $localeLanguage = App::getLocale();
         $article = Article::where('title', '=', $title)
-            ->where('language', '=', $locale)
+            ->where('language', '=', $localeLanguage)
             ->first();
 
 
