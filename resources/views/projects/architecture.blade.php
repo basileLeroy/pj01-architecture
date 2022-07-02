@@ -34,7 +34,7 @@ belderbos, marc, architecturer, projects, projecten, projets, portfolio, achieve
     <div class="fluid projects">
 
         @foreach ($projects as $project)
-        <?php $title = str_replace("-", " ", $project->project_name) ?>
+        <?php $title = str_replace("-", " ", $project->title) ?>
         <div class="project-card">
             <a href="{{ route('project-title', ['project' => $project->project_name, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
                 <img alt="{{ $title }}" title="{{ $title }}" src="{{ asset('storage/' . $project->project_image)}}">

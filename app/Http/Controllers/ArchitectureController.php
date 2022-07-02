@@ -129,6 +129,16 @@ class ArchitectureController extends Controller
             $currentProject->save();
         }
 
+        if($request->projectTitle) {
+            $localeLanguage = App::getLocale();
+            $langSpecificProject = Project::where('project_name', '=', $project)
+                ->where('language','=',$localeLanguage)
+                ->first();
+            $langSpecificProject->title = $request->projectTitle;
+
+            $langSpecificProject->save();
+        }
+
         if($request->description) {
             $localeLanguage = App::getLocale();
             $langSpecificProject = Project::where('project_name', '=', $project)

@@ -6,7 +6,7 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
 @endsection
 
 @section('title')
-    <?php echo str_replace("-", " ", $project) ?>
+    <?php echo str_replace("-", " ", $cover->title) ?>
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
     <div class="fluid projects">
         <div class="project-card">
             <?php
-                $title = str_replace("-", " ", $project)
+                $title = str_replace("-", " ", $cover->title)
             ?>
             <h3>
                 {{ucwords($title)}}
