@@ -19,6 +19,9 @@
                     {{ csrf_field() }}
                     <label for="image">Add Cover Image</label>
                     <input type="file" id="image" name="image">
+                    <br><br>
+                    <label for="articleImage">Add Article Image</label>
+                    <input type="file" id="articleImage" name="articleImage">
                     <br>
                     <textarea class="description" id="sectionContent" name="description">
 
@@ -33,8 +36,8 @@
     <div class="fluid intro" style="width: 650px;">
             {!! $articles->article_content !!}
             <br>
-            @if($articles->image)
-                <img src="{{ asset('storage/' . $articles->image) }}" alt="Others">
+            @if($articles->article_image)
+                <img src="{{ asset('storage/' . $articles->article_image) }}" alt="Others">
             @endif
     </div>
 @endsection

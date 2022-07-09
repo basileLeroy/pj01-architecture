@@ -106,6 +106,7 @@ class OthersController extends Controller
 
         $request->validate([
             'image' => 'image|mimes:jpg,png,jpeg|max:5048',
+            'articleImage' => 'image|mimes:jpg,png,jpeg|max:5048',
         ]);
 
         foreach($languages as $lang) {
@@ -116,6 +117,7 @@ class OthersController extends Controller
             $addNewImage = null;
 
             $coverExists = Storage::exists($currentProject->image);
+            $imageExists = Storage::exists($currentProject->article_image);
 
             if($request->image) {
                 if($coverExists) {
@@ -124,6 +126,14 @@ class OthersController extends Controller
                 $addNewImage = $request->file('image')->store('images/architecture/other/icons');
 
                 $currentProject->image = $addNewImage;
+            };
+            if($request->articleImage) {
+                if($imageExists) {
+                    Storage::delete($currentProject->article_image);
+                }
+                $addNewImage = $request->file('articleImage')->store('images/architecture/other/images');
+
+                $currentProject->article_image = $addNewImage;
             };
 
             $currentProject->save();
