@@ -38,7 +38,7 @@
     <ul class="link-group">
         @foreach ($articles as $article)
         <?php $title = str_replace("-", " ", $article->title) ?>
-            <li class="link"><a href="{{ route('words-title', ['words' => $article->title, 'locale' => app()->getLocale() ] ) }}">{{ ucwords($title) }}</a></li>
+            <li class="link"><a href="{{ route('words-title', ['words' => \Illuminate\Support\Str::slug($article->title), 'locale' => app()->getLocale() ] ) }}">{{ ucwords($title) }}</a></li>
         @endforeach
 
     </ul>
