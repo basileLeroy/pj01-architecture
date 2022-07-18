@@ -40,14 +40,16 @@ Route::prefix('/{locale}')->group(function () {
     Route::get('mots', 'App\Http\Controllers\WordsController@showWords')->name('woorden');
     Route::post('mots', 'App\Http\Controllers\WordsController@showIntro')->name('woorden')->middleware('auth');
 
+    Route::get('mots/autres', 'App\Http\Controllers\OthersController@showOthers')->name('anderen');
+    Route::get('mots/autres/{article}', 'App\Http\Controllers\OthersController@showDetailPage')->name('otherPages');
+    Route::post('update-others', 'App\Http\Controllers\OthersController@updateOthers')->name('updateOthers')->middleware('auth');
+    Route::post('update-detail-page/{article}', 'App\Http\Controllers\OthersController@updateDetailPage')->name('updateDetailPage')->middleware('auth');
+
     Route::get('mots/{words}', 'App\Http\Controllers\WordsController@showLink')->name('words-title', 'words');
     Route::post('mots/{words}', 'App\Http\Controllers\WordsController@updateArticle')->name('words-title', 'words')->middleware('auth');
 
     // Route::get('marc-belderbos', 'App\Http\Controllers\AuthorController@showMarcBelderbos')->name('marc-belderbos');
-    Route::get('autres', 'App\Http\Controllers\OthersController@showOthers')->name('anderen');
-    Route::get('autres/{article}', 'App\Http\Controllers\OthersController@showDetailPage')->name('otherPages');
-    Route::post('update-others', 'App\Http\Controllers\OthersController@updateOthers')->name('updateOthers')->middleware('auth');
-    Route::post('update-detail-page/{article}', 'App\Http\Controllers\OthersController@updateDetailPage')->name('updateDetailPage')->middleware('auth');
+
     Route::get('concepteur/biographie', 'App\Http\Controllers\BiographyController@showBio')->name('biografie');
     Route::post('concepteur/biographie', 'App\Http\Controllers\BiographyController@updateBio')->name('biografie')->middleware('auth');
     Route::get('concepteur/contact', 'App\Http\Controllers\ContactController@showContact')->name('contact');
