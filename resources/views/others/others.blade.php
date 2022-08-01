@@ -53,11 +53,11 @@
     <div class="fluid projects">
 
         @foreach ($detailPages as $article)
-            <?php $title = str_replace("-", " ", $article->title) ?>
+
             <div class="project-card">
                 <a href="{{ route('otherPages', ['article' => $article->title, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
-                    <img alt="{{ $title }}" title="{{ $title }}" src="{{ asset('storage/' . $article->image)}}">
-                    <p>{{ ucwords($title) }}</p>
+                    <img alt="{{ $article->language_title }}" title="{{ $article->language_title }}" src="{{ asset('storage/' . $article->image)}}">
+                    <p>{{ ucwords($article->language_title) }}</p>
                 </a>
             </div>
         @endforeach

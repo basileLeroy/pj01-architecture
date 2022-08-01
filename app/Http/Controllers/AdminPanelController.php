@@ -27,9 +27,7 @@ class AdminPanelController extends Controller
             'password' => 'required',
         ]);
 
-
         if (auth()->attempt($attributes)) {
-
             $title = 'landing_Article';
             $localeLanguage = App::getLocale();
 

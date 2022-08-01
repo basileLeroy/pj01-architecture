@@ -20,6 +20,9 @@
                     <label for="image">Add Cover Image</label>
                     <input type="file" id="image" name="image">
                     <br><br>
+                    <label for="languageTitle">Add <strong>{{app()->getLocale()}}</strong> Title</label>
+                    <input type="text" id="languageTitle" name="languageTitle" style="border: 1px solid black; padding-left: 5px;">
+                    <br><br>
                     <label for="articleImage">Add Article Image</label>
                     <input type="file" id="articleImage" name="articleImage">
                     <br>
@@ -28,7 +31,7 @@
                             {!! $articles->article_content !!}
 
                     </textarea>
-                    <button type="submit" id="updateArticle" name="updateArticle" value="Upload">Save</button>
+                    <button type="submit" id="updateArticle" name="updateArticle" value="Upload" style="padding: 10px; margin-top: 5px">Save</button>
                 </form>
             </div>
         </div>

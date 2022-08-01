@@ -83,6 +83,7 @@ class ArchitectureController extends Controller
 
         // return view('architecture')->with('projects', $projects);
     }
+
     public function updateProject($locale, $project, Request $request)
     {
 

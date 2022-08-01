@@ -35,8 +35,7 @@ belderbos, marc, architecturer, words, woorden, mots
         </h2>
 
         <br><br>
-
-        {!! $article->article_content !!}
+        <?= $article->article_content ?>
 
     </div>
     <div class="fluid book" style="margin-top:50px">

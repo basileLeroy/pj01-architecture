@@ -60,16 +60,19 @@ class OthersController extends Controller
                 'image' => 'image|mimes:jpg,png,jpeg|max:5048',
             ]);
 
-            $detailTitle =  str_replace(" ", "-", $request->newArticle);
+            $replacedSlashes =  str_replace("/", "", $request->newArticle);
+            $replaceDoubleSpaces = str_replace("  ", " ", $replacedSlashes);
+            $replaceQuotes =  str_replace("'", "", $replaceDoubleSpaces);
+            $detailTitle =  str_replace(" ", "-", $replaceQuotes);
             $languages = ["nl", "fr", "en"];
             foreach ($languages as $lang) {
-
+                $article = new Article;
                 if($lang === "nl") {
-                    $noContentMessage = "Er is nog geen inhoud beschikbaar.";
+                    $article->article_content = "Er is nog geen inhoud beschikbaar.";
                 } else if ($lang === "fr") {
-                    $noContentMessage = "Aucun contenu disponible pour le moment.";
+                    $article->article_content = "Aucun contenu disponible pour le moment.";
                 } else {
-                    $noContentMessage = "No content available yet.";
+                    $article->article_content = "No content available yet.";
                 }
                 $addNewImage = null;
 
@@ -81,15 +84,15 @@ class OthersController extends Controller
                     }
                     $addNewImage = $request->file('image')->store('images/architecture/articles');
 
-                    $articles->image = $addNewImage;
+                    $article->image = $addNewImage;
                 };
-                Article::create([
-                    'title' => $detailTitle,
-                    'article_content' => $noContentMessage,
-                    'language' => $lang,
-                    'page' => "others-detail",
-                    'image' => $addNewImage
-                ]);
+
+                $article->title = $detailTitle;
+                $article->language = $lang;
+                $article->page = "others-detail";
+                $article->language_title = $request->newArticle;
+
+                $article->save();
             }
         };
 
@@ -127,6 +130,13 @@ class OthersController extends Controller
 
                 $currentProject->image = $addNewImage;
             };
+
+            if($request->languageTitle) {
+                if($lang === App::getLocale()) {
+
+                    $currentProject->language_title = $request->languageTitle;
+                }
+            }
             if($request->articleImage) {
                 if($imageExists) {
                     Storage::delete($currentProject->article_image);

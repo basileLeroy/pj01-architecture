@@ -18,7 +18,6 @@ class ShopController extends Controller
 
     public function updateProducts(Request $request)
     {
-//        ddd($request->file("bookCover"));
         $request->validate([
             'bookTitle' => 'required',
             'author' => 'required',
