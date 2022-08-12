@@ -1,3 +1,0 @@
-@section('tinyMce-config')
-
-@endsection

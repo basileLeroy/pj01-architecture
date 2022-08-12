@@ -17,7 +17,7 @@ mix.js('resources/js/app.js', 'public/js')
     ]);
 
 mix.copyDirectory('vendor/tinymce/tinymce', 'public/js/tinymce');
-mix.copy('node_modules/tinymce/jquery.tinymce.js', 'public/node_modules/tinymce/jquery.tinymce.js');
+mix.copy('node_modules/tinymce/jquery.tinymce.blade.php', 'public/node_modules/tinymce/jquery.tinymce.blade.php');
 mix.copy('node_modules/tinymce/jquery.tinymce.min.js', 'public/node_modules/tinymce/jquery.tinymce.min.js');
-mix.copy('node_modules/tinymce/tinymce.js', 'public/node_modules/tinymce/tinymce.js');
+mix.copy('node_modules/tinymce/tinymce.blade.php', 'public/node_modules/tinymce/tinymce.blade.php');
 mix.copy('node_modules/tinymce/tinymce.min.js', 'public/node_modules/tinymce/tinymce.min.js');

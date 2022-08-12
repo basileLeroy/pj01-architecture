@@ -17,7 +17,8 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/lightbox/lightbox.css') }}" />
 
-        @yield('tinyMce-config')
+        @extends("components.head.tinymce-config")
+        @extends("components.head.lightbox-config")
     </head>
 
     <body>
@@ -48,71 +49,6 @@
             </section>
         </div>
 
-{{--        <!-- WYSIWYG Text-editor -->--}}
-{{--        <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>--}}
-{{--        <script>--}}
-{{--            tinymce.init({--}}
-{{--                selector: 'textarea#description', // Replace this CSS selector to match the placeholder element for TinyMCE--}}
-{{--                width: 700,--}}
-{{--                height: 300--}}
-{{--            });--}}
-{{--        </script>--}}
-        <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
-        <script>
-            tinymce.init({
-                selector:'textarea.description',
-                width: 700,
-                height: 300,
-                plugins: [
-                    'link',
-                    ],
-            });
-        </script>
-
-        <!-- LightBox image gallery framework -->
-        <script src="{{ asset('js/lightbox/lightbox-plus-jquery.js') }}"></script>
-        <script>
-            lightbox.option({
-                'resizeDuration': 200,
-                'imageFadeDuration': 200,
-                'fadeDuration' : 100,
-                'wrapAround': true,
-
-            })
-        </script>
-        <script>
-            const slider = document.querySelector('.gallery');
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-
-            slider.addEventListener('mousedown', (e) => {
-                isDown = true;
-                slider.classList.add('active');
-                startX = e.pageX - slider.offsetLeft;
-                scrollLeft = slider.scrollLeft;
-            });
-            slider.addEventListener('mouseleave', () => {
-                isDown = false;
-                slider.classList.remove('active');
-            });
-            slider.addEventListener('mouseup', () => {
-                isDown = false;
-                slider.classList.remove('active');
-            });
-            slider.addEventListener('mouseclick', () => {
-                isDown = false;
-                slider.classList.remove('active');
-            });
-            slider.addEventListener('mousemove', (e) => {
-                if(!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - slider.offsetLeft;
-                const walk = (x - startX) * 3; //scroll-fast
-                slider.scrollLeft = scrollLeft - walk;
-                console.log(walk);
-            });
-        </script>
     </body>
 
 </html>

@@ -23,8 +23,8 @@
                     <label for="languageTitle">Add <strong>{{app()->getLocale()}}</strong> Title</label>
                     <input type="text" id="languageTitle" name="languageTitle" style="border: 1px solid black; padding-left: 5px;">
                     <br><br>
-                    <label for="articleImage">Add Article Image</label>
-                    <input type="file" id="articleImage" name="articleImage">
+{{--                    <label for="articleImage">Add Article Image</label>--}}
+{{--                    <input type="file" id="articleImage" name="articleImage">--}}
                     <br>
                     <textarea class="description" id="sectionContent" name="description">
 
