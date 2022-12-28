@@ -106,8 +106,7 @@ class WordsController extends Controller
 //        ddd($locale, $project, $request);
 
         $request->validate([
-            'image' => 'image|mimes:jpg,png,jpeg|max:5048',
-            'articleImage' => 'image|mimes:jpg,png,jpeg|max:5048',
+            'image' => 'mimes:jpeg,jpg,png|max:5000',
         ]);
 
         foreach($languages as $lang) {
