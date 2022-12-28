@@ -14,8 +14,7 @@ class ArchitectureController extends Controller
         $localeLanguage = App::getLocale();
         $projects = Project::where('language', '=', $localeLanguage)
             ->get();
-
-//        ddd($projects);
+        //ddd($projects);
         return view('projects.architecture')->with('projects', $projects);
     }
 

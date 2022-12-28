@@ -31,22 +31,21 @@ Route::prefix('/{locale}')->group(function () {
     Route::get('architecture', 'App\Http\Controllers\ArchitectureController@showArchitecture')->name('architectuur');
     Route::post('architecture', 'App\Http\Controllers\ArchitectureController@addProject')->name('architectuur')->middleware('auth');
 
-
     Route::get('architecture/{project}', 'App\Http\Controllers\ArchitectureController@showProject')->name('project-title', 'project');
     Route::post('update-project/{project}', 'App\Http\Controllers\ArchitectureController@updateProject')->name('updateProject')->middleware('auth');
     Route::get('delete-project/{project}', 'App\Http\Controllers\ArchitectureController@deleteProject')->name("deleteProject")->middleware('auth');
 
-
     Route::get('mots', 'App\Http\Controllers\WordsController@showWords')->name('woorden');
-    Route::post('mots', 'App\Http\Controllers\WordsController@showIntro')->name('woorden')->middleware('auth');
+    Route::post('mots', 'App\Http\Controllers\WordsController@updateWords')->name('updateWords')->middleware('auth');
 
     Route::get('mots/autres', 'App\Http\Controllers\OthersController@showOthers')->name('anderen');
     Route::get('mots/autres/{article}', 'App\Http\Controllers\OthersController@showDetailPage')->name('otherPages');
     Route::post('update-others', 'App\Http\Controllers\OthersController@updateOthers')->name('updateOthers')->middleware('auth');
     Route::post('update-detail-page/{article}', 'App\Http\Controllers\OthersController@updateDetailPage')->name('updateDetailPage')->middleware('auth');
 
-    Route::get('mots/{words}', 'App\Http\Controllers\WordsController@showLink')->name('words-title', 'words');
-    Route::post('mots/{words}', 'App\Http\Controllers\WordsController@updateArticle')->name('words-title', 'words')->middleware('auth');
+    Route::get('mots/{words}', 'App\Http\Controllers\WordsController@showDetailPage')->name('wordsDetailPages');
+    Route::post('mots/{words}', 'App\Http\Controllers\WordsController@updateDetailPage')->name('updateDetailPage')->middleware('auth');
+    Route::get('mots/{words}/delete', 'App\http\Controllers\WordsController@deleteArticle')->name('deleteArticle')->middleware('auth');
 
     // Route::get('marc-belderbos', 'App\Http\Controllers\AuthorController@showMarcBelderbos')->name('marc-belderbos');
 
