@@ -40,12 +40,14 @@ Route::prefix('/{locale}')->group(function () {
 
     Route::get('mots/autres', 'App\Http\Controllers\OthersController@showOthers')->name('anderen');
     Route::get('mots/autres/{article}', 'App\Http\Controllers\OthersController@showDetailPage')->name('otherPages');
+    Route::post('mots/autres/{article}', 'App\Http\Controllers\OthersController@updateDetailPage')->name('updateOthersDetailPage')->middleware('auth');
+    Route::get('mots/autres/{article}/delete', 'App\Http\Controllers\OthersController@deleteArticle')->name('deleteOthersArticle')->middleware('auth');
     Route::post('update-others', 'App\Http\Controllers\OthersController@updateOthers')->name('updateOthers')->middleware('auth');
-    Route::post('update-detail-page/{article}', 'App\Http\Controllers\OthersController@updateDetailPage')->name('updateDetailPage')->middleware('auth');
+    // Route::post('update-detail-page/{article}', 'App\Http\Controllers\OthersController@updateDetailPage')->name('updateOthersDetailPage')->middleware('auth');
 
     Route::get('mots/{words}', 'App\Http\Controllers\WordsController@showDetailPage')->name('wordsDetailPages');
     Route::post('mots/{words}', 'App\Http\Controllers\WordsController@updateDetailPage')->name('updateDetailPage')->middleware('auth');
-    Route::get('mots/{words}/delete', 'App\http\Controllers\WordsController@deleteArticle')->name('deleteArticle')->middleware('auth');
+    Route::get('mots/{words}/delete', 'App\http\Controllers\WordsController@deleteArticle')->name('deleteWordsArticle')->middleware('auth');
 
     // Route::get('marc-belderbos', 'App\Http\Controllers\AuthorController@showMarcBelderbos')->name('marc-belderbos');
 

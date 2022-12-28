@@ -12,7 +12,7 @@ belderbos, marc, architecturer, words, woorden, mots
 @section('content')
     <h3>
         @auth
-            <a href="{{ route('deleteArticle', ['words' => $articles->title, 'locale' => app()->getLocale() ] )  }}" style="position:absolute; left:100px"><button style="background-color: lightcoral; color: white; border-radius: 5px;padding:10px;">Delete</button></a>
+            <a href="{{ route('deleteWordsArticle', ['words' => $articles->title, 'locale' => app()->getLocale() ] )  }}" style="position:absolute; left:100px"><button style="background-color: lightcoral; color: white; border-radius: 5px;padding:10px;">Delete</button></a>
         @endauth
     </h3>
     @auth

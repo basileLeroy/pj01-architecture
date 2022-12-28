@@ -160,4 +160,22 @@ class OthersController extends Controller
         }
         return redirect()->back();
     }
+
+    public function deleteArticle ($locale, $article)
+    {
+        $languages = ["nl","fr","en"];
+        foreach ($languages as $lang) {
+            $currentProject = Article::where('title', '=', $article)
+                ->where('language','=',$lang)
+                ->first();
+            if($currentProject->image) {
+                Storage::disk('public')->delete($currentProject->image);
+            }
+            if($currentProject->article_image){
+                Storage::disk('public')->delete($currentProject->article_image);
+            }
+            $currentProject->delete();
+        }
+        return redirect(route("anderen", ['locale' => app()->getLocale()] ));
+    }
 }
