@@ -14,8 +14,8 @@
         <div class="editSection w3-display-container">
             <input class="toggle-box" id="header1" type="checkbox" >
             <label for="header1"><i class="fa fa-edit w3-xxlarge w3-display-topleft"></i></label>
-            <div class="addSection">
-                <form action="{{ route('updateWords', ['locale' => app()->getLocale()] ) }}" method="POST" enctype="multipart/form-data" >
+            <div class="addSection" style="width:170%;">
+                <form action="{{ route('updateWords', ['locale' => app()->getLocale()] ) }}" method="POST" class="sectionUploader" enctype="multipart/form-data" >
                     {{ csrf_field() }}
                     <h3>Updating current article</h3>
 
@@ -27,10 +27,10 @@
                         @endforeach
 
                     </textarea>
-                    <hr >
-                    <br>
-                    <h3>Creating new detail page</h3>
-                    <br>
+                    
+                    <hr style="margin-top: 20px; border-top: 4px solid #000;">
+                    <h3 style="margin-bottom: 50px;">Creating new detail page</h3>
+                    
                     <label for="newArticle">Title of the new article: </label>
                     <input type="text" id="newArticle" name="newArticle" style="border: 1px solid black; padding-left: 5px;">
                     <br>
