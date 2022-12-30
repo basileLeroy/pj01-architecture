@@ -16,13 +16,16 @@ class Product extends Model
      */
     protected $fillable = [
         'title',
-        'cover',
-        'about',
+        'image',
+        'article_content',
         'author',
         'publisher',
         'published',
         'url',
-        'currency'
+        'currency',
+        'language',
+        'page',
+        'language_title'
     ];
 
     protected $table = "products";

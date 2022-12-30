@@ -59,8 +59,10 @@ Route::prefix('/{locale}')->group(function () {
     Route::post('pensées', 'App\Http\Controllers\ThoughtsController@updateThoughts')->name('gedachten')->middleware('auth');
 
     Route::get('produits', 'App\Http\Controllers\ShopController@showProducts')->name('shop');
-    Route::post('produits', 'App\Http\Controllers\ShopController@updateProducts')->name('shop')->middleware('auth');
-    Route::get('produits/{product}', 'App\Http\Controllers\ShopController@showProduct')->name('product-title', 'product');
+    Route::post('produits/update', '\App\Http\Controllers\ShopController@updateProductsPage')->name('updateProducts')->middleware('auth');
+    Route::get('produits/{product}', 'App\Http\Controllers\ShopController@showDetailPage')->name('productDetailPage');
+    Route::post('produits/{product}', 'App\Http\Controllers\ShopController@updateDetailPage')->name('updateProductDetailPage')->middleware('auth');
+    Route::get('produits/{product}/delete', 'App\http\Controllers\ShopController@deleteArticle')->name('deleteProduct')->middleware('auth');
 
     Route::get('order/{product}', 'App\Http\Controllers\ShopController@showPaymentForm')->name('order-product', 'product');
     Route::post('order/initialise', 'App\Http\Controllers\ShopController@initPayment')->name('initPayment');

@@ -19,5 +19,6 @@ return [
     'thoughts' => 'Share your thoughts',
     'notAvailable' => 'No content available yet.',
     'OrderNow' => 'Order here',
-    'ConfirmOrder' => 'Confirm Order'
+    'ConfirmOrder' => 'Confirm Order',
+    'WrittenBy' => 'Written by'
 ];

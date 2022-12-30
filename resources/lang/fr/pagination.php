@@ -19,5 +19,7 @@ return [
     'thoughts' => 'Laissez une pensée',
     'notAvailable' => 'Aucun contenu disponible pour le moment.',
     'OrderNow' => 'Commander ici',
-    'ConfirmOrder' => 'Confirmer la commande'
+    'ConfirmOrder' => 'Confirmer la commande',
+    'WrittenBy' => 'Ecrit par'
+
 ];

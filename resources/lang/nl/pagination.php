@@ -20,7 +20,9 @@ return [
     'noTranslation' => 'Er is momenteel nog geen nederlands-talige vertaling beschikbaar.',
     'notAvailable' => 'Nog geen inhoud beschikbaar.',
     'OrderNow' => 'Bestel hier',
-    'ConfirmOrder' => 'Bevestig je aankoop'
+    'ConfirmOrder' => 'Bevestig je aankoop',
+    'WrittenBy' => 'Geschreven door'
+
     
 
 ];
