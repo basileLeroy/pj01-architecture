@@ -19,7 +19,7 @@
 
         {{-- Admin logout button --}}
         @auth
-            @extends('Admin.header')
+            @include('Admin.logout')
         @endauth
 
         <main>

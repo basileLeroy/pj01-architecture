@@ -40,14 +40,14 @@
             </ul>
         </div>
     </div>
-    <div class="nav-mobile">
-        <button class="mobile-menu">
+    <div class="nav-mobile" x-data="{ open: false }">
+        <button class="mobile-menu" @click="open = !open">
             MENU
         </button>
         <nav>
-            <ul class="fluid nav">
+            <ul class="primary-navigation" x-show="open">
                 <li><a href="{{ route('intenties-van-de-site', ['locale' => app()->getLocale()] ) }}">{{ __('nav.intenties')}}</a>
-                    <ul class="subnav">
+                    <ul class="secondary-navigation">
                         <li><a href="{{ route('intenties-van-de-site', ['locale' => app()->getLocale()] ) }}">{{ __('nav.intentiesVanDeSite')}}</a></li>
                         <li><a href="{{ route('intenties-bij-een-ontwerp', ['locale' => app()->getLocale()] ) }}">{{ __('nav.intentiesBijEenOntwerp')}}</a></li>
                     </ul>
@@ -69,7 +69,7 @@
                 <li><a href="{{ route('shop', ['locale' => app()->getLocale()] ) }}">{{ __('nav.shop')}}</a></li>
             </ul>
         </nav>
-        <div class="lang">
+        <div class="lang" x-show="open">
             <ul>
                 @foreach (['nl', 'fr', 'en'] as $lang)
                     <li>

@@ -1,0 +1,102 @@
+@font-face {
+    font-family:'MyriadProRegular';
+    src: url('../fonts/myriadPro/MyriadProLight.otf') format('otf');
+    font-style: normal;
+}
+$fontSize : 1.1em;
+$mobileButtonColor : #a4a4a4;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: inherit;
+}
+
+body {
+    width: 100vw;
+    position: absolute;
+    flex-flow: column wrap;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: $fontSize;
+
+    header {
+        .logo-container {
+            width: 100%;
+
+            a img {
+                width: 100%;
+                padding: 1.5rem;
+            }
+        }
+        .nav-mobile {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            width: 100%;
+
+            .mobile-menu {
+                grid-column: span 12;
+                justify-self: center;
+                width: 100%;
+                background-color: $mobileButtonColor;
+                border: none;
+                padding: 10px;
+                font-size: 1.5em;
+            }
+
+            nav {
+                grid-column: span 10;
+                justify-self: left;
+                padding-left: 50px;
+                .primary-navigation {
+                    //list-style-type: none;
+                    margin-top: 1.5em;
+                    margin-bottom: 2em;
+                    li{
+                        a {
+                            font-size: 2em;
+
+                        }
+                        ul {
+                            list-style-type: none;
+                            li a {
+                                font-size: 1.3em;
+                                margin-left: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .lang{
+                grid-column: span 2;
+                justify-self: center;
+
+                ul {
+                    list-style-type: none;
+                    font-size: 1.6em;
+                    margin-top: 1.5em;
+                }
+            }
+
+        }
+        .nav-desktop {
+            display: none;
+        }
+    }
+
+    .admin-logout {
+        display: flex;
+        position: relative;
+
+        background-color: orange;
+        font-size: 1.5em;
+        padding: 30px 20px;
+        justify-content: space-between;
+        margin: 10px;
+    }
+
+    main {
+        margin: 50px 20px;
+    }
+}
