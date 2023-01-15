@@ -44,9 +44,7 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
             $title = str_replace("-", " ", $cover->title)
         ?>
         <h3>
-{{--            {{ucwords($title)}}--}}
             {!! ucwords($title) !!}
-
         </h3>
         @auth
             <a @click="alert('Are you sure you want to delete this?')" href="{{ route('deleteProject', ['project'=>$project, 'locale' => app()->getLocale()] ) }}"><button class="delete-item">Delete</button></a>
