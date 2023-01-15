@@ -10,6 +10,7 @@
 @endsection
 
 @section('content')
+<div class="content">
     @auth
         <div class="editSection w3-display-container">
             <input class="toggle-box" id="header1" type="checkbox" >
@@ -27,10 +28,10 @@
                         @endforeach
 
                     </textarea>
-                    
+
                     <hr style="margin-top: 20px; border-top: 4px solid #000;">
                     <h3 style="margin-bottom: 50px;">Creating new detail page</h3>
-                    
+
                     <label for="newArticle">Title of the new article: </label>
                     <input type="text" id="newArticle" name="newArticle" style="border: 1px solid black; padding-left: 5px;">
                     <br>
@@ -42,24 +43,18 @@
             </div>
         </div>
     @endauth
-<div class="fluid intro" style="width: 650px;">
     @foreach ($articles as $article)
         {!! $article->article_content !!}
         <br>
     @endforeach
-        <hr>
+    <hr>
+    @foreach ($detailPages as $article)
+        <div class="project-card">
+            <a href="{{ route('wordsDetailPages', ['words' => $article->title, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
+                <img alt="{{ $article->language_title }}" title="{{ $article->language_title }}" src="{{ asset('storage/' . $article->image)}}">
+                <p>{{ ucwords($article->language_title) }}</p>
+            </a>
+        </div>
+    @endforeach
 </div>
-
-    <div class="fluid projects">
-
-        @foreach ($detailPages as $article)
-
-            <div class="project-card">
-                <a href="{{ route('wordsDetailPages', ['words' => $article->title, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
-                    <img alt="{{ $article->language_title }}" title="{{ $article->language_title }}" src="{{ asset('storage/' . $article->image)}}">
-                    <p>{{ ucwords($article->language_title) }}</p>
-                </a>
-            </div>
-        @endforeach
-    </div>
 @endsection
