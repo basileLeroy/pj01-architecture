@@ -149,6 +149,14 @@ body {
                     }
                 }
             }
+            .gallery {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                a {
+                    width: 30%;
+                }
+            }
         }
         .editSection {
             display: none;
