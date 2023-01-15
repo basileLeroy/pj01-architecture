@@ -28,15 +28,15 @@ belderbos, marc, architecturer, shop, products, books, book, uitgeverij, edition
                         <h3>Add New Book:</h3>
 
                         <label for="bookTitle">Book title </label>
-                        <input type="text" id="sectionTitle" name="bookTitle" placeholder=" (example: My Book title)">
+                        <input type="text" id="sectionTitle" name="bookTitle" placeholder=" (example: My Book title)"><br>
                         <label for="author">Author </label>
-                        <input type="text" id="sectionTitle" name="author" placeholder=" (example: Annie M.G. Schmidt)">
-                        <label for="bookInfo">Intro text </label>
-                        <textarea class="bookInfo" id="sectionInput" name="bookInfo"></textarea>
+                        <input type="text" id="sectionTitle" name="author" placeholder=" (example: Annie M.G. Schmidt)"><br>
+                        <label for="bookInfo">Intro text </label><br>
+                        <textarea rows="8" cols="80" class="bookInfo" id="sectionInput" name="bookInfo"></textarea><br><br>
                         <label for="url">URL </label>
-                        <input type="text" id="sectionTitle" name="url" placeholder=" (example: https://www.amazon.com/your-product)">
+                        <input type="text" id="sectionTitle" name="url" placeholder=" (example: https://www.amazon.com/your-product)"><br>
                         <label for="published">Published at  </label>
-                        <input type="date" id="sectionTitle" name="published">
+                        <input type="date" id="sectionTitle" name="published"><br>
                         <label for="publisher">Publisher </label>
                         <input type="text" id="sectionTitle" name="publisher" placeholder=" (example: Van Dale Uitgeverij)">
                         <br>

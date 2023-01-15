@@ -98,8 +98,8 @@ $deleteButtonTextColor : white;
                             flex-direction: column;
                             position: absolute;
                             top: inherit;
-                            left: 10px;
-                            padding-left: 120px;
+                            left: 70px;
+                            padding-left: 100px;
                             width: 300px;
                         }
                     }
@@ -153,11 +153,16 @@ $deleteButtonTextColor : white;
                 flex-direction: column;
                 //justify-content: center;
                 align-items: center;
+                text-align: left;
                 h1 {
                     margin-bottom: 50px;
                 }
                 p {
                     text-align: start;
+                }
+                .text-box {
+                    max-width: 800px;
+                    text-align: left;
                 }
                 .text-show-action:hover {
                     cursor: pointer;
@@ -207,7 +212,18 @@ $deleteButtonTextColor : white;
                 }
             }
             .editSection {
+                width: 750px;
                 display: block;
+                position: relative;
+                border: 2px solid black;
+                border-radius: 10px;
+                padding: 15px;
+                background-color: #eaeaea;
+
+                i {
+                    position: relative;
+                    margin-bottom: 15px;
+                }
             }
         }
     }

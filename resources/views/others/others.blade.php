@@ -42,20 +42,20 @@
                 </div>
             </div>
         @endauth
-        <div x-data class="project-detail-card">
+        <div class="text-box">
             @foreach ($articles as $article)
                 {!! $article->article_content !!}
                 <br>
             @endforeach
             <hr>
-            @foreach ($detailPages as $article)
-                <div class="project-card">
-                    <a href="{{ route('otherPages', ['article' => $article->title, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
-                        <img alt="{{ $article->language_title }}" title="{{ $article->language_title }}" src="{{ asset('storage/' . $article->image)}}">
-                        <p>{{ ucwords($article->language_title) }}</p>
-                    </a>
-                </div>
-            @endforeach
         </div>
+        @foreach ($detailPages as $article)
+            <div class="project-card">
+                <a href="{{ route('otherPages', ['article' => $article->title, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
+                    <img alt="{{ $article->language_title }}" title="{{ $article->language_title }}" src="{{ asset('storage/' . $article->image)}}">
+                    <p>{{ ucwords($article->language_title) }}</p>
+                </a>
+            </div>
+        @endforeach
     </div>
 @endsection

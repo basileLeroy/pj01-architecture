@@ -18,13 +18,13 @@ belderbos, marc, contact, email, phone, adress, architecturer, about
                     <form action="{{ route('contact', ['locale' => app()->getLocale()] ) }}" method="POST" class="sectionUploader">
                         {{ csrf_field() }}
                         <label for="projectTitle">Adress: </label>
-                        <input type="text" required id="sectionTitle" name="adress" placeholder=" Wegstraat, 26">
+                        <input type="text" required id="sectionTitle" name="adress" placeholder=" Wegstraat, 26"><br>
                         <label for="projectTitle">Region / Postal code: </label>
-                        <input type="text" required id="sectionTitle" name="region" placeholder=" 9000, GENT">
+                        <input type="text" required id="sectionTitle" name="region" placeholder=" 9000, GENT"><br>
                         <label for="projectTitle">Country: </label>
-                        <input type="text" required id="sectionTitle" name="country" placeholder=" Belgie">
+                        <input type="text" required id="sectionTitle" name="country" placeholder=" Belgie"><br>
                         <label for="projectTitle">Phone number: </label>
-                        <input type="text" required id="sectionTitle" name="phone" placeholder=" +32 412 34 56 78">
+                        <input type="text" required id="sectionTitle" name="phone" placeholder=" +32 412 34 56 78"><br>
                         <label for="projectTitle">Email: </label>
                         <input type="text" required id="sectionTitle" name="email" placeholder=" example@email.com">
 

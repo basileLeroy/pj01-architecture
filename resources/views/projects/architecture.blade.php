@@ -20,8 +20,9 @@ belderbos, marc, architecturer, projects, projecten, projets, portfolio, achieve
                         {{ csrf_field() }}
                         <h3>Add a New Project</h3>
 
-                        <label for="projectTitle">Project title: </label>
+                        <label for="projectTitle">Project title: </label> <br>
                         <input type="text" id="sectionTitle" name="projectTitle" placeholder=" (example: 1978-Reel-Boom)">
+                        <h3>Select your Images</h3>
                         <label for="projectCover">Cover image: </label>
                         <input type="file" id="sectionCover" name="projectCover">
                         <br>
