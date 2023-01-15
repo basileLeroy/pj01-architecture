@@ -23,6 +23,15 @@ body {
     font-family: "MyriadProRegular", sans-serif;
     font-size: $normalFontSize;
 
+    button {
+        width: 100%;
+        border: none;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: $mobileButtonColor;
+        font-weight: bold;
+    }
+
     header {
         .logo-container {
             width: 100%;
@@ -110,6 +119,7 @@ body {
             h1 {
                 margin-bottom: 50px;
             }
+
             .editSection {
                 display: none;
             }
@@ -133,14 +143,6 @@ body {
                 }
                 img {
                     width: 100%;
-                }
-                button {
-                    width: 100%;
-                    border: none;
-                    padding: 15px;
-                    border-radius: 5px;
-                    background-color: $mobileButtonColor;
-                    font-weight: bold;
                 }
                 a {
                     .delete-item {
