@@ -30,8 +30,11 @@ belderbos, biography, bio, architecturer, about
                 </div>
             </div>
         @endauth
-        @foreach ($articles as $article)
-            {!! $article->article_content !!}
-        @endforeach
+            <div class="text-box">
+                @foreach ($articles as $article)
+                    {!! $article->article_content !!}
+                @endforeach
+            </div>
+
     </div>
 @endsection

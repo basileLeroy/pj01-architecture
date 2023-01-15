@@ -35,7 +35,7 @@ use GuzzleHttp\Psr7\Uri;
             </div>
         @endauth
 
-        <div x-show="show">
+        <div class="text-box" x-show="show">
             <?= $article->article_content ?>
         </div>
     </div>

@@ -60,10 +60,13 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
             @endforeach
         @endif
     </div>
+    <div class="text-box">
+        @if($cover->description != null)
+            {!! $cover->description !!}
+        @endif
+    </div>
 
-    @if($cover->description != null)
-        {!! $cover->description !!}
-    @endif
+
 </div>
 
 @endsection

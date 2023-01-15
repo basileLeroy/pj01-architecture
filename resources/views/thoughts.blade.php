@@ -30,9 +30,13 @@
                 </div>
             </div>
         @endauth
-        @foreach ($articles as $article)
-            <?= $article->article_content ?>
-        @endforeach
+
+        <div class="text-box">
+            @foreach ($articles as $article)
+                <?= $article->article_content ?>
+            @endforeach
+        </div>
+
         <a class="thoughts" href="mailto:{{ env('MAIL_ADMIN') }}">
             <button>{!! __('pagination.thoughts') !!}</button>
         </a>

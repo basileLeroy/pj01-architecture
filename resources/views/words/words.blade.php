@@ -43,10 +43,12 @@
             </div>
         </div>
     @endauth
-    @foreach ($articles as $article)
-        {!! $article->article_content !!}
-        <br>
-    @endforeach
+    <div class="text-box">
+        @foreach ($articles as $article)
+            {!! $article->article_content !!}
+            <br>
+        @endforeach
+    </div>
     <hr>
     @foreach ($detailPages as $article)
         <div class="project-card">

@@ -59,11 +59,4 @@
             @endforeach
         </div>
     </div>
-
-<div class="fluid intro" style="width: 650px;">
-
-</div>
-
-    <div class="fluid projects">
-    </div>
 @endsection

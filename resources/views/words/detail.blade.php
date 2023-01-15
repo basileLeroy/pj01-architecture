@@ -47,7 +47,8 @@ belderbos, marc, architecturer, words, woorden, mots
                <img src="{{ asset('storage/' . $articles->article_image) }}" alt="Others">
            @endif
        </div>
-
-       {!! $articles->article_content !!}
+       <div class="text-box">
+           {!! $articles->article_content !!}
+       </div>
    </div>
 @endsection

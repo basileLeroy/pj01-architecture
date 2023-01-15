@@ -62,10 +62,13 @@ belderbos, marc, architecturer, shop, products, books, book, uitgeverij, edition
                 <p>Ajouter de nouveaux produits en cliquant sur l'icône ci-dessus.</p>
             @endif
         @endauth
-        @foreach ($products as $product)
-            {!! $product->article_content !!}
-            <br>
-        @endforeach
+        <div class="text-box">
+            @foreach ($products as $product)
+                {!! $product->article_content !!}
+                <br>
+            @endforeach
+        </div>
+
         <hr>
         @foreach ($detailPages as $product)
             <div class="project-card" >

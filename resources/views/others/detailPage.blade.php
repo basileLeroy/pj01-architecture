@@ -43,7 +43,9 @@
                 <a @click="alert('Are you sure you want to delete this?')" href="{{ route('deleteOthersArticle', ['article' => $articles->title, 'locale' => app()->getLocale() ] )  }}" ><button class="delete-item">Delete</button></a>
             @endauth
         </div>
-        {!! $articles->article_content !!}
+        <div class="text-box">
+            {!! $articles->article_content !!}
+        </div>
         <br>
         @if($articles->article_image)
             <img src="{{ asset('storage/' . $articles->article_image) }}" alt="Others">
