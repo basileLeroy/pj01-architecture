@@ -13,11 +13,10 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
 <div class="content">
     @auth
         <div class="editSection w3-display-container" >
-            <input class="toggle-box" id="header1" type="checkbox" >
-            <label for="header1"><i class="fa fa-edit w3-xxlarge w3-display-topleft"></i></label>
+            <i class="fa fa-edit w3-xxlarge w3-display-topleft"></i>
 
-            <div class="addSection" style="width:170%">
-                <form action="{{ route('updateProject', ['project'=>$project, 'locale' => app()->getLocale()] ) }}" method="POST" class="sectionUploader" enctype="multipart/form-data"  style="min-width: 750px;">
+            <div class="addSection">
+                <form action="{{ route('updateProject', ['project'=>$project, 'locale' => app()->getLocale()] ) }}" method="POST" class="sectionUploader" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <label for="projectTitle">Project title: </label>
                     <input type="text" id="sectionTitle" name="projectTitle" placeholder=" (example: 1978-Reel-Boom)">
