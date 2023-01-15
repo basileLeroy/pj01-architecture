@@ -5,7 +5,11 @@
 }
 $normalFontSize : 1.1em;
 $titleFontSize: 1.7em;
+$linkColor : #B6B6B6;
+$linkHoverColor : #444;
 $mobileButtonColor : #a4a4a4;
+$deleteButtonColor : lightcoral;
+$deleteButtonTextColor : white;
 
 * {
     margin: 0;
@@ -14,75 +18,110 @@ $mobileButtonColor : #a4a4a4;
     font: inherit;
 }
 
-@media only screen and (min-width: 450px){
+@media only screen and (min-width: 750px){
+    html {
+        max-width: 1250px;
+        margin: 0 auto;
+    }
     body {
-        width: 100vw;
-        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 1250px;
+        //position: absolute;
         flex-flow: column wrap;
         font-family: "MyriadProRegular", sans-serif;
         font-size: $normalFontSize;
 
-        header {
-            .logo-container {
-                width: 100%;
+        button {
+            width: 100%;
+            border: none;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            background-color: $mobileButtonColor;
+            font-weight: bold;
+        }
 
-                a img {
-                    width: 100%;
-                    padding: 1.3rem;
+        header {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            margin-top: 1.25em;
+            width: 100%;
+            ul {
+                list-style-type: none;
+                li {
+                    padding: 0.125em 0;
+                    color: $linkColor;
+                }
+                li:hover {
+                    color: $linkHoverColor;
                 }
             }
-            .nav-mobile {
-                display: grid;
-                grid-template-columns: repeat(12, 1fr);
+            .logo-container {
                 width: 100%;
-
-                .mobile-menu {
-                    grid-column: span 12;
-                    justify-self: center;
-                    width: 100%;
-                    background-color: $mobileButtonColor;
-                    border: none;
-                    padding: 10px;
-                    font-size: 1.2em;
+                grid-column: span 4;
+                justify-self: end;
+                a img {
+                    width: 90%;
+                    padding: 1.5rem;
                 }
+            }
+            .nav-desktop {
+                display: grid;
+                grid-column: span 8;
+                grid-template-columns: repeat(8 , 1fr);
+                nav{
+                    grid-column: span 6;
+                    margin: 1em 0;
+                    a {
+                        text-decoration: none;
+                    }
 
-                nav {
-                    grid-column: span 10;
-                    justify-self: left;
-                    padding-left: 50px;
-                    .primary-navigation {
-                        //list-style-type: none;
-                        margin-top: 1.2em;
-                        margin-bottom: 2em;
-                        li{
-                            a {
-                                font-size: 2em;
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        width: auto;
+                        position: relative;
+                        li {
+                            display: flex;
+                            flex-direction: row;
 
+                            .secondary-navigation {
+                                display: none;
                             }
-                            ul {
-                                list-style-type: none;
-                                li a {
-                                    font-size: 1em;
-                                    margin-left: 30px;
-                                }
-                            }
+                        }
+                        li:hover .secondary-navigation {
+                            display: flex;
+                            flex-direction: column;
+                            position: absolute;
+                            top: inherit;
+                            left: 10px;
+                            padding-left: 120px;
+                            width: 300px;
                         }
                     }
                 }
-
-                .lang{
+                .lang {
                     grid-column: span 2;
                     justify-self: center;
 
+                    a {
+                        text-decoration: none;
+                    }
+
                     ul {
-                        list-style-type: none;
-                        font-size: 1.3em;
-                        margin-top: 1.2em;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1.5em;
                     }
                 }
-
             }
-            .nav-desktop {
+
+            .nav-mobile {
                 display: none;
             }
         }
@@ -90,27 +129,45 @@ $mobileButtonColor : #a4a4a4;
         .admin-logout {
             display: flex;
             position: relative;
-
+            border-radius: 5px;
             background-color: orange;
-            font-size: 1.1em;
-            padding: 30px 20px;
+            padding: 10px 30px;
             justify-content: space-between;
             margin: 10px;
+
+            a {
+                font-weight: bold;
+            }
         }
 
         main {
-            margin: 50px 20px;
-
+            width: 100%;
             img {
-                width: 100%;
-                margin-bottom: 50px;
+                width: 460px;
+                margin: auto 0;
+                //margin-bottom: 50px;
             }
             .content {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                //justify-content: center;
+                align-items: center;
                 h1 {
                     margin-bottom: 50px;
                 }
+                p {
+                    text-align: start;
+                }
+                .text-show-action:hover {
+                    cursor: pointer;
+                    color: $linkColor;
+                }
+
                 .editSection {
                     display: block;
+                    margin: 50px;
+                    max-width: 800px;
                 }
 
                 .project-card {
@@ -133,13 +190,19 @@ $mobileButtonColor : #a4a4a4;
                     img {
                         width: 100%;
                     }
-                    button {
-                        width: 100%;
-                        border: none;
-                        padding: 15px;
-                        border-radius: 5px;
-                        background-color: $mobileButtonColor;
-                        font-weight: bold;
+                    a {
+                        .delete-item {
+                            background-color: $deleteButtonColor;
+                            color: $deleteButtonTextColor;
+                        }
+                    }
+                }
+                .gallery {
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    a {
+                        width: 30%;
                     }
                 }
             }
@@ -148,5 +211,6 @@ $mobileButtonColor : #a4a4a4;
             }
         }
     }
+
 }
 
