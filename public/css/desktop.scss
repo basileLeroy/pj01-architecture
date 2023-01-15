@@ -5,7 +5,7 @@
 }
 $normalFontSize : 1.1em;
 $titleFontSize: 1.7em;
-$linkColor : #B6B6B6;
+$linkColor : #a5a5a5;
 $linkHoverColor : #444;
 $mobileButtonColor : #a4a4a4;
 $deleteButtonColor : lightcoral;
@@ -174,21 +174,10 @@ $deleteButtonTextColor : white;
                     margin: 50px;
                     max-width: 800px;
                 }
-
-                .project-card {
-                    width: 100%;
-                    margin: 50px 0;
-                    a {
-                        text-align: center;
-                        img {
-                            width: 100%;
-                        }
-                    }
-                }
                 .project-detail-card {
-                    width: 100%;
                     text-align: center;
                     margin-bottom: 50px;
+                    width: 800px;
                     h3 {
                         font-size: $titleFontSize;
                     }
@@ -202,12 +191,66 @@ $deleteButtonTextColor : white;
                         }
                     }
                 }
-                .gallery {
+                .card-body {
                     width: 100%;
                     display: flex;
-                    flex-wrap: wrap;
-                    a {
+                    flex-direction: row;
+
+                    .project-detail-card {
+                        position: sticky;
+                        top: 20px;
                         width: 30%;
+                        margin: 15px;
+
+                    }
+                    .card-content {
+                        width: 70%;
+                        flex-direction: column;
+                        .gallery {
+                            position: relative;
+                            width: 100%;
+                            overflow-x: scroll;
+                            a {
+                                height: 100%;
+                                img {
+                                    height: 200px;
+                                    width: auto;
+                                }
+                            }
+                        }
+                        .text-box {
+
+                        }
+                    }
+
+
+                }
+
+                .card-group {
+                    width: 1000px;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .project-card {
+                        width: 150px;
+                        margin: 50px;
+
+                        a {
+                            flex-direction: column;
+                            width: 100%;
+                            color: #74787e;
+                            text-decoration: none;
+                            img {
+                                width: 150px;
+
+                            }
+                            p{
+                                text-align: center;
+                            }
+                        }
+                        a:hover {
+                            color: black;
+                        }
                     }
                 }
             }

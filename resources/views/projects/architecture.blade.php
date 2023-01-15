@@ -33,15 +33,17 @@ belderbos, marc, architecturer, projects, projecten, projets, portfolio, achieve
                 </div>
             </div>
         @endauth
-
-        @foreach ($projects as $project)
-        <?php $title = str_replace("-", " ", $project->title) ?>
-        <div class="project-card">
-            <a href="{{ route('project-title', ['project' => $project->project_name, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
-                <img alt="{{ $title }}" title="{{ $title }}" src="{{ asset('storage/' . $project->project_image)}}">
-                <p>{{ ucwords($title) }}</p>
-            </a>
+        <div class="card-group">
+            @foreach ($projects as $project)
+                <?php $title = str_replace("-", " ", $project->title) ?>
+                <div class="project-card">
+                    <a href="{{ route('project-title', ['project' => $project->project_name, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
+                        <img alt="{{ $title }}" title="{{ $title }}" src="{{ asset('storage/' . $project->project_image)}}">
+                        <p>{{ ucwords($title) }}</p>
+                    </a>
+                </div>
+            @endforeach
         </div>
-        @endforeach
+
     </div>
 @endsection

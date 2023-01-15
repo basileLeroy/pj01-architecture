@@ -40,32 +40,34 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project) ?>
             </div>
         </div>
     @endauth
-
-    <div x-data class="project-detail-card">
-        <?php
-            $title = str_replace("-", " ", $cover->title)
-        ?>
-        <h3>
-            {!! ucwords($title) !!}
-        </h3>
-        @auth
-            <a @click="alert('Are you sure you want to delete this?')" href="{{ route('deleteProject', ['project'=>$project, 'locale' => app()->getLocale()] ) }}"><button class="delete-item">Delete</button></a>
-        @endauth
-        <img alt="{{ucwords($title)}}" title="{{ ucwords($title) }}" src="{{ asset('storage/' . $cover->project_image) }}">
-        <a class="thoughts" href="{{ route('gedachten', ['locale' => app()->getLocale()] ) }}"><button>{!! __('pagination.thoughts') !!}</button></a>
-    </div>
-
-    <div class="gallery">
-        @if($imageArray)
-            @foreach($imageArray as $sliderImage)
-                <a href="{{ asset('storage/' . $sliderImage) }}" data-lightbox="roadtrip"><img src="{{ asset('storage/' . $sliderImage) }}" alt="{{$title}}"></a>
-            @endforeach
-        @endif
-    </div>
-    <div class="text-box">
-        @if($cover->description != null)
-            {!! $cover->description !!}
-        @endif
+    <div class="card-body">
+        <div x-data class="project-detail-card">
+            <?php
+                $title = str_replace("-", " ", $cover->title)
+            ?>
+            <h3>
+                {!! ucwords($title) !!}
+            </h3>
+            @auth
+                <a @click="alert('Are you sure you want to delete this?')" href="{{ route('deleteProject', ['project'=>$project, 'locale' => app()->getLocale()] ) }}"><button class="delete-item">Delete</button></a>
+            @endauth
+            <img alt="{{ucwords($title)}}" title="{{ ucwords($title) }}" src="{{ asset('storage/' . $cover->project_image) }}">
+            <a class="thoughts" href="{{ route('gedachten', ['locale' => app()->getLocale()] ) }}"><button>{!! __('pagination.thoughts') !!}</button></a>
+        </div>
+        <div class="card-content">
+            <div class="gallery">
+                @if($imageArray)
+                    @foreach($imageArray as $sliderImage)
+                        <a href="{{ asset('storage/' . $sliderImage) }}" data-lightbox="roadtrip"><img src="{{ asset('storage/' . $sliderImage) }}" alt="{{$title}}"></a>
+                    @endforeach
+                @endif
+            </div>
+            <div class="text-box">
+                @if($cover->description != null)
+                    {!! $cover->description !!}
+                @endif
+            </div>
+        </div>
     </div>
 
 

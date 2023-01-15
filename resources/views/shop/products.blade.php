@@ -69,15 +69,16 @@ belderbos, marc, architecturer, shop, products, books, book, uitgeverij, edition
         </div>
 
         <hr>
-        @foreach ($detailPages as $product)
-            <div class="project-card" >
-                <a href="{{ route('productDetailPage', ['product' => $product->title, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
-                    <img alt="{{ $product->language_title }}" title="{{ $product->language_title }}" src="{{ asset('storage/' . $product->image)}}">
-                    <p>{{ ucwords($product->language_title) }}</p>
-                </a>
-            </div>
-        @endforeach
-
+        <div class="card-group">
+            @foreach ($detailPages as $product)
+                <div class="project-card" >
+                    <a href="{{ route('productDetailPage', ['product' => $product->title, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
+                        <img alt="{{ $product->language_title }}" title="{{ $product->language_title }}" src="{{ asset('storage/' . $product->image)}}">
+                        <p>{{ ucwords($product->language_title) }}</p>
+                    </a>
+                </div>
+            @endforeach
+        </div>
         @if(count($products) === 0)
             <p>{{ __('products.notFound') }}</p>
         @endif
