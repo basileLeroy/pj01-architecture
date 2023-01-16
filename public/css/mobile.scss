@@ -155,9 +155,10 @@ body {
             .gallery {
                 width: 100%;
                 display: flex;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
+                overflow-x: scroll;
                 a {
-                    width: 30%;
+                    width: 40%;
                 }
             }
         }
