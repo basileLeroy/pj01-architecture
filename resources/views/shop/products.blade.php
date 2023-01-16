@@ -22,7 +22,9 @@ belderbos, marc, architecturer, shop, products, books, book, uitgeverij, edition
                         <h3>Update Introduction Text:</h3>
 
                         <label for="description">About these books</label>
-                        <textarea class="description" id="description" name="description"></textarea>
+                        <textarea class="description" id="description" name="description">@foreach ($products as $product)
+                                {!! $product->article_content !!}
+                            @endforeach</textarea>
 
                         <hr>
                         <h3>Add New Book:</h3>

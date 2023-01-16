@@ -38,7 +38,7 @@ class ShopController extends Controller
         $products = Product::where('language', '=', $localeLanguage)
             ->where('page', '=', $page)
             ->first();
-        
+
         if($request->bookTitle) {
             $request->validate([
                 'bookTitle' => 'required',
@@ -90,7 +90,12 @@ class ShopController extends Controller
                 $product->save();
             }
         }
-        $products->article_content = $request->bookInfo;
+        if($request->description) {
+            $request->validate([
+                "description" => "required"
+            ]);
+            $products->article_content = $request->description;
+        }
         $products->save();
         return redirect()->back();
     }
