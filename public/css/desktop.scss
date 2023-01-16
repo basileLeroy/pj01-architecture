@@ -207,6 +207,7 @@ $deleteButtonTextColor : white;
                         width: 70%;
                         flex-direction: column;
                         .gallery {
+                            display: flex;
                             position: relative;
                             width: 100%;
                             overflow-x: scroll;

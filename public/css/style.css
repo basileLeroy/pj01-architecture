@@ -326,6 +326,7 @@ body main .editSection {
     flex-direction: column;
   }
   body main .content .card-body .card-content .gallery {
+    display: flex;
     position: relative;
     width: 100%;
     overflow-x: scroll;
