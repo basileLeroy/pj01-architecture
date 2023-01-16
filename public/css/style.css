@@ -327,6 +327,7 @@ body main .editSection {
   }
   body main .content .card-body .card-content .gallery {
     display: flex;
+    flex-wrap: nowrap;
     position: relative;
     width: 100%;
     overflow-x: scroll;
