@@ -23,6 +23,31 @@ $deleteButtonTextColor : white;
         max-width: 1250px;
         margin: 0 auto;
     }
+
+    .login-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #eaeaea;
+        width: 300px;
+        height: auto;
+        border: 3px solid #ff9500;
+        border-radius: 10px;
+        
+        button:hover {
+            cursor: pointer;
+            background-color: $linkHoverColor;
+        }
+        ul {
+            list-style-type: none;
+            color: #cc8500;
+        }
+    }
+    .not-available-for-mobile {
+        display: none;
+    }
+
     body {
         display: flex;
         flex-direction: column;
@@ -220,14 +245,8 @@ $deleteButtonTextColor : white;
                                 }
                             }
                         }
-                        .text-box {
-
-                        }
                     }
-
-
                 }
-
                 .card-group {
                     width: 1000px;
                     display: flex;
@@ -256,6 +275,7 @@ $deleteButtonTextColor : white;
                     }
                 }
             }
+
             .editSection {
                 width: 750px;
                 display: block;

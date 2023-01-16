@@ -14,7 +14,6 @@ class AdminPanelController extends Controller
 {
     public function login()
     {
-        // $pwd = Hash::make('n60&e4KVWErv');
 
         return view('Admin.login');
     }

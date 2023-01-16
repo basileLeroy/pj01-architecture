@@ -3,141 +3,150 @@
   src: url("../fonts/myriadPro/MyriadProLight.otf") format("otf");
   font-style: normal;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font: inherit;
-}
+@media only screen and (max-width: 749px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: inherit;
+  }
 
-body {
-  width: 100vw;
-  position: absolute;
-  flex-flow: column wrap;
-  font-family: "MyriadProRegular", sans-serif;
-  font-size: 1.1em;
-}
-body button {
-  width: 100%;
-  border: none;
-  padding: 15px;
-  margin: 20px 0;
-  border-radius: 5px;
-  background-color: #a4a4a4;
-  font-weight: bold;
-}
-body header .logo-container {
-  width: 100%;
-}
-body header .logo-container a img {
-  width: 100%;
-  padding: 1.3rem;
-}
-body header .nav-mobile {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  width: 100%;
-}
-body header .nav-mobile .mobile-menu {
-  grid-column: span 12;
-  justify-self: center;
-  width: 100%;
-  background-color: #a4a4a4;
-  border: none;
-  padding: 10px;
-  font-size: 1.2em;
-}
-body header .nav-mobile nav {
-  grid-column: span 10;
-  justify-self: left;
-  padding-left: 50px;
-}
-body header .nav-mobile nav .primary-navigation {
-  margin-top: 1.2em;
-  margin-bottom: 2em;
-}
-body header .nav-mobile nav .primary-navigation li a {
-  font-size: 2em;
-}
-body header .nav-mobile nav .primary-navigation li ul {
-  list-style-type: none;
-}
-body header .nav-mobile nav .primary-navigation li ul li a {
-  font-size: 1em;
-  margin-left: 30px;
-}
-body header .nav-mobile .lang {
-  grid-column: span 2;
-  justify-self: center;
-}
-body header .nav-mobile .lang ul {
-  list-style-type: none;
-  font-size: 1.3em;
-  margin-top: 1.2em;
-}
-body header .nav-desktop {
-  display: none;
-}
-body .admin-logout {
-  display: flex;
-  position: relative;
-  background-color: orange;
-  font-size: 1.1em;
-  padding: 30px 20px;
-  justify-content: space-between;
-  margin: 10px;
-}
-body main {
-  margin: 50px 20px;
-}
-body main img {
-  width: 100%;
-  margin-bottom: 50px;
-}
-body main .content h1 {
-  margin-bottom: 50px;
-}
-body main .content .editSection {
-  display: none;
-}
-body main .content .project-card {
-  width: 100%;
-  margin: 50px 0;
-}
-body main .content .project-card a {
-  text-align: center;
-}
-body main .content .project-card a img {
-  width: 100%;
-}
-body main .content .project-detail-card {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 50px;
-}
-body main .content .project-detail-card h3 {
-  font-size: 1.7em;
-}
-body main .content .project-detail-card img {
-  width: 100%;
-}
-body main .content .project-detail-card a .delete-item {
-  background-color: lightcoral;
-  color: white;
-}
-body main .content .gallery {
-  width: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: scroll;
-}
-body main .content .gallery a {
-  width: 40%;
-}
-body main .editSection {
-  display: none;
-}
+  .login-card * {
+    display: none;
+  }
 
+  .not-available-for-mobile {
+    display: block;
+  }
+
+  body {
+    width: 100vw;
+    position: absolute;
+    flex-flow: column wrap;
+    font-family: "MyriadProRegular", sans-serif;
+    font-size: 1.1em;
+  }
+  body button {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    background-color: #a4a4a4;
+    font-weight: bold;
+  }
+  body header .logo-container {
+    width: 100%;
+  }
+  body header .logo-container a img {
+    width: 100%;
+    padding: 1.3rem;
+  }
+  body header .nav-mobile {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    width: 100%;
+  }
+  body header .nav-mobile .mobile-menu {
+    grid-column: span 12;
+    justify-self: center;
+    width: 100%;
+    background-color: #a4a4a4;
+    border: none;
+    padding: 10px;
+    font-size: 1.2em;
+  }
+  body header .nav-mobile nav {
+    grid-column: span 10;
+    justify-self: left;
+    padding-left: 50px;
+  }
+  body header .nav-mobile nav .primary-navigation {
+    margin-top: 1.2em;
+    margin-bottom: 2em;
+  }
+  body header .nav-mobile nav .primary-navigation li a {
+    font-size: 2em;
+  }
+  body header .nav-mobile nav .primary-navigation li ul {
+    list-style-type: none;
+  }
+  body header .nav-mobile nav .primary-navigation li ul li a {
+    font-size: 1em;
+    margin-left: 30px;
+  }
+  body header .nav-mobile .lang {
+    grid-column: span 2;
+    justify-self: center;
+  }
+  body header .nav-mobile .lang ul {
+    list-style-type: none;
+    font-size: 1.3em;
+    margin-top: 1.2em;
+  }
+  body header .nav-desktop {
+    display: none;
+  }
+  body .admin-logout {
+    display: flex;
+    position: relative;
+    background-color: orange;
+    font-size: 1.1em;
+    padding: 30px 20px;
+    justify-content: space-between;
+    margin: 10px;
+  }
+  body main {
+    margin: 50px 20px;
+  }
+  body main img {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  body main .content h1 {
+    margin-bottom: 50px;
+  }
+  body main .content .editSection {
+    display: none;
+  }
+  body main .content .project-card {
+    width: 100%;
+    margin: 50px 0;
+  }
+  body main .content .project-card a {
+    text-align: center;
+  }
+  body main .content .project-card a img {
+    width: 100%;
+  }
+  body main .content .project-detail-card {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  body main .content .project-detail-card h3 {
+    font-size: 1.7em;
+  }
+  body main .content .project-detail-card img {
+    width: 100%;
+  }
+  body main .content .project-detail-card a .delete-item {
+    background-color: lightcoral;
+    color: white;
+  }
+  body main .content .gallery {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
+  body main .content .gallery a {
+    width: 40%;
+  }
+  body main .editSection {
+    display: none;
+  }
+}
 @font-face {
   font-family: "MyriadProRegular";
   src: url("../fonts/myriadPro/MyriadProLight.otf") format("otf");
@@ -154,6 +163,30 @@ body main .editSection {
   html {
     max-width: 1250px;
     margin: 0 auto;
+  }
+
+  .login-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eaeaea;
+    width: 300px;
+    height: auto;
+    border: 3px solid #ff9500;
+    border-radius: 10px;
+  }
+  .login-card button:hover {
+    cursor: pointer;
+    background-color: #444;
+  }
+  .login-card ul {
+    list-style-type: none;
+    color: #cc8500;
+  }
+
+  .not-available-for-mobile {
+    display: none;
   }
 
   body {
