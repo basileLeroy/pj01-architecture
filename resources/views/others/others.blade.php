@@ -49,13 +49,16 @@
             @endforeach
             <hr>
         </div>
-        @foreach ($detailPages as $article)
-            <div class="project-card">
-                <a href="{{ route('otherPages', ['article' => $article->title, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
-                    <img alt="{{ $article->language_title }}" title="{{ $article->language_title }}" src="{{ asset('storage/' . $article->image)}}">
-                    <p>{{ ucwords($article->language_title) }}</p>
-                </a>
-            </div>
-        @endforeach
+
+        <div class="card-group">
+            @foreach ($detailPages as $article)
+                <div class="project-card">
+                    <a href="{{ route('otherPages', ['article' => $article->title, 'locale' => app()->getLocale() ] )  }}" class="fullsizable">
+                        <img alt="{{ $article->language_title }}" title="{{ $article->language_title }}" src="{{ asset('storage/' . $article->image)}}">
+                        <p>{{ ucwords($article->language_title) }}</p>
+                    </a>
+                </div>
+            @endforeach
+        </div>
     </div>
 @endsection
