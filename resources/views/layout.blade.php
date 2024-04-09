@@ -7,10 +7,10 @@
 
         <title>Architecturer - @yield('title', 'Marc Belderbos')</title>
 
-        {{-- @include("components.head.links")
-        @include("components.head.scripts")
-        @include("components.head.tinymce-config")
-        @include("components.head.lightbox-config") --}}
+        @include("components.includes.links")
+        @include("components.includes.scripts")
+        @include("components.includes.tinymce-config")
+        @include("components.includes.lightbox-config")
     </head>
     <body>
         @guest
