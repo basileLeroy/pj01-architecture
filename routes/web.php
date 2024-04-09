@@ -1,21 +1,21 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StaticPageController;
+use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [HomeController::class, "localeRedirect"]);
+Route::get("/", [LocaleController::class, "localeRedirect"]);
 
-Route::prefix('/{locale}')->middleware("guest")->group(function () {
+Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["guest", SetLocale::class])->group(function () {
     Route::get('/', [HomeController::class, "showLandingPage"])->name('welcome');
 
     Route::get("intentions/intentions-du-site", [StaticPageController::class, "displayWebsiteIntensions"])->name('intentions-fr');
     Route::get("intentions/intenties-van-de-site", [StaticPageController::class, "displayWebsiteIntensions"])->name('intentions-nl');
     Route::get("intentions/intentions-for-the-site", [StaticPageController::class, "displayWebsiteIntensions"])->name('intentions-en');
-
-
 });
 
 
