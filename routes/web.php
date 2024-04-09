@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\StaticPageController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,8 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
     Route::get("intentions/intenties-van-een-project", [StaticPageController::class, "displayIntentionsProject"])->name('intentions-project-nl');
     Route::get("intentions/intentions-for-a-project", [StaticPageController::class, "displayIntentionsProject"])->name('intentions-project-en');
 
-    
+    Route::get("architectures", [ProjectController::class, "index"])->name("projects.index");
+    Route::get("architectures/{project}", [ProjectController::class, "show"])->name("projects.show");
 });
 
 

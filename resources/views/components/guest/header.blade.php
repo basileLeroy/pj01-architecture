@@ -12,6 +12,7 @@
                     <li><a href="{{ route('intentions-project-' . app()->getLocale()) }}">{{ __('nav.intentiesBijEenOntwerp')}}</a></li>
                 </ul>
             </li>
+            <li><a href="{{ route('projects.index') }}">{{ __('nav.architectuur')}}</a></li>
         </ul>
     </nav>
     <div class="lang">
