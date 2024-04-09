@@ -13,12 +13,16 @@ return [
     |
     */
 
-    'previous' => 'Previous',
-    'next' => 'Next',
-    'overview' => 'To overview',
-    'thoughts' => 'Share your thoughts',
-    'notAvailable' => 'No content available yet.',
-    'OrderNow' => 'Order here',
-    'ConfirmOrder' => 'Confirm Order',
-    'WrittenBy' => 'Written by'
+    'previous' => 'Terug',
+    'next' => 'Volgende',
+    'overview' => 'Naar overzicht',
+    'thoughts' => 'Laat een gedachte achter',
+    'noTranslation' => 'Er is momenteel nog geen nederlands-talige vertaling beschikbaar.',
+    'notAvailable' => 'Nog geen inhoud beschikbaar.',
+    'OrderNow' => 'Bestel hier',
+    'ConfirmOrder' => 'Bevestig je aankoop',
+    'WrittenBy' => 'Geschreven door'
+
+    
+
 ];

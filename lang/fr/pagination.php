@@ -13,12 +13,13 @@ return [
     |
     */
 
-    'previous' => 'Previous',
-    'next' => 'Next',
-    'overview' => 'To overview',
-    'thoughts' => 'Share your thoughts',
-    'notAvailable' => 'No content available yet.',
-    'OrderNow' => 'Order here',
-    'ConfirmOrder' => 'Confirm Order',
-    'WrittenBy' => 'Written by'
+    'previous' => 'Précédent',
+    'next' => 'Suivant',
+    'overview' => 'Au sommaire',
+    'thoughts' => 'Laissez une pensée',
+    'notAvailable' => 'Aucun contenu disponible pour le moment.',
+    'OrderNow' => 'Commander ici',
+    'ConfirmOrder' => 'Confirmer la commande',
+    'WrittenBy' => 'Ecrit par'
+
 ];
