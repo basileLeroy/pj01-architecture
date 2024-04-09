@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
-    public function localeRedirect()
-    {
-        return redirect(route('welcome', ['locale' => 'fr']));
-    }
+    // public function localeRedirect()
+    // {
+    //     return redirect(route('welcome', ['locale' => 'fr']));
+    // }
 
     public function showLandingPage ()
     {
