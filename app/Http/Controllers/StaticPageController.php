@@ -14,8 +14,23 @@ class StaticPageController extends Controller
         $localeLanguage = App::getLocale();
         $matchThese = ['title' => $title, 'language' => $localeLanguage];
 
-        $articles = Article::where($matchThese)->get();
+        $article = Article::where($matchThese)->first();
 
-        return view("pages.guest.intentions.index");
+        return view("pages.guest.intentions.site")->with([
+            "article" => $article
+        ]);
+    }
+
+    public function displayIntentionsProject () 
+    {
+        $title = 'intentions_Projects';
+        $localeLanguage = App::getLocale();
+        $matchThese = ['title' => $title, 'language' => $localeLanguage];
+
+        $article = Article::where($matchThese)->first();
+
+        return view('pages.guest.intentions.projects')->with([
+            "article" => $article
+        ]);
     }
 }

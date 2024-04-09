@@ -9,5 +9,9 @@
 @endsection
 
 @section("content")
-    <p>website's intentions</p>
+<div class="content">
+    <div class="text-box">
+        {!! $article->article_content !!}
+    </div>
+</div>
 @endsection

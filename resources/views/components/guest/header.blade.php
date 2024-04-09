@@ -9,7 +9,7 @@
             <li><a href="{{ route('intentions-' . app()->getLocale()) }}">{{ __('nav.intenties')}}</a>
                 <ul class="secondary-navigation">
                     <li><a href="{{ route('intentions-' . app()->getLocale()) }}">{{ __('nav.intentiesVanDeSite')}}</a></li>
-                    <li><a href="{{ "/" }}">{{ __('nav.intentiesBijEenOntwerp')}}</a></li>
+                    <li><a href="{{ route('intentions-project-' . app()->getLocale()) }}">{{ __('nav.intentiesBijEenOntwerp')}}</a></li>
                 </ul>
             </li>
         </ul>

@@ -14,7 +14,7 @@
 
     <h1 class="text-show-action" @click="show = !show">{{$article->title}}</h1>
 
-    <div id="point" class="text-box" x-show="show">
+    <div id="article-content" class="text-box" x-show="show">
         <?= $article->article_content ?>
     </div>
 </div>
