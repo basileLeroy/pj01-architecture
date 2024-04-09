@@ -19,6 +19,9 @@ return new class extends Migration
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
             $table->string('page');
+            $table->string("image");
+            $table->string('article_image');
+            $table->string('language_title');
         });
     }
 

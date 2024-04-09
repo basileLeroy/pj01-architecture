@@ -14,14 +14,17 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('cover')->nullable();
-            $table->text('about');
-            $table->text('author');
+            $table->string('image')->nullable();
+            $table->text('article_content');
+            $table->text('author')->nullable();
             $table->text('published');
-            $table->text('publisher');
-            $table->text('url');
+            $table->text('publisher')->nullable();
+            $table->text('url')->nullable();
             $table->text('currency');
             $table->timestamps();
+            $table->string('language');
+            $table->string('page');
+            $table->string('language_title');
         });
     }
 
