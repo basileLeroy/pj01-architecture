@@ -23,7 +23,7 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
     Route::get("intentions/intentions-for-a-project", [StaticPageController::class, "displayIntentionsProject"])->name('intentions-project-en');
 
     Route::get("architectures", [ProjectController::class, "index"])->name("projects.index");
-    Route::get("architectures/{project}", [ProjectController::class, "show"])->name("projects.show");
+    Route::get("architectures/{Project}", [ProjectController::class, "show"])->name("projects.show");
 });
 
 

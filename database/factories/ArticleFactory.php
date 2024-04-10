@@ -19,12 +19,11 @@ class ArticleFactory extends Factory
         return [
             "title" => fake()->word(2),
             "slug" => fake()->slug(2),
-            "article_content" => fake()->text(),
+            "content" => fake()->text(),
             "language" => "en",
             "page" => fake()->word(),
             "image"=> 'images/templates/dummy.png',
-            "article_image" => 'images/templates/dummy.png',
-            "language_title" => fake()->text(15)
+            "language_title" => fake()->word(2)
         ];
     }
 }

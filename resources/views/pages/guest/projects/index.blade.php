@@ -14,13 +14,12 @@ belderbos, marc, architecturer, projects, projecten, projets, portfolio, achieve
             @foreach ($projects as $project)
                 <?php $title = str_replace("-", " ", $project->title) ?>
                 <div class="project-card">
-                    <a href="{{ route('projects.show', ['project' => $project->project_name]) }}" class="fullsizable">
-                        <img alt="{{ $title }}" title="{{ $title }}" src="{{ asset('storage/' . $project->project_image)}}">
+                    <a href="{{ route('projects.show', ['project' => $project->slug]) }}" class="fullsizable">
+                        <img alt="{{ $title }}" title="{{ $title }}" src="{{ asset('storage/' . $project->image)}}">
                         <p>{{ ucwords($title) }}</p>
                     </a>
                 </div>
             @endforeach
         </div>
-
     </div>
 @endsection

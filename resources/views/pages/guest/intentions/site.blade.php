@@ -11,7 +11,7 @@
 @section("content")
 <div class="content">
     <div class="text-box">
-        {!! $article->article_content !!}
+        {!! $article->content !!}
     </div>
 </div>
 @endsection

@@ -17,10 +17,10 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
-            "project_name" => "Project One",
+            "title" => "Project One",
             "slug" => "project-one",
-            "project_image" => "images/templates/dummy.png",
-            "project_gallery" => '["images/templates/dummy.png","images/templates/dummy.png","images/templates/dummy.png"]',
+            "cover" => "images/templates/dummy.png",
+            "gallery" => '["images/templates/dummy.png","images/templates/dummy.png","images/templates/dummy.png"]',
             "description" => fake()->text(),
             "language" => "en",
             "title" => "Project One"

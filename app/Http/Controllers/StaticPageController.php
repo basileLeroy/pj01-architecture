@@ -10,11 +10,11 @@ class StaticPageController extends Controller
 {
     public function displayWebsiteIntensions ()
     {
-        $title = 'intentions_Site';
+        $page = 'intentions_Site';
         $localeLanguage = App::getLocale();
-        $matchThese = ['title' => $title, 'language' => $localeLanguage];
+        $params = ['page' => $page, 'language' => $localeLanguage];
 
-        $article = Article::where($matchThese)->first();
+        $article = Article::where($params)->first();
 
         return view("pages.guest.intentions.site")->with([
             "article" => $article
@@ -23,11 +23,11 @@ class StaticPageController extends Controller
 
     public function displayIntentionsProject () 
     {
-        $title = 'intentions_Projects';
+        $page = 'intentions_Projects';
         $localeLanguage = App::getLocale();
-        $matchThese = ['title' => $title, 'language' => $localeLanguage];
+        $params = ['page' => $page, 'language' => $localeLanguage];
 
-        $article = Article::where($matchThese)->first();
+        $article = Article::where($params)->first();
 
         return view('pages.guest.intentions.projects')->with([
             "article" => $article
