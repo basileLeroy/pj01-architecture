@@ -15,12 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string("title");
             $table->string('slug')->nullable();
-            $table->string("description");
+            $table->longText("description");
             $table->string("language");
             $table->string('cover')->nullable();
             $table->json('gallery')->nullable();
             $table->timestamps();
-
         });
     }
 

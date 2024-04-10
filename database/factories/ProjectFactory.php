@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ProjectFactory extends Factory
 {
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var class-string<\Illuminate\Database\Eloquent\Model>
+     */
+    protected $model = Project::class;
+
+
     /**
      * Define the model's default state.
      *
@@ -20,7 +29,7 @@ class ProjectFactory extends Factory
             "title" => "Project One",
             "slug" => "project-one",
             "cover" => "images/templates/dummy.png",
-            "gallery" => '["images/templates/dummy.png","images/templates/dummy.png","images/templates/dummy.png"]',
+            "gallery" => ["images/templates/dummy.png","images/templates/dummy.png","images/templates/dummy.png"],
             "description" => fake()->text(),
             "language" => "en",
             "title" => "Project One"

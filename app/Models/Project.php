@@ -9,6 +9,10 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'gallery' => 'array',
+    ];
+
     public function getRouteKeyName(): string
     {
         return 'slug';

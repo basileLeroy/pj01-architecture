@@ -18,14 +18,16 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project->titl
             <h3>
                 {!! ucwords($title) !!}
             </h3>
-            <img alt="{{ucwords($title)}}" title="{{ ucwords($title) }}" src="{{ asset('storage/' . $cover->project_image) }}">
-            <a class="thoughts" href="{{ route('gedachten', ['locale' => app()->getLocale()] ) }}"><button>{!! __('pagination.thoughts') !!}</button></a>
+            <img alt="{{ucwords($title)}}" title="{{ ucwords($title) }}" src="{{ asset('storage/' . $project->cover) }}">
+            <a class="thoughts" href="{{ route('thoughts-' . app()->getLocale()) }}"><button>{!! __('pagination.thoughts') !!}</button></a>
         </div>
         <div class="card-content">
             <div class="gallery">
                 @if($project->gallery)
                     @foreach($project->gallery as $sliderImage)
-                        <a href="{{ asset('storage/' . $sliderImage) }}" data-lightbox="roadtrip"><img src="{{ asset('storage/' . $sliderImage) }}" alt="{{$title}}"></a>
+                        <a href="{{ asset('storage/' . $sliderImage) }}" data-lightbox="roadtrip">
+                            <img src="{{ asset('storage/' . $sliderImage) }}" alt="{{$title}}">
+                        </a>
                     @endforeach
                 @endif
             </div>

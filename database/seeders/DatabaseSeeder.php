@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             "language" => "nl"
         ]);
         Article::factory()->create([
+            "page"=>"home",
             "language" => "en"
         ]);
         Article::factory()->create([
