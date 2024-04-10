@@ -33,4 +33,16 @@ class StaticPageController extends Controller
             "article" => $article
         ]);
     }
+    public function displayThoughts () 
+    {
+        $page = 'thoughts';
+        $localeLanguage = App::getLocale();
+        $params = ['page' => $page, 'language' => $localeLanguage];
+
+        $article = Article::where($params)->first();
+
+        return view('pages.guest.thoughts.index')->with([
+            "article" => $article
+        ]);
+    }
 }
