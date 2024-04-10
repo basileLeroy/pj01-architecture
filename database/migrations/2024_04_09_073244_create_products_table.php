@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->nullable();
             $table->string('image')->nullable();
-            $table->text('article_content');
+            $table->text('content');
             $table->text('author')->nullable();
-            $table->text('published');
+            $table->date('published');
             $table->text('publisher')->nullable();
             $table->text('url')->nullable();
             $table->text('currency');
