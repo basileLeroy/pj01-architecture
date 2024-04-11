@@ -31,14 +31,41 @@ class DatabaseSeeder extends Seeder
         Project::factory()->create([
             "language" => "nl"
         ]);
+
         Article::factory()->create([
             "page"=>"home",
             "language" => "en"
         ]);
         Article::factory()->create([
+            "page"=>"home",
             "language" => "fr"
         ]);
         Article::factory()->create([
+            "page"=>"home",
+            "language" => "nl"
+        ]);
+        Article::factory()->create([
+            "page"=>"intentions-site",
+            "language" => "en"
+        ]);
+        Article::factory()->create([
+            "page"=>"intentions-site",
+            "language" => "fr"
+        ]);
+        Article::factory()->create([
+            "page"=>"intentions-site",
+            "language" => "nl"
+        ]);
+        Article::factory()->create([
+            "page"=>"intentions-projects",
+            "language" => "en"
+        ]);
+        Article::factory()->create([
+            "page"=>"intentions-projects",
+            "language" => "fr"
+        ]);
+        Article::factory()->create([
+            "page"=>"intentions-projects",
             "language" => "nl"
         ]);
     }

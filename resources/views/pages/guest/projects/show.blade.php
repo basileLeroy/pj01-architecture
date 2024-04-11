@@ -22,13 +22,16 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project->titl
             <a class="thoughts" href="{{ route('thoughts-' . app()->getLocale()) }}"><button>{!! __('pagination.thoughts') !!}</button></a>
         </div>
         <div class="card-content">
-            <div class="gallery">
+            <div class="gallery" id="" >
                 @if($project->gallery)
-                    @foreach($project->gallery as $sliderImage)
-                        <a href="{{ asset('storage/' . $sliderImage) }}" data-lightbox="roadtrip">
-                            <img src="{{ asset('storage/' . $sliderImage) }}" alt="{{$title}}">
+                    @foreach($project->gallery as $image)
+                        <a
+                            href="{{ asset('storage/' . $image) }}"
+                            data-fslightbox="gallery-item"
+                        >
+                            <img src="{{ asset('storage/' . $image) }}" alt="{{$title}}">
                         </a>
-                    @endforeach
+                    @endforeach 
                 @endif
             </div>
             <div class="text-box">
@@ -39,4 +42,6 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project->titl
         </div>
     </div>
 </div>
+@vite(['resources/js/lightbox/fslightbox.js'])
+
 @endsection

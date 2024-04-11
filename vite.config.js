@@ -6,6 +6,8 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/js/app.js',
+                'resources/js/tinymce/tinymce.min.js',
+                'resources/js/lightbox/fslightbox.js',
             ],
             refresh: true,
         }),

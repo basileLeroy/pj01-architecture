@@ -7,10 +7,9 @@
 
         <title>Architecturer - @yield('title', 'Marc Belderbos')</title>
 
-        @include("components.includes.links")
         @include("components.includes.scripts")
-        @include("components.includes.tinymce-config")
-        @include("components.includes.lightbox-config")
+        @include("components.includes.links")
+        {{-- @include("components.includes.tinymce-config") --}}
     </head>
     <body>
         @guest
@@ -30,6 +29,6 @@
 
 </html>
 
-{{--"We must be better simply because the option exists." by Ren --}}
+{{-- "We must be better simply because the option exists." by Ren --}}
 
 {{-- Developped by Basile Leroy --}}

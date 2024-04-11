@@ -19,7 +19,7 @@ class ArticleFactory extends Factory
         return [
             "title" => fake()->word(2),
             "slug" => fake()->slug(2),
-            "content" => fake()->text(),
+            "content" => fake()->realText(300),
             "language" => "en",
             "page" => fake()->word(),
             "image"=> 'images/templates/dummy.png',

@@ -10,7 +10,7 @@ class StaticPageController extends Controller
 {
     public function displayWebsiteIntensions ()
     {
-        $page = 'intentions_Site';
+        $page = 'intentions-site';
         $localeLanguage = App::getLocale();
         $params = ['page' => $page, 'language' => $localeLanguage];
 
@@ -23,7 +23,7 @@ class StaticPageController extends Controller
 
     public function displayIntentionsProject () 
     {
-        $page = 'intentions_Projects';
+        $page = 'intentions-projects';
         $localeLanguage = App::getLocale();
         $params = ['page' => $page, 'language' => $localeLanguage];
 
