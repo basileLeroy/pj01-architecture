@@ -22,6 +22,8 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
     Route::get("intentions/intenties-van-een-project", [StaticPageController::class, "displayIntentionsProject"])->name('intentions-project-nl');
     Route::get("intentions/intentions-for-a-project", [StaticPageController::class, "displayIntentionsProject"])->name('intentions-project-en');
     
+    Route::get("mots/marc-belderbos", [StaticPageController::class, "displayMarcsWords"])->name("words.marc");
+
     Route::get("thoughts", [StaticPageController::class, 'displayThoughts'])->name("thoughts-en");
     Route::get("gedachten", [StaticPageController::class, 'displayThoughts'])->name("thoughts-nl");
     Route::get("pensées", [StaticPageController::class, 'displayThoughts'])->name("thoughts-fr");
