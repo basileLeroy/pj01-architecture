@@ -33,14 +33,15 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
     Route::get("architectures/{Project}", [ProjectController::class, "show"])->name("projects.show");
 
     Route::get("words", [WordController::class, "index"])->name("words-en");
+    Route::get("words/other", [WordController::class, "other"])->name("words.other-en");
     Route::get("words/{Word}", [WordController::class, "show"])->name("words.show-en");
     Route::get("mots", [WordController::class, "index"])->name("words-fr");
+    Route::get("mots/autres", [WordController::class, "other"])->name("words.other-fr");
     Route::get("mots/{Word}", [WordController::class, "show"])->name("words.show-fr");
     Route::get("woorden", [WordController::class, "index"])->name("words-nl");
+    Route::get("woorden/andere", [WordController::class, "other"])->name("words.other-nl");
     Route::get("woorden/{Word}", [WordController::class, "show"])->name("words.show-en");
-
 });
-
 
 
 Route::get('/dashboard', function () {
@@ -51,8 +52,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-
 });
 
 require __DIR__.'/auth.php';

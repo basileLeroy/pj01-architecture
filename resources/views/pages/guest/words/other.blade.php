@@ -1,11 +1,11 @@
 @extends('layout')
 
 @section('seo')
-    belderbos, marc, architecturer, mots, woorden, words
+    belderbos, marc, architecturer, others, autres, anderen
 @endsection
 
 @section('title')
-    Words
+    Anderen
 @endsection
 
 @section('content')

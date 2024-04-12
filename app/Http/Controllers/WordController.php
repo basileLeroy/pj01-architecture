@@ -38,8 +38,30 @@ class WordController extends Controller
         return view("pages.guest.words.index", compact('primary', 'articles'));
     }
 
+    public function other () 
+    {
+        // Get Primary article for the index page dedicated to other authors
+        $primary = Word::where("language", app()->getLocale())
+            ->where('is_primary', true)
+            ->where('author', 'Others')
+            ->select('author','content')
+            ->first();
+    
+        // Get all other articles excluding the primary one
+        // Only select all non primary articles written by other authors
+        $articles = Word::where("language", app()->getLocale())
+            ->where('is_primary', false)
+            ->where('author', "!=" , 'Marc Belderbos')
+            ->select('title', 'slug', 'cover')
+            ->get();
+        
+        // Return or pass the articles to a view
+        return view("pages.guest.words.other", compact('primary', 'articles'));
+    }
+
     public function show ($language, $slug)
     {
+        // finds the article based on slug, no need to filter author or primary.
         $article = Word::where('slug', $slug)
         ->where("language", $language)
         ->select('author', 'title', 'cover', 'content')
