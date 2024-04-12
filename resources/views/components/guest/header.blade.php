@@ -1,6 +1,6 @@
 <div class="logo-container">
     <a href="{{ route('welcome', ['locale' => app()->getLocale()] ) }}" class=" fluid logo">
-        <img src="{{asset('storage/images/architecturer_logo.png')}}" alt="Architecturer.net" title="Logo - Architecturer" />
+        <img src="{{asset('architecturer_logo.png')}}" alt="Architecturer.net" title="Logo - Architecturer" />
     </a>
 </div>
 <div class="nav-desktop">
@@ -13,6 +13,12 @@
                 </ul>
             </li>
             <li><a href="{{ route('projects.index') }}">{{ __('nav.architectuur')}}</a></li>
+            <li><a href="{{ route('words-' . app()->getLocale() ) }}">{{ __('nav.woorden')}}</a>
+                <ul class="secondary-navigation">
+                    {{-- <li><a href="{{ route('woorden', ['locale' => app()->getLocale()] ) }}">Marc Belderbos</a></li>
+                    <li><a href="{{ route('anderen', ['locale' => app()->getLocale()] ) }}">{{ __('nav.anderen')}}</a></li> --}}
+                </ul>
+            </li>
         </ul>
     </nav>
     <div class="lang">

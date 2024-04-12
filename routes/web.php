@@ -5,6 +5,7 @@ use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\StaticPageController;
+use App\Http\Controllers\WordController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,14 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
 
     Route::get("architectures", [ProjectController::class, "index"])->name("projects.index");
     Route::get("architectures/{Project}", [ProjectController::class, "show"])->name("projects.show");
+
+    Route::get("words", [WordController::class, "index"])->name("words-en");
+    Route::get("words/{Word}", [WordController::class, "show"])->name("words.show-en");
+    Route::get("mots", [WordController::class, "index"])->name("words-fr");
+    Route::get("mots/{Word}", [WordController::class, "show"])->name("words.show-fr");
+    Route::get("woorden", [WordController::class, "index"])->name("words-nl");
+    Route::get("woorden/{Word}", [WordController::class, "show"])->name("words.show-en");
+
 });
 
 
