@@ -10,7 +10,7 @@
 
 @section("content")
 <div x-data="{ show: false }"  class="content">
-    <img src="{{asset('storage/images/home/allessandro.jpg')}}" title="Les ordres - Alessandro Anselmi" alt="Allessandro Anselmi">
+    <img src="{{asset('allessandro.jpg')}}" title="Les ordres - Alessandro Anselmi" alt="Allessandro Anselmi">
 
     <h1 class="text-show-action" @click="show = !show">{{$article->title}}</h1>
 
