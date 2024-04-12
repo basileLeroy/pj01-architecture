@@ -25,13 +25,15 @@
                     <li><a href="{{ route('biography-' . app()->getLocale() ) }}">{{ __('nav.bio')}}</a></li>
                 </ul>
             </li>
+            <li><a href="{{ route('thoughts-' . app()->getLocale()) }}">{{ __('nav.gedachten')}}</a></li>
+
         </ul>
     </nav>
     <div class="lang">
         <ul>
             @foreach (['nl', 'fr', 'en'] as $lang)
                 <li>
-                    <a href="{{ route(Route::CurrentRouteName(), array_merge(request()->route()->parameters, ['locale' => $lang])) }}">{{ $lang }}</a>
+                    <a href="{{ route(substr(Route::CurrentRouteName(), 0 , -3) . '-' . $lang, array_merge(request()->route()->parameters, ['locale' => $lang])) }}">{{ $lang }}</a>
                 </li>
             @endforeach
         </ul>
