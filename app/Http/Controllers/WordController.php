@@ -7,18 +7,30 @@ use Illuminate\Http\Request;
 
 class WordController extends Controller
 {
+    /**
+     * This is a tricky controller.
+     * The index is for the "words" page displaying Marc's own articles.
+     * 
+     * The others method is for all the other articles Marc is sharing.
+     * 
+     * Both have "show" pages that go to the same method "show"
+     * since they return the same content.
+     */
+
     public function index ()
     {
-        // Get Primary article for the index page
+        // Get Primary article for the index page written by Marc Belderbos
         $primary = Word::where("language", app()->getLocale())
             ->where('is_primary', true)
+            ->where('author', 'Marc Belderbos')
             ->select('author','content')
             ->first();
 
         // Get all other articles excluding the primary one
-        // This assumes that there can only be one primary article
+        // Only select all non primary articles written by Marc Belderbos
         $articles = Word::where("language", app()->getLocale())
             ->where('is_primary', false)
+            ->where('author', 'Marc Belderbos')
             ->select('title', 'slug', 'cover')
             ->get();
         
@@ -26,8 +38,13 @@ class WordController extends Controller
         return view("pages.guest.words.index", compact('primary', 'articles'));
     }
 
-    public function show ($slug)
+    public function show ($language, $slug)
     {
+        $article = Word::where('slug', $slug)
+        ->where("language", $language)
+        ->select('author', 'title', 'cover', 'content')
+        ->first();
 
+        return view("pages.guest.words.show", compact("article"));
     }
 }
