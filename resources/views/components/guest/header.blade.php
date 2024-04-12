@@ -33,7 +33,11 @@
         <ul>
             @foreach (['nl', 'fr', 'en'] as $lang)
                 <li>
-                    <a href="{{ route(substr(Route::CurrentRouteName(), 0 , -3) . '-' . $lang, array_merge(request()->route()->parameters, ['locale' => $lang])) }}">{{ $lang }}</a>
+                    @if (in_array(substr(Route::CurrentRouteName(), -3), ["-en","-nl","-fr"]))
+                        <a href="{{ route(substr(Route::CurrentRouteName(), 0 , -3) . '-' . $lang, array_merge(request()->route()->parameters, ['locale' => $lang])) }}">{{ $lang }}</a>
+                    @else
+                        <a href="{{ route(Route::CurrentRouteName(), array_merge(request()->route()->parameters, ['locale' => $lang])) }}">{{ $lang }}</a>
+                    @endif  
                 </li>
             @endforeach
         </ul>

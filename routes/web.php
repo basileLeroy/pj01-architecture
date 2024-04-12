@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\StaticPageController;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [LocaleController::class, "localeRedirect"]);
 
 Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["guest", SetLocale::class])->group(function () {
+    // Static routes
     Route::get('/', [HomeController::class, "showLandingPage"])->name('welcome');
 
     Route::get("intentions/intentions-du-site", [StaticPageController::class, "displayWebsiteIntensions"])->name('intentions-fr');
@@ -35,6 +37,8 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
     Route::get("gedachten", [StaticPageController::class, 'displayThoughts'])->name("thoughts-nl");
     Route::get("pensées", [StaticPageController::class, 'displayThoughts'])->name("thoughts-fr");
 
+
+    // Dynamic routes
     Route::get("architectures", [ProjectController::class, "index"])->name("projects.index");
     Route::get("architectures/{Project}", [ProjectController::class, "show"])->name("projects.show");
 
@@ -47,6 +51,15 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
     Route::get("woorden", [WordController::class, "index"])->name("words-nl");
     Route::get("woorden/andere", [WordController::class, "other"])->name("words.other-nl");
     Route::get("woorden/{Word}", [WordController::class, "show"])->name("words.show-nl");
+
+    Route::get("publisher", [ProductController::class, "index"])->name("products.index-en");
+    Route::get("publisher/{Product}", [ProductController::class, "show"])->name("products.show-en");
+
+    Route::get("edition", [ProductController::class, "index"])->name("products.index-fr");
+    Route::get("edition/{Product}", [ProductController::class, "show"])->name("products.show-fr");
+
+    Route::get("edities", [ProductController::class, "index"])->name("products.index-nl");
+    Route::get("edities/{Product}", [ProductController::class, "show"])->name("products.show-nl");
 });
 
 

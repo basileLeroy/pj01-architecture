@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->boolean("is_primary")->default(false);
             $table->string('title');
             $table->string('slug')->nullable();
             $table->string('image')->nullable();
@@ -20,12 +21,11 @@ return new class extends Migration
             $table->text('author')->nullable();
             $table->date('published');
             $table->text('publisher')->nullable();
+            $table->string('language');
             $table->text('url')->nullable();
             $table->text('currency');
             $table->timestamps();
-            $table->string('language');
-            $table->string('page');
-            $table->string('language_title');
+
         });
     }
 
