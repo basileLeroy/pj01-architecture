@@ -31,8 +31,6 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
     Route::get("concepteur/contact", [StaticPageController::class, "displayContact"])->name('contact-fr');
     Route::get("ontwerper/contact", [StaticPageController::class, "displayContact"])->name('contact-nl');
     
-    Route::get("mots/marc-belderbos", [StaticPageController::class, "displayMarcsWords"])->name("words.marc");
-
     Route::get("thoughts", [StaticPageController::class, 'displayThoughts'])->name("thoughts-en");
     Route::get("gedachten", [StaticPageController::class, 'displayThoughts'])->name("thoughts-nl");
     Route::get("pensées", [StaticPageController::class, 'displayThoughts'])->name("thoughts-fr");
@@ -48,7 +46,7 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
     Route::get("mots/{Word}", [WordController::class, "show"])->name("words.show-fr");
     Route::get("woorden", [WordController::class, "index"])->name("words-nl");
     Route::get("woorden/andere", [WordController::class, "other"])->name("words.other-nl");
-    Route::get("woorden/{Word}", [WordController::class, "show"])->name("words.show-en");
+    Route::get("woorden/{Word}", [WordController::class, "show"])->name("words.show-nl");
 });
 
 
