@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -33,6 +34,7 @@ class StaticPageController extends Controller
             "article" => $article
         ]);
     }
+
     public function displayThoughts () 
     {
         $page = 'thoughts';
@@ -44,5 +46,25 @@ class StaticPageController extends Controller
         return view('pages.guest.thoughts.index')->with([
             "article" => $article
         ]);
+    }
+
+    public function displayBiography () 
+    {
+        $page = 'biography';
+        $localeLanguage = App::getLocale();
+        $params = ['page' => $page, 'language' => $localeLanguage];
+
+        $article = Article::where($params)->first();
+
+        return view('pages.guest.biography.index')->with([
+            "article" => $article
+        ]);
+    }
+
+    public function displayContact () 
+    {
+        $contact = Author::first();
+
+        return view('pages.guest.contact.index', compact("contact"));
     }
 }

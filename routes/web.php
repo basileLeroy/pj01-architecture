@@ -22,6 +22,14 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
     Route::get("intentions/intentions-de-un-projet", [StaticPageController::class, "displayIntentionsProject"])->name('intentions-project-fr');
     Route::get("intentions/intenties-van-een-project", [StaticPageController::class, "displayIntentionsProject"])->name('intentions-project-nl');
     Route::get("intentions/intentions-for-a-project", [StaticPageController::class, "displayIntentionsProject"])->name('intentions-project-en');
+
+    Route::get("designer/biography", [StaticPageController::class, "displayBiography"])->name('biography-en');
+    Route::get("concepteur/biographie", [StaticPageController::class, "displayBiography"])->name('biography-fr');
+    Route::get("ontwerper/biografie", [StaticPageController::class, "displayBiography"])->name('biography-nl');
+
+    Route::get("designer/contact", [StaticPageController::class, "displayContact"])->name('contact-en');
+    Route::get("concepteur/contact", [StaticPageController::class, "displayContact"])->name('contact-fr');
+    Route::get("ontwerper/contact", [StaticPageController::class, "displayContact"])->name('contact-nl');
     
     Route::get("mots/marc-belderbos", [StaticPageController::class, "displayMarcsWords"])->name("words.marc");
 

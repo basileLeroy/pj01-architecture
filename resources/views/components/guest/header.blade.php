@@ -19,6 +19,12 @@
                     <li><a href="{{ route('words.other-' . app()->getLocale() ) }}">{{ __('nav.anderen')}}</a></li>
                 </ul>
             </li>
+            <li><a href="{{ route('biography-' . app()->getLocale() ) }}">{{ __('nav.ontwerper')}}</a>
+                <ul class="secondary-navigation">
+                    <li><a href="{{ route('contact-' . app()->getLocale() ) }}">contact</a></li>
+                    <li><a href="{{ route('biography-' . app()->getLocale() ) }}">{{ __('nav.bio')}}</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
     <div class="lang">
