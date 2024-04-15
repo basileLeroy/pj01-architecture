@@ -20,7 +20,7 @@ belderbos, marc, architecturer, words, woorden, mots
             @endif
         </div>
         <div class="text-box">
-            {!! $article->content !!}
+            {!! $article->content  ?? __('error.no_content') !!}
         </div>
     </div>
 @endsection

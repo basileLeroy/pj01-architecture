@@ -35,9 +35,7 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project->titl
                 @endif
             </div>
             <div class="text-box">
-                @if($project->description != null)
-                    {!! $project->description !!}
-                @endif
+                {!! $project->description ?? __('error.no_content') !!}
             </div>
         </div>
     </div>

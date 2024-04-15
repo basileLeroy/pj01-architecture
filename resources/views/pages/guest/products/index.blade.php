@@ -11,13 +11,13 @@ belderbos, marc, architecturer, shop, products, books, book, uitgeverij, edition
 @section('content')
     <div class="content">
         <div class="text-box">
-            {{ $primary->content ?? "no content"}}
+            {{ $primary->content ?? "" }}
         </div>
 
         <hr>
         <div class="card-group">
             @if ($products->isEmpty())
-            <p>{{ __('products.notFound') }}</p>
+            <p>{!! __('error.no_content') !!}</p>
             @else
             @foreach ($detailPages as $product)
                 <div class="project-card" >

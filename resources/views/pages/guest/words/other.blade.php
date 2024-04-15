@@ -11,7 +11,7 @@
 @section('content')
     <div class="content">
         <div class="text-box">
-            {!! $primary->content ?? "No content" !!}
+            {!! $primary->content ?? "" !!}
 
             <br>
             <hr>
@@ -19,7 +19,7 @@
 
         <div class="card-group">
             @if($articles->isEmpty())
-                {{"No content available yet ..."}}
+                {!! __('error.no_content') !!}
             @else
                 @foreach ($articles as $article)
                     <div class="project-card">

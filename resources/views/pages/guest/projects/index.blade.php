@@ -11,6 +11,9 @@ belderbos, marc, architecturer, projects, projecten, projets, portfolio, achieve
 @section('content')
     <div class="content">
         <div class="card-group">
+            @if ($projects->isEmpty())
+                {!! __('error.no_content') !!}
+            @else
             @foreach ($projects as $project)
                 <?php $title = str_replace("-", " ", $project->title) ?>
                 <div class="project-card">
@@ -20,6 +23,8 @@ belderbos, marc, architecturer, projects, projecten, projets, portfolio, achieve
                     </a>
                 </div>
             @endforeach
+            @endif
+
         </div>
     </div>
 @endsection
