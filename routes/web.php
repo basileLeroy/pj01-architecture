@@ -97,6 +97,9 @@ Route::middleware(["auth"])->group(function () {
 
     Route::get("intentions/intentions-du-site/edit", [StaticPageController::class, "editWebsiteIntensions"])->name('admin.intentions-website.edit');
     Route::post("intentions/intentions-du-site/update", [StaticPageController::class, "updateWebsiteIntensions"])->name('admin.intentions-website.update');
+    
+    Route::get("intentions/intentions-de-un-projet/edit", [StaticPageController::class, "editProjectIntensions"])->name('admin.intentions-project.edit');
+    Route::post("intentions/intentions-de-un-projet/update", [StaticPageController::class, "updateProjectIntensions"])->name('admin.intentions-project.update');
 
 
     Route::get("preview/static-page", [StaticPageController::class, "displayStaticPreview"])->name("preview.static-page");

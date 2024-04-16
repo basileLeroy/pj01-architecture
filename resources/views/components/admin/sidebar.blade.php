@@ -29,7 +29,7 @@
                         <a href="{{route("admin.intentions-website.edit")}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Intentions du site</a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Intentions lors d'un projet</a>
+                        <a href="{{route("admin.intentions-project.edit")}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Intentions lors d'un projet</a>
                     </li>
                 </ul>
             </li>

@@ -61,6 +61,44 @@ class StaticPageController extends Controller
             "article" => $article
         ]);
     }
+    public function editProjectIntensions()
+    {
+        $page = 'intentions-projects';
+        $params = ['page' => $page];
+
+        $articles = Article::where($params)->get();
+
+        return view("pages.admin.intentions.project.edit")->with([
+            "articles" => $articles
+        ]);
+    }
+    public function updateProjectIntensions(Request $request)
+    {
+        $page = 'intentions-projects';
+
+        $validated = $request->validate([
+            'content.*' => 'required|min:3',
+        ]);
+
+        // foreach ($request->content as $language => $content) {
+        //     $article = new Article();
+        //     // $article = Article::where(["language"=>$language, "page"=>$page])->first();
+        //     $article->title = "Intentions lors d'un projet";
+        //     $article->slug = $page;
+        //     $article->page = $page;
+        //     $article->content = $content;
+        //     $article->language = $language;
+        //     $article->save();
+        // }
+
+        foreach ($request->content as $language =>$content) {
+            $article = Article::where(["language"=>$language, "page"=>$page])->first();
+            $article->content = $content;
+            $article->save();
+        }
+
+        return redirect()->route("admin.dashboard")->with(["success"=>"Intentions lors d'un projet a correctement été mis a jour!"]);
+    }
 
     public function displayThoughts()
     {
