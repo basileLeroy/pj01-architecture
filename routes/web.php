@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [LocaleController::class, "localeRedirect"]);
 
 Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["guest", SetLocale::class])->group(function () {
-    // Static routes
+    /**
+     * 
+     * Static routes
+     * => for each route, there is a unique url based on the current locale
+     * 
+     */
+
     Route::get('/', [HomeController::class, "showLandingPage"])->name('welcome');
 
     Route::get("intentions/intentions-du-site", [StaticPageController::class, "displayWebsiteIntensions"])->name('intentions-fr');
@@ -37,21 +43,31 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
     Route::get("gedachten", [StaticPageController::class, 'displayThoughts'])->name("thoughts-nl");
     Route::get("pensées", [StaticPageController::class, 'displayThoughts'])->name("thoughts-fr");
 
+    /**
+     * 
+     * Dynamic routes
+     * => for each route, there is a unique url based on the current locale
+     * 
+     */
 
-    // Dynamic routes
+    // Routes for projects made By Marc
     Route::get("architectures", [ProjectController::class, "index"])->name("projects.index");
     Route::get("architectures/{Project}", [ProjectController::class, "show"])->name("projects.show");
 
+    // Routes for articles written by Marc and others
     Route::get("words", [WordController::class, "index"])->name("words-en");
     Route::get("words/other", [WordController::class, "other"])->name("words.other-en");
     Route::get("words/{Word}", [WordController::class, "show"])->name("words.show-en");
+    
     Route::get("mots", [WordController::class, "index"])->name("words-fr");
     Route::get("mots/autres", [WordController::class, "other"])->name("words.other-fr");
     Route::get("mots/{Word}", [WordController::class, "show"])->name("words.show-fr");
+    
     Route::get("woorden", [WordController::class, "index"])->name("words-nl");
     Route::get("woorden/andere", [WordController::class, "other"])->name("words.other-nl");
     Route::get("woorden/{Word}", [WordController::class, "show"])->name("words.show-nl");
 
+    // Routes for books on display written by Marc
     Route::get("publisher", [ProductController::class, "index"])->name("products.index-en");
     Route::get("publisher/{Product}", [ProductController::class, "show"])->name("products.show-en");
 
