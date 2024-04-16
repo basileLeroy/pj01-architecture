@@ -12,13 +12,13 @@
         {{-- @include("components.includes.tinymce-config") --}}
     </head>
     <body>
-        @guest
-            @include("layouts.guest")
-        @endguest
-
-        @auth
+        
+        {{-- Check if the current route is named within the admin namespace --}}
+        @if(Route::currentRouteNamed('admin.*'))
             @include("layouts.admin")
-        @endauth
+        @else
+            @include("layouts.guest")
+        @endif
 
         {{-- Payment flash message --}}
         {{-- @if (session('PaymentMessage')) --}}
