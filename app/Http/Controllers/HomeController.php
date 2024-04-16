@@ -25,4 +25,42 @@ class HomeController extends Controller
 
         return view("pages.guest.home.index")->with('article', $article);
     }
+    public function edit ()
+    {
+        $page = "home";
+
+        $articles = Article::where('page', '=', $page)
+            ->get();
+
+        return view("pages.admin.home.edit")->with('articles', $articles);
+    }
+    public function update (Request $request)
+    {
+        $page = "home";
+        $validated = $request->validate([
+            'fr.*' => 'required|min:3',
+            'en.*' => 'required|min:3',
+            'nl.*' => 'required|min:3',
+        ]);
+
+        // // request stores all date as an associative array for each language
+        // foreach (["fr" => $request->fr, "en" => $request->en, "nl" => $request->nl] as $language => $content) {
+        //     $article = new Article();
+        //     $article->title = $content["title"];
+        //     $article->slug = $page;
+        //     $article->page = $page;
+        //     $article->content = $content["content"];
+        //     $article->language = $language;
+        //     $article->save();
+        // }
+
+        foreach (["fr" => $request->fr, "en" => $request->en, "nl" => $request->nl] as $language => $content) {
+            $article = Article::where(["language"=>$language, "page"=>$page])->first();
+            $article->title = $content["title"];
+            $article->content = $content["content"];
+            $article->save();
+        }
+
+        return redirect()->route("admin.dashboard")->with(["success"=>"La page d'accueil a correctement été mis a jour!"]);
+    }
 }

@@ -94,6 +94,9 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
 Route::middleware(["auth"])->group(function () {
 
     Route::get('admin/dashboard', [DashboardController::class, "index"])->name("admin.dashboard");
+    
+    Route::get('home/edit', [HomeController::class, "edit"])->name("admin.home.edit");
+    Route::post('home/update', [HomeController::class, "update"])->name("admin.home.update");
 
     Route::get("intentions/intentions-du-site/edit", [StaticPageController::class, "editWebsiteIntensions"])->name('admin.intentions-website.edit');
     Route::post("intentions/intentions-du-site/update", [StaticPageController::class, "updateWebsiteIntensions"])->name('admin.intentions-website.update');
