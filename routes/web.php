@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\ProductController;
@@ -9,7 +10,6 @@ use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\WordController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
-
 
 Route::get("/", [LocaleController::class, "localeRedirect"]);
 
@@ -76,14 +76,15 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
 
     Route::get("edities", [ProductController::class, "index"])->name("products.index-nl");
     Route::get("edities/{Product}", [ProductController::class, "show"])->name("products.show-nl");
+
+    Route::get("admin/login", function () {
+        return redirect('/admin/login');
+    });
 });
 
+Route::prefix("admin")->middleware('auth')->group(function () {
+    Route::get('dashboard', [DashboardController::class, "index"])->name("admin.dashboard");
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

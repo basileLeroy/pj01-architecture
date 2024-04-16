@@ -16,6 +16,8 @@
         {{-- Check if the current route is named within the admin namespace --}}
         @if(Route::currentRouteNamed('admin.*'))
             @include("layouts.admin")
+        @elseif (Route::currentRouteNamed('auth.*'))
+            @include("layouts.auth")
         @else
             @include("layouts.guest")
         @endif
