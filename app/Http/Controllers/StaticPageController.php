@@ -28,7 +28,7 @@ class StaticPageController extends Controller
 
         $articles = Article::where($params)->get();
 
-        return view("pages.admin.intentions.edit")->with([
+        return view("pages.admin.intentions.site.edit")->with([
             "articles" => $articles
         ]);
     }
@@ -46,7 +46,7 @@ class StaticPageController extends Controller
             $article->save();
         };
 
-        return redirect()->route("admin.dashboard");
+        return redirect()->route("admin.dashboard")->with(["success"=>"'Intentions du site' a correctement été mis a jour!"]);
     }
 
     public function displayIntentionsProject()
