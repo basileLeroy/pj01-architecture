@@ -21,6 +21,17 @@ class StaticPageController extends Controller
             "article" => $article
         ]);
     }
+    public function editWebsiteIntensions ()
+    {
+        $page = 'intentions-site';
+        $params = ['page' => $page];
+
+        $articles = Article::where($params)->get();
+
+        return view("pages.admin.intentions.edit")->with([
+            "articles" => $articles
+        ]);
+    }
 
     public function displayIntentionsProject () 
     {

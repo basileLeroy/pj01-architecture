@@ -1,11 +1,12 @@
-<header>
-    <h1>Hello</h1>
-</header>
+<body class="relative">
+    <header class=" ">
+        @include("components.admin.header")
+    </header>
 
-<main>
-    @yield("content")
-</main>
 
-<footer>
+    <main class="flex row">
+        @include("components.admin.sidebar")
 
-</footer>
+        @yield("content")
+    </main>
+</body>

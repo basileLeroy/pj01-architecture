@@ -11,7 +11,6 @@
         @include("components.includes.links")
         {{-- @include("components.includes.tinymce-config") --}}
     </head>
-    <body>
         
         {{-- Check if the current route is named within the admin namespace --}}
         @if(Route::currentRouteNamed('admin.*'))
@@ -26,8 +25,6 @@
         {{-- @if (session('PaymentMessage')) --}}
         {{-- @yield('payment-flash-message') --}}
         {{-- @endif --}}
-
-    </body>
 
 </html>
 

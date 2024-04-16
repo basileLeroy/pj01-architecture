@@ -1,6 +1,6 @@
 import './bootstrap';
-import '../css/style.css'
-// import 'flowbite';
+import '../css/tailwind.css'
+import 'flowbite';
 
 import Alpine from 'alpinejs';
 

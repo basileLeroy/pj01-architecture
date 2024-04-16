@@ -11,9 +11,12 @@ use App\Http\Controllers\WordController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 
-Route::get("/", [LocaleController::class, "localeRedirect"]);
+/**
+ * Setting up a list of public routes.
+ * These routes will be available to both authenticated and guest users.
+ */
 
-Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["guest", SetLocale::class])->group(function () {
+$publicRoutes = function () {
     /**
      * 
      * Static routes
@@ -45,10 +48,10 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
 
     /**
      * 
-     * Dynamic routes
-     * => for each route, there is a unique url based on the current locale
-     * 
-     */
+    * Dynamic routes
+    * => for each route, there is a unique url based on the current locale
+    * 
+    */
 
     // Routes for projects made By Marc
     Route::get("architectures", [ProjectController::class, "index"])->name("projects.index");
@@ -76,18 +79,28 @@ Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["gues
 
     Route::get("edities", [ProductController::class, "index"])->name("products.index-nl");
     Route::get("edities/{Product}", [ProductController::class, "show"])->name("products.show-nl");
+};
+
+Route::get("/", [LocaleController::class, "localeRedirect"]);
+
+Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["guest", SetLocale::class])->group(function () use ($publicRoutes) {
+    $publicRoutes();
 
     Route::get("admin/login", function () {
         return redirect('/admin/login');
     });
 });
 
-Route::prefix("admin")->middleware('auth')->group(function () {
-    Route::get('dashboard', [DashboardController::class, "index"])->name("admin.dashboard");
+Route::middleware(["auth"])->group(function () {
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('admin/dashboard', [DashboardController::class, "index"])->name("admin.dashboard");
+
+    Route::get("intentions/intentions-du-site/edit", [StaticPageController::class, "editWebsiteIntensions"])->name('admin.intentions-website.edit');
+
+
+    Route::get('admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('admin/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';

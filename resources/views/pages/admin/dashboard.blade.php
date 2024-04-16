@@ -9,5 +9,5 @@ belderbos, marc, contact, email, phone, adress, architecturer, about
 @endsection
 
 @section('content')
-Dashboard
+
 @endsection
