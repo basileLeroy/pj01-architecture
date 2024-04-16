@@ -96,7 +96,10 @@ Route::middleware(["auth"])->group(function () {
     Route::get('admin/dashboard', [DashboardController::class, "index"])->name("admin.dashboard");
 
     Route::get("intentions/intentions-du-site/edit", [StaticPageController::class, "editWebsiteIntensions"])->name('admin.intentions-website.edit');
+    Route::post("intentions/intentions-du-site/update", [StaticPageController::class, "updateWebsiteIntensions"])->name('admin.intentions-website.update');
 
+
+    Route::get("preview/static-page", [StaticPageController::class, "displayStaticPreview"])->name("preview.static-page");
 
     Route::get('admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('admin/profile', [ProfileController::class, 'update'])->name('profile.update');

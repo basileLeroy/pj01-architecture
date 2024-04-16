@@ -7,7 +7,7 @@ export default defineConfig({
             input: [
                 'resources/js/app.js',
                 'resources/js/app-tailwind.js',
-                'resources/js/tinymce/tinymce.min.js',
+                'vendor/tinymce/tinymce',
                 'resources/js/lightbox/fslightbox.js',
             ],
             refresh: true,

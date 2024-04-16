@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\App;
 
 class StaticPageController extends Controller
 {
-    public function displayWebsiteIntensions ()
+    public function displayWebsiteIntensions()
     {
         $page = 'intentions-site';
         $localeLanguage = App::getLocale();
@@ -21,7 +21,7 @@ class StaticPageController extends Controller
             "article" => $article
         ]);
     }
-    public function editWebsiteIntensions ()
+    public function editWebsiteIntensions()
     {
         $page = 'intentions-site';
         $params = ['page' => $page];
@@ -32,8 +32,24 @@ class StaticPageController extends Controller
             "articles" => $articles
         ]);
     }
+    public function updateWebsiteIntensions(Request $request)
+    {
+        $page = 'intentions-site';
 
-    public function displayIntentionsProject () 
+        $validated = $request->validate([
+            'content.*' => 'required',
+        ]);
+
+        foreach ($request->content as $language =>$content) {
+            $article = Article::where(["language"=>$language, "page"=>$page])->first();
+            $article->content = $content;
+            $article->save();
+        };
+
+        return redirect()->route("admin.dashboard");
+    }
+
+    public function displayIntentionsProject()
     {
         $page = 'intentions-projects';
         $localeLanguage = App::getLocale();
@@ -46,7 +62,7 @@ class StaticPageController extends Controller
         ]);
     }
 
-    public function displayThoughts () 
+    public function displayThoughts()
     {
         $page = 'thoughts';
         $localeLanguage = App::getLocale();
@@ -59,7 +75,7 @@ class StaticPageController extends Controller
         ]);
     }
 
-    public function displayBiography () 
+    public function displayBiography()
     {
         $page = 'biography';
         $localeLanguage = App::getLocale();
@@ -72,10 +88,14 @@ class StaticPageController extends Controller
         ]);
     }
 
-    public function displayContact () 
+    public function displayContact()
     {
         $contact = Author::first();
 
         return view('pages.guest.contact.index', compact("contact"));
+    }
+
+    public function displayStaticPreview()
+    {
     }
 }
