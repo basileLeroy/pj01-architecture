@@ -14,7 +14,7 @@
     
     <form enctype="multipart/form-data" method="POST" action="{{route("admin.projects.store")}}" class="w-full bg-slate-100 p-12 rounded-md">
         @csrf
-        <h2 class="text-2xl">Creer un nouveau projet</h2>
+        <h2 class="text-2xl font-bold">Creer un nouveau projet</h2>
 
         <div class="my-5">
             <label for="title-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titre du projet *</label>
@@ -31,8 +31,8 @@
             <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="gallery-images" name="gallery[]" type="file" multiple>
         </div>
         <div class="flex mt-20 w-full justify-center gap-16">
-            <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 me-2 mb-2 w-32 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
-            <a href="{{ route("admin.home.edit")}}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Cancel</a>
+            <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-md px-14 py-2.5 me-2 mb-2  dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
+            <a href="{{ route("admin.projects.create")}}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Cancel</a>
         </div>
     </form>
     @if ($errors->any())
