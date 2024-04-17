@@ -18,7 +18,7 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project->titl
             <h3>
                 {!! ucwords($title) !!}
             </h3>
-            <img alt="{{ucwords($title)}}" title="{{ ucwords($title) }}" src="{{ asset('storage/' . $project->cover) }}">
+            <img alt="{{ucwords($title)}}" title="{{ ucwords($title) }}" src="{{ asset($project->cover) }}">
             <a class="thoughts" href="{{ route('thoughts-' . app()->getLocale()) }}"><button>{!! __('pagination.thoughts') !!}</button></a>
         </div>
         <div class="card-content">
@@ -26,10 +26,10 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project->titl
                 @if($project->gallery)
                     @foreach($project->gallery as $image)
                         <a
-                            href="{{ asset('storage/' . $image) }}"
+                            href="{{ asset($image) }}"
                             data-fslightbox="gallery-item"
                         >
-                            <img src="{{ asset('storage/' . $image) }}" alt="{{$title}}">
+                            <img src="{{ asset($image) }}" alt="{{$title}}">
                         </a>
                     @endforeach 
                 @endif
