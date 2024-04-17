@@ -18,7 +18,7 @@ belderbos, marc, architecturer, projects, projecten, projets, portfolio, achieve
                 <?php $title = str_replace("-", " ", $project->title) ?>
                 <div class="project-card">
                     <a href="{{ route('projects.show', ['Project' => $project->slug]) }}" class="fullsizable">
-                        <img alt="{{ $title }}" title="{{ $title }}" src="{{ asset('storage/' . $project->cover)}}">
+                        <img alt="{{ $title }}" title="{{ $title }}" src="{{ asset($project->cover)}}">
                         <p>{{ ucwords($title) }}</p>
                     </a>
                 </div>

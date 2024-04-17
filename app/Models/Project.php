@@ -9,6 +9,15 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'slug',
+        'cover',
+        'gallery',
+        'language',
+    ];
+
     protected $casts = [
         'gallery' => 'array',
     ];

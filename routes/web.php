@@ -104,6 +104,8 @@ Route::middleware(["auth"])->group(function () {
     Route::get("intentions/intentions-de-un-projet/edit", [StaticPageController::class, "editProjectIntensions"])->name('admin.intentions-project.edit');
     Route::post("intentions/intentions-de-un-projet/update", [StaticPageController::class, "updateProjectIntensions"])->name('admin.intentions-project.update');
 
+    Route::get("architecturer/create", [ProjectController::class, "create"])->name("admin.projects.create");
+    Route::post("architecturer/store", [ProjectController::class, "store"])->name("admin.projects.store");
 
     Route::get("preview/static-page", [StaticPageController::class, "displayStaticPreview"])->name("preview.static-page");
 

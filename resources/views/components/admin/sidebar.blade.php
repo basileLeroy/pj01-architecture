@@ -5,7 +5,7 @@
     </svg>
 </button>
 
-<aside id="sidebar-multi-level-sidebar" class="relative shadow-lg top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+<aside id="sidebar-multi-level-sidebar" class="sticky shadow-lg top-0 left-0 h-screen z-40 w-64 transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
         <ul class="space-y-2 font-medium">
             <li>
@@ -39,7 +39,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <a href="{{route("admin.projects.create")}}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <span class="flex-1 ms-3 whitespace-nowrap">Architecturer</span>
                 </a>
             </li>
