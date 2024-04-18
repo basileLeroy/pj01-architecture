@@ -34,7 +34,7 @@ class ProjectController extends Controller
 
     public function create ()
     {
-        $projects = Project::where("language", "fr");
+        $projects = Project::where("language", "fr")->get();
 
         return view("pages.admin.projects.create")->with([
             "projects" => $projects
