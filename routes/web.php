@@ -83,7 +83,7 @@ $publicRoutes = function () {
 
 Route::get("/", [LocaleController::class, "localeRedirect"]);
 
-Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware(["guest", SetLocale::class])->group(function () use ($publicRoutes) {
+Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware([SetLocale::class])->group(function () use ($publicRoutes) {
     $publicRoutes();
 
     Route::get("admin/login", function () {
