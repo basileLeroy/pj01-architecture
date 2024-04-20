@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class WordController extends Controller
 {
     /**
-     * This is a tricky controller.
+     * This is not a conventional controller.
      * The index is for the "words" page displaying Marc's own articles.
      * 
      * The others method is for all the other articles Marc is sharing.
@@ -36,6 +36,28 @@ class WordController extends Controller
         
         // Return or pass the articles to a view
         return view("pages.guest.words.index", compact('primary', 'articles'));
+    }
+
+    public function edit ()
+    {
+        $primary = Word::where('is_primary', true)
+        ->where('author', 'Marc Belderbos')
+        ->select('author','content')
+        ->get();
+
+        $articles = Word::where("language", "fr")
+            ->where('is_primary', false)
+            ->where('author', 'Marc Belderbos')
+            ->select('title', 'slug', 'cover')
+            ->get();
+
+        return view("pages.admin.words.marc.edit", compact('primary', 'articles'));
+    }
+
+    // updating primary text and/or creating a new "word" article
+    public function update ()
+    {
+
     }
 
     public function other () 

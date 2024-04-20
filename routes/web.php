@@ -109,6 +109,8 @@ Route::middleware(["auth"])->group(function () {
     Route::get("architecturer/{Project}/edit", [ProjectController::class, "edit"])->name("admin.projects.edit");
     Route::post("architecturer/{Project}/update", [ProjectController::class, "update"])->name("admin.projects.update");
 
+    Route::get("mots/marc-belderbos/edit", [WordController::class, "edit"])->name("admin.words.marc.edit");
+    
     Route::get("preview/static-page", [StaticPageController::class, "displayStaticPreview"])->name("preview.static-page");
 
     Route::get('admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
