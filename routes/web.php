@@ -106,6 +106,7 @@ Route::middleware(["auth"])->group(function () {
 
     Route::get("architecturer/create", [ProjectController::class, "create"])->name("admin.projects.create");
     Route::post("architecturer/store", [ProjectController::class, "store"])->name("admin.projects.store");
+    Route::post("architecturer/update-order", [ProjectController::class, "updateListOrder"])->name("admin.projects.update-order");
     Route::get("architecturer/{Project}/edit", [ProjectController::class, "edit"])->name("admin.projects.edit");
     Route::post("architecturer/{Project}/update", [ProjectController::class, "update"])->name("admin.projects.update");
 

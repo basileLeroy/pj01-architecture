@@ -34,7 +34,7 @@ class ProjectController extends Controller
 
     public function create ()
     {
-        $projects = Project::where("language", "fr")->get();
+        $projects = Project::where("language", "fr")->orderBy('index', 'ASC')->get();
 
         return view("pages.admin.projects.create")->with([
             "projects" => $projects
@@ -67,6 +67,8 @@ class ProjectController extends Controller
             };
         }
 
+        $indexCount = Project::where("language", "fr")->get()->count() + 1;
+
         foreach ($languages as $lang) {
 
             if($lang === "nl") {
@@ -84,6 +86,7 @@ class ProjectController extends Controller
                 'language' => $lang,
                 'cover' => "storage/" . $cover,
                 'gallery' => $gallery,
+                'index' => $indexCount
             ]);
         }
 
@@ -183,6 +186,23 @@ class ProjectController extends Controller
             
             $project->save();
         }
+
+        return redirect()->back();
+    }
+
+    public function updateListOrder (Request $request)
+    {
+        $request->validate([
+            "projects" => "required|array"
+        ]);
+
+        foreach($request->projects as $index => $slug) {
+            $projects = Project::where("slug", $slug)->get();
+            foreach($projects as $project) {
+                $project->index = $index;
+                $project->save();
+            }
+        };
 
         return redirect()->back();
     }

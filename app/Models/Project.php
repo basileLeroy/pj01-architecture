@@ -16,6 +16,7 @@ class Project extends Model
         'cover',
         'gallery',
         'language',
+        'index'
     ];
 
     protected $casts = [

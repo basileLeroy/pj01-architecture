@@ -19,6 +19,7 @@
     "dependencies": {
         "jquery": "^3.7.1",
         "lightbox2": "^2.11.4",
+        "sortablejs": "^1.15.2",
         "tinymce": "^7.0.1"
     }
 }

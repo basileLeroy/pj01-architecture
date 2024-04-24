@@ -46,10 +46,11 @@
     </div>
     @endif
     <hr class="w-1/2 h-1 mx-auto my-4 bg-gray-300 border-0 rounded md:my-10 dark:bg-gray-700">
-
-    <div id="projects-list" class="w-full flex flex-wrap gap-7 justify-around bg-slate-100 p-12 mb-12 rounded-md">
+    <form action="{{route("admin.projects.update-order")}}" method="post" id="projects-list" class="w-full flex flex-wrap gap-7 justify-around bg-slate-100 p-12 mb-12 rounded-md">
+        @csrf   
         @foreach ($projects as $project)
         <div id="project-item" draggable="true" class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <input type="hidden" name="projects[]" value="{{$project->slug}}">
             <div class="flex justify-end px-4 pt-4">
                 <button id="{{$project->slug}}" data-dropdown-toggle="dropdown-{{$project->id}}" class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
                     <span class="sr-only">Open dropdown</span>
@@ -77,7 +78,11 @@
             </div>
         </div>
         @endforeach
-    </div>
+        <div class="flex mt-20 w-full justify-center gap-16">
+            <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-md px-14 py-2.5 me-2 mb-2  dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
+            <a href="{{ route("admin.projects.create")}}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Cancel</a>
+        </div>
+    </form>
 </div>
 @endsection
 

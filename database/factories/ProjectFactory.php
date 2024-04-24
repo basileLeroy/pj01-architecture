@@ -32,7 +32,8 @@ class ProjectFactory extends Factory
             "gallery" => ["images/templates/dummy.png","images/templates/dummy.png","images/templates/dummy.png"],
             "description" => fake()->text(),
             "language" => "en",
-            "title" => "Project One"
+            "title" => "Project One",
+            "index" => 1
         ];
     }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('cover')->nullable();
             $table->json('gallery')->nullable();
             $table->timestamps();
+            $table->integer("index")->index();
         });
     }
 
