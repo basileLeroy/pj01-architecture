@@ -4,7 +4,7 @@
     </header>
 
 
-    <main class="flex row">
+    <main id="admin" class="flex row">
         @include("components.admin.sidebar")
 
         @yield("content")
