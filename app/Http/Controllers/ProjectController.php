@@ -14,7 +14,7 @@ class ProjectController extends Controller
     public function index ()
     {
 
-        $projects = Project::where("language", App()->getLocale())->get();
+        $projects = Project::where("language", App()->getLocale())->orderBy('index', 'ASC')->get();
 
         // dd($projects);
         return view("pages.guest.projects.index")->with([
