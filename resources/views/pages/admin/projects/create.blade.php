@@ -9,7 +9,8 @@
 @endsection
 
 @section("content")
-<div class="w-full mx-12 flex flex-col items-center ">
+@vite(["resources/js/admin.js"])
+<div id="page" class="w-full mx-12 flex flex-col items-center ">
     <h1 class="text-3xl font-bold my-12">Architecturer - Projets</h1>
     
     <form enctype="multipart/form-data" method="POST" action="{{route("admin.projects.store")}}" class="w-full bg-slate-100 p-12 rounded-md">
@@ -46,9 +47,9 @@
     @endif
     <hr class="w-1/2 h-1 mx-auto my-4 bg-gray-300 border-0 rounded md:my-10 dark:bg-gray-700">
 
-    <div class="w-full flex flex-wrap gap-7 justify-around bg-slate-100 p-12 mb-12 rounded-md">
+    <div id="projects-list" class="w-full flex flex-wrap gap-7 justify-around bg-slate-100 p-12 mb-12 rounded-md">
         @foreach ($projects as $project)
-        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div id="project-item" draggable="true" class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div class="flex justify-end px-4 pt-4">
                 <button id="{{$project->slug}}" data-dropdown-toggle="dropdown-{{$project->id}}" class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
                     <span class="sr-only">Open dropdown</span>
@@ -68,7 +69,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="flex flex-col items-center pb-10">
+            <div class="cursor-move flex flex-col items-center pb-10">
                 <img class="h-36 w-auto mb-3 rounded-md shadow-lg" src="{{asset($project->cover)}}" alt="Bonnie image"/>
                 <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{$project->title}}</h5>
                 <span class="text-sm text-gray-500 dark:text-gray-400">{{$project ->updated_at}}</span>

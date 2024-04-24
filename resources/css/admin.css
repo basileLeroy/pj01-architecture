@@ -1,0 +1,10 @@
+#admin #page #projects-list {
+    
+}
+
+#admin #page #projects-list #project-item {
+
+}
+#admin #page #projects-list #project-item.dragging {
+    opacity: 0.5;
+}

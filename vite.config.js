@@ -7,6 +7,7 @@ export default defineConfig({
             input: [
                 'resources/js/app.js',
                 'resources/js/app-tailwind.js',
+                'resources/js/admin.js',
                 'vendor/tinymce/tinymce',
                 'resources/js/lightbox/fslightbox.js',
             ],
