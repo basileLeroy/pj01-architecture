@@ -10,19 +10,19 @@ belderbos, marc, contact, email, phone, adress, architecturer, about
 
 @section('content')
     <div class="content">
-        <h1>Marc BELDERBOS</h1>
+        <h1>{!! $contact->first_name !!} {!! strToUpper($contact->last_name) !!}</h1>
         <br>
         <p>
-            {!! $contact->adress ?? "" !!}
+            {!! $contact->address !!}
             <br>
-            {!! $contact->postal_code ?? "" !!}
+            {!! $contact->zip !!}, {!! $contact->city !!}
             <br>
-            {!! $contact->country ?? "" !!}
+            {!! $contact->country !!}
         </p>
         <br>
-        <p>{!! $contact->phone ?? "" !!}</p>
+        <p>{!! $contact->phone !!}</p>
         <br>
-        <a class="link" href="mailto:{{ $contact->email ?? '' }}">{!! $contact->email ?? "" !!}</a>
+        <a class="link" href="mailto:{{ $contact->email }}">{!! $contact->email !!}</a>
     </div>
 
 @endsection

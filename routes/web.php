@@ -121,6 +121,9 @@ Route::middleware(["auth"])->group(function () {
     Route::Post("mots/others/store", [WordController::class, "storeOtherArticles"])->name("admin.words.others.store");
     Route::Post("mots/others/update-order", [WordController::class, "updateListOrder"])->name("admin.words.others.update-order");
     Route::get("mots/others/{Word}/edit", [WordController::class, "editOtherDetailArticles"])->name("admin.words.others.editDetail");
+
+    Route::get("concepteur/contact/edit", [StaticPageController::class, "editContactPage"])->name("admin.creator.contact.edit");
+    Route::Post("concepteur/contact/update", [StaticPageController::class, "updateContactPage"])->name("admin.creator.contact.update");
     
     Route::get("preview/static-page", [StaticPageController::class, "displayStaticPreview"])->name("preview.static-page");
 

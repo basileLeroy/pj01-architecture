@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('authors', function (Blueprint $table) {
             $table->id();
+            $table->string("first_name");
+            $table->string("last_name");
             $table->string('address');
-            $table->string('postal_code');
+            $table->string('city');
+            $table->string('zip');
             $table->string('country');
             $table->string('phone');
             $table->string('email');

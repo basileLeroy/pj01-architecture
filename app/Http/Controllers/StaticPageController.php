@@ -133,6 +133,43 @@ class StaticPageController extends Controller
         return view('pages.guest.contact.index', compact("contact"));
     }
 
+    public function editContactPage ()
+    {
+        $contact = Author::first();
+
+        return view('pages.admin.creator.contact.edit', compact("contact"));
+    }
+
+    public function updateContactPage (Request $request)
+    {
+        $request->validate([
+            "first_name" => "required",
+            "last_name" => "required",
+            "address" => "required",
+            "city" => "required",
+            "zip" => "required|integer",
+            "country" => "required",
+            "phone" => "required",
+            "email" => "required|email",
+        ]);
+        
+        $author = Author::first();
+
+
+        $author->update([
+            "first_name" => $request->first_name,
+            "last_name" => $request->last_name,
+            "address" => $request->address,
+            "city" => $request->city,
+            "zip" => $request->zip,
+            "country" => $request->country,
+            "phone" => $request->phone,
+            "email" => $request->email,
+        ]);
+
+        return redirect()->back();
+    }
+
     public function displayStaticPreview()
     {
     }
