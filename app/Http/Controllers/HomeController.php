@@ -37,30 +37,32 @@ class HomeController extends Controller
     public function update (Request $request)
     {
         $page = "home";
-        $validated = $request->validate([
+
+        $request->validate([
             'fr.*' => 'required|min:3',
             'en.*' => 'required|min:3',
             'nl.*' => 'required|min:3',
         ]);
 
-        // // request stores all date as an associative array for each language
-        // foreach (["fr" => $request->fr, "en" => $request->en, "nl" => $request->nl] as $language => $content) {
-        //     $article = new Article();
-        //     $article->title = $content["title"];
-        //     $article->slug = $page;
-        //     $article->page = $page;
-        //     $article->content = $content["content"];
-        //     $article->language = $language;
-        //     $article->save();
-        // }
-
-        foreach (["fr" => $request->fr, "en" => $request->en, "nl" => $request->nl] as $language => $content) {
-            $article = Article::where(["language"=>$language, "page"=>$page])->first();
-            $article->title = $content["title"];
-            $article->content = $content["content"];
-            $article->save();
+        if ($request->no_article) {
+            foreach (["fr" => $request->fr, "en" => $request->en, "nl" => $request->nl] as $language => $content) {
+                Article::create([
+                    "title" => $content["title"],
+                    "slug" => "home",
+                    "content" => $content["content"],
+                    "language" => $language,
+                    "page" => $page,
+                    "language_title" => "home"
+                ]);
+            }
+        } else {
+            foreach (["fr" => $request->fr, "en" => $request->en, "nl" => $request->nl] as $language => $content) {
+                $article = Article::where(["language"=>$language, "page"=>$page])->first();
+                $article->title = $content["title"];
+                $article->content = $content["content"];
+                $article->save();
+            }
         }
-
         return redirect()->back();
     }
 }
