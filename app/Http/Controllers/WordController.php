@@ -53,6 +53,7 @@ class WordController extends Controller
             ->where('is_primary', false)
             ->where('author', 'Marc Belderbos')
             ->select('id','title', 'slug', 'cover')
+            ->orderBy('index', 'ASC')
             ->get();
 
         return view("pages.admin.words.marc.index", compact('primary', 'articles'));
@@ -74,7 +75,7 @@ class WordController extends Controller
         return view("pages.admin.words.marc.edit", compact('articles', 'page'));
     }
 
-    public function store (Request $request, $urlSlug) 
+    public function store (Request $request) 
     {
         $languages = ["nl", "fr", "en"];
 
@@ -86,7 +87,9 @@ class WordController extends Controller
         $is_primary = $request->is_primary;
         $author = $request->author;
         $cover = $request->cover;
-        $slug = $urlSlug ?? Str::slug($request->title);
+        $slug = Str::slug($request->title);
+
+        $indexCount = Word::where("language", "fr")->get()->count() + 1;
 
         foreach($languages as $language) {
 
@@ -109,7 +112,8 @@ class WordController extends Controller
                 "author" => $author,
                 "cover" => "storage/" . $cover,
                 "content" => $content,
-                "language" => $language
+                "language" => $language,
+                "index" => $indexCount,
             ]);
 
         }
@@ -223,5 +227,174 @@ class WordController extends Controller
         ->first();
 
         return view("pages.guest.words.show", compact("article"));
+    }
+
+    public function updateListOrder (Request $request)
+    {
+        $request->validate([
+            "articles" => "required|array"
+        ]);
+
+        foreach($request->articles as $index => $slug) {
+            $articles = Word::where("slug", $slug)->get();
+            foreach($articles as $article) {
+                $article->index = $index;
+                $article->save();
+            }
+        };
+
+        return redirect()->back();
+    }
+
+    public function editOtherArticles () {
+        $primary = Word::where('is_primary', true)
+        ->where('author', 'Others')
+        ->select('slug','author','content', 'language')
+        ->get();
+
+        $articles = Word::where("language", "fr")
+            ->where('is_primary', false)
+            ->where('author', '!=' ,'Marc Belderbos')
+            ->select('id','title', 'slug', 'cover')
+            ->orderBy('index', 'ASC')
+            ->get();
+
+        return view("pages.admin.words.others.index", compact('primary', 'articles'));
+    }
+
+    public function updateOtherArticles (Request $request) {
+        $languages = ["nl", "fr", "en"];
+
+        $request->validate([
+            "cover"=>"image|mimes:jpeg,png,jpg,gif,svg|max:5048",
+
+            "nl.title" => "required",
+            "nl.content" => "required",
+
+            "fr.title" => "required",
+            "fr.content" => "required",
+
+            "en.title" => "required",
+            "en.content" => "required",
+        ]);
+
+        $cover = $request->cover ?? null;
+
+        $is_primary = $request->is_primary;
+        $author = $request->author;
+
+        foreach ($languages as $lang) {
+            $title = "";
+            $content = "";
+            
+
+            if ($lang == "nl") {
+                $title = $request->nl["title"];
+                $content = $request->nl["content"];
+                $slug = $request->nl["slug"] ?? null;
+
+            } else if ($lang == "en") {
+                $title = $request->en["title"];
+                $content = $request->en["content"];
+                $slug = $request->en["slug"] ?? null;
+
+
+            } else {
+                $title = $request->fr["title"];
+                $content = $request->fr["content"]; 
+                $slug = $request->fr["slug"] ?? null;           
+            }
+
+            if($request->slug) {
+                $slug = $request->slug;
+            }
+
+            $article = Word::where(["slug" => $slug, "language" => $lang])->first();
+            $article->is_primary = $is_primary;
+            $article->author = $author;
+
+            if ($title !== $article->title) {
+                $article->title = $title;
+            }
+
+            if ($content !== $article->content) {
+                $article->content = $content;
+            }
+
+            if ($cover !== null) {
+                $storagePathToCover = substr($article->cover, 8);
+                if (Storage::disk("public")->exists($storagePathToCover)) {
+                    Storage::disk("public")->delete($storagePathToCover);
+                }
+
+                $newCoverImage = Storage::disk('public')->put('images/words/' . $slug . '/cover/', $cover);
+                $article->cover = 'storage/' . $newCoverImage;
+            }
+            $article->save();
+        }
+
+        return redirect()->back();
+    }
+
+    public function storeOtherArticles (Request $request)
+    {
+        $languages = ["nl", "fr", "en"];
+
+        $request->validate([
+            "title" => "required",
+            "cover"=>"image|mimes:jpeg,png,jpg,gif,svg|max:5048",
+        ]);
+
+        $is_primary = $request->is_primary;
+        $author = $request->author;
+        $cover = $request->cover;
+        $slug = Str::slug($request->title);
+
+        $indexCount = Word::where("language", "fr")->get()->count() + 1;
+
+        foreach($languages as $language) {
+
+            if($language === "nl") {
+                $content = "<p>Er is nog geen inhoud beschikbaar.</p>";
+            } else if ($language === "fr") {
+                $content = "<p>Aucun contenu disponible pour le moment.</p>";
+            } else {
+                $content = "<p>No content available yet.</p>";
+            }
+
+            if($request->cover) {
+                $cover = Storage::disk('public')->put('images/words/' . $slug . '/cover/', $request->cover);
+            };
+
+            Word::create([
+                "is_primary" => $is_primary,
+                "title" => $request->title,
+                "slug" => $slug,
+                "author" => $author,
+                "cover" => "storage/" . $cover,
+                "content" => $content,
+                "language" => $language,
+                "index" => $indexCount,
+            ]);
+
+        }
+        return redirect()->back();
+
+    }
+
+    public function editOtherDetailArticles ($slug)
+    {
+        $articles = Word::where([
+            "is_primary" => false,
+            "slug" => $slug
+        ])
+        ->whereNot('author', 'Marc Belderbos')
+        ->select('title', 'slug', 'cover', 'content', 'language')
+        ->get();
+
+        // the cover image and title for the articles
+        $page = $articles[0];
+
+        return view("pages.admin.words.others.edit", compact('articles', 'page'));
     }
 }

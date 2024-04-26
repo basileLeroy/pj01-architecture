@@ -113,8 +113,14 @@ Route::middleware(["auth"])->group(function () {
     Route::get("mots/marc-belderbos/edit", [WordController::class, "edit"])->name("admin.words.marc.edit");
     Route::Post("mots/marc-belderbos/update", [WordController::class, "update"])->name("admin.words.marc.update");
     Route::Post("mots/marc-belderbos/store", [WordController::class, "store"])->name("admin.words.marc.store");
-    Route::Post("mots/marc-belderbos/update-order", [WordController::class, "updateOrder"])->name("admin.words.marc.update-order");
+    Route::Post("mots/marc-belderbos/update-order", [WordController::class, "updateListOrder"])->name("admin.words.marc.update-order");
     Route::get("mots/marc-belderbos/{Word}/edit", [WordController::class, "editDetail"])->name("admin.words.marc.editDetail");
+
+    Route::get("mots/others/edit", [WordController::class, "editOtherArticles"])->name("admin.words.others.edit");
+    Route::Post("mots/others/update", [WordController::class, "updateOtherArticles"])->name("admin.words.others.update");
+    Route::Post("mots/others/store", [WordController::class, "storeOtherArticles"])->name("admin.words.others.store");
+    Route::Post("mots/others/update-order", [WordController::class, "updateListOrder"])->name("admin.words.others.update-order");
+    Route::get("mots/others/{Word}/edit", [WordController::class, "editOtherDetailArticles"])->name("admin.words.others.editDetail");
     
     Route::get("preview/static-page", [StaticPageController::class, "displayStaticPreview"])->name("preview.static-page");
 

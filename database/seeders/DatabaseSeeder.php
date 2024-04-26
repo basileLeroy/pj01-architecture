@@ -93,5 +93,26 @@ class DatabaseSeeder extends Seeder
             "content" => "Geen inhoud beschikbaar op dit moment",
             "language" => "nl"
         ]);
+        Word::factory()->create([
+            "is_primary" => true,
+            "title"=>"Others",
+            "slug" => "words-by-others",
+            "content" => "No content available for now.",
+            "language" => "en"
+        ]);
+        Word::factory()->create([
+            "is_primary" => true,
+            "title"=>"Others",
+            "slug" => "words-by-others",
+            "content" => "Pas de contenu disponible pour le moment",
+            "language" => "fr"
+        ]);
+        Word::factory()->create([
+            "is_primary" => true,
+            "title"=>"Others",
+            "slug" => "words-by-others",
+            "content" => "Geen inhoud beschikbaar op dit moment",
+            "language" => "nl"
+        ]);
     }
 }
