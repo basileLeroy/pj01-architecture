@@ -10,7 +10,7 @@
 
 @section("content")
 <div class="w-full mx-12 flex flex-col items-center ">
-    <h1 class="text-3xl font-bold my-12">Page d'accueil</h1>
+    <h1 class="text-3xl font-bold my-12">Concepteur - Biographie</h1>
 
     <form action="{{ route('admin.creator.biography.update')}}" method="POST" class="w-full">
     @csrf
