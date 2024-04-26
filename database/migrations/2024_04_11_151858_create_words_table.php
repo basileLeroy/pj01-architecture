@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('language');
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
+            $table->integer("index")->index();
         });
     }
 

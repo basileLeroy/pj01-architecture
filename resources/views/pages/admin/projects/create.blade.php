@@ -10,6 +10,7 @@
 
 @section("content")
 @vite(["resources/js/admin.js"])
+
 <div id="page" class="w-full mx-12 flex flex-col items-center ">
     <h1 class="text-3xl font-bold my-12">Architecturer - Projets</h1>
     

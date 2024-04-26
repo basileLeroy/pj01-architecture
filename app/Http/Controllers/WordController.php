@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Word;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 
 class WordController extends Controller
 {
@@ -49,15 +52,68 @@ class WordController extends Controller
         $articles = Word::where("language", "fr")
             ->where('is_primary', false)
             ->where('author', 'Marc Belderbos')
-            ->select('title', 'slug', 'cover')
+            ->select('id','title', 'slug', 'cover')
             ->get();
 
-        return view("pages.admin.words.marc.edit", compact('primary', 'articles'));
+        return view("pages.admin.words.marc.index", compact('primary', 'articles'));
     }
 
-    public function store (Request $request) 
+    public function editDetail ($slug) 
     {
-        dd($request);
+        $articles = Word::where([
+                "is_primary" => false,
+                "author" => "Marc Belderbos",
+                "slug" => $slug
+            ])
+            ->select('title', 'slug', 'cover', 'content', 'language')
+            ->get();
+
+        // the cover image and title for the articles
+        $page = $articles[0];
+
+        return view("pages.admin.words.marc.edit", compact('articles', 'page'));
+    }
+
+    public function store (Request $request, $urlSlug) 
+    {
+        $languages = ["nl", "fr", "en"];
+
+        $request->validate([
+            "title" => "required",
+            "cover"=>"image|mimes:jpeg,png,jpg,gif,svg|max:5048",
+        ]);
+
+        $is_primary = $request->is_primary;
+        $author = $request->author;
+        $cover = $request->cover;
+        $slug = $urlSlug ?? Str::slug($request->title);
+
+        foreach($languages as $language) {
+
+            if($language === "nl") {
+                $content = "<p>Er is nog geen inhoud beschikbaar.</p>";
+            } else if ($language === "fr") {
+                $content = "<p>Aucun contenu disponible pour le moment.</p>";
+            } else {
+                $content = "<p>No content available yet.</p>";
+            }
+
+            if($request->cover) {
+                $cover = Storage::disk('public')->put('images/words/' . $slug . '/cover/', $request->cover);
+            };
+
+            Word::create([
+                "is_primary" => $is_primary,
+                "title" => $request->title,
+                "slug" => $slug,
+                "author" => $author,
+                "cover" => "storage/" . $cover,
+                "content" => $content,
+                "language" => $language
+            ]);
+
+        }
+        return redirect()->back();
     }
 
     // updating articles
@@ -79,25 +135,34 @@ class WordController extends Controller
         ]);
 
         $cover = $request->cover ?? null;
-        $slug = $request->slug;
+
         $is_primary = $request->is_primary;
         $author = $request->author;
 
         foreach ($languages as $lang) {
             $title = "";
             $content = "";
+            
 
             if ($lang == "nl") {
                 $title = $request->nl["title"];
                 $content = $request->nl["content"];
+                $slug = $request->nl["slug"] ?? null;
 
             } else if ($lang == "en") {
                 $title = $request->en["title"];
                 $content = $request->en["content"];
+                $slug = $request->en["slug"] ?? null;
+
 
             } else {
                 $title = $request->fr["title"];
-                $content = $request->fr["content"];            
+                $content = $request->fr["content"]; 
+                $slug = $request->fr["slug"] ?? null;           
+            }
+
+            if($request->slug) {
+                $slug = $request->slug;
             }
 
             $article = Word::where(["slug" => $slug, "language" => $lang])->first();

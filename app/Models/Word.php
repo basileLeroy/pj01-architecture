@@ -9,6 +9,17 @@ class Word extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        "is_primary",
+        "title",
+        "slug",
+        "author",
+        "cover",
+        "content",
+        "language",
+        "index",
+    ];
+
     public function getRouteKeyName(): string
     {
         return 'slug';

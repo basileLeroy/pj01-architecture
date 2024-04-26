@@ -27,6 +27,7 @@ class WordFactory extends Factory
             "cover" => asset("no_image.jpg"),
             "content" => __('error.no_content'),
             "language" => app()->getLocale(),
+            "index" => 1,
         ];
     }
 }

@@ -11,6 +11,7 @@ use function Pest\Laravel\json;
 
 class ProjectController extends Controller
 {
+    // client view
     public function index ()
     {
 
@@ -22,6 +23,7 @@ class ProjectController extends Controller
         ]);
     }
 
+    // client view
     public function show ($locale, $slug)
     {
         $project = Project::where(["slug" => $slug, "language" => $locale])->first();
@@ -32,6 +34,7 @@ class ProjectController extends Controller
         ]);
     }
 
+    // admin view
     public function create ()
     {
         $projects = Project::where("language", "fr")->orderBy('index', 'ASC')->get();
@@ -41,6 +44,7 @@ class ProjectController extends Controller
         ]);
     }
 
+    // admin POST request (creating new project)
     public function store (Request $request)
     {
         $languages = ["nl", "fr", "en"];
@@ -93,6 +97,7 @@ class ProjectController extends Controller
         return redirect()->route("admin.projects.create");
     }
 
+    // admin view
     public function edit ($slug)
     {
         $projects = Project::where("slug", $slug)->get();
@@ -102,6 +107,7 @@ class ProjectController extends Controller
         return view("pages.admin.projects.edit", compact('projects', 'firstProject'));
     }
 
+    // admin POST request (update project)
     public function update (Request $request, $slug)
     {
         $languages = ["nl", "fr", "en"];
