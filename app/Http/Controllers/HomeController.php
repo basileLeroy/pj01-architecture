@@ -61,6 +61,6 @@ class HomeController extends Controller
             $article->save();
         }
 
-        return redirect()->route("admin.dashboard")->with(["success"=>"La page d'accueil a correctement été mis a jour!"]);
+        return redirect()->back();
     }
 }

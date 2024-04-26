@@ -111,6 +111,8 @@ Route::middleware(["auth"])->group(function () {
     Route::post("architecturer/{Project}/update", [ProjectController::class, "update"])->name("admin.projects.update");
 
     Route::get("mots/marc-belderbos/edit", [WordController::class, "edit"])->name("admin.words.marc.edit");
+    Route::Post("mots/marc-belderbos/update", [WordController::class, "update"])->name("admin.words.marc.update");
+    Route::Post("mots/marc-belderbos/store", [WordController::class, "store"])->name("admin.words.marc.store");
     
     Route::get("preview/static-page", [StaticPageController::class, "displayStaticPreview"])->name("preview.static-page");
 

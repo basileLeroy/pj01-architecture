@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Word;
 use Illuminate\Http\Request;
 
@@ -42,7 +43,7 @@ class WordController extends Controller
     {
         $primary = Word::where('is_primary', true)
         ->where('author', 'Marc Belderbos')
-        ->select('author','content')
+        ->select('slug','author','content', 'language')
         ->get();
 
         $articles = Word::where("language", "fr")
@@ -54,10 +55,77 @@ class WordController extends Controller
         return view("pages.admin.words.marc.edit", compact('primary', 'articles'));
     }
 
-    // updating primary text and/or creating a new "word" article
-    public function update ()
+    public function store (Request $request) 
     {
+        dd($request);
+    }
 
+    // updating articles
+    public function update (Request $request)
+    {
+        $languages = ["nl", "fr", "en"];
+
+        $request->validate([
+            "cover"=>"image|mimes:jpeg,png,jpg,gif,svg|max:5048",
+
+            "nl.title" => "required",
+            "nl.content" => "required",
+
+            "fr.title" => "required",
+            "fr.content" => "required",
+
+            "en.title" => "required",
+            "en.content" => "required",
+        ]);
+
+        $cover = $request->cover ?? null;
+        $slug = $request->slug;
+        $is_primary = $request->is_primary;
+        $author = $request->author;
+
+        foreach ($languages as $lang) {
+            $title = "";
+            $content = "";
+
+            if ($lang == "nl") {
+                $title = $request->nl["title"];
+                $content = $request->nl["content"];
+
+            } else if ($lang == "en") {
+                $title = $request->en["title"];
+                $content = $request->en["content"];
+
+            } else {
+                $title = $request->fr["title"];
+                $content = $request->fr["content"];            
+            }
+
+            $article = Word::where(["slug" => $slug, "language" => $lang])->first();
+            $article->is_primary = $is_primary;
+            $article->author = $author;
+
+            if ($title !== $article->title) {
+                $article->title = $title;
+            }
+
+            if ($content !== $article->content) {
+                $article->content = $content;
+            }
+
+            if ($cover !== null) {
+                $storagePathToCover = substr($article->cover, 8);
+                if (Storage::disk("public")->exists($storagePathToCover)) {
+                    Storage::disk("public")->delete($storagePathToCover);
+                }
+
+                $newCoverImage = Storage::disk('public')->put('images/words/' . $slug . '/cover/', $cover);
+                $article->cover = 'storage/' . $newCoverImage;
+            }
+
+            $article->save();
+        }
+
+        return redirect()->back();
     }
 
     public function other () 

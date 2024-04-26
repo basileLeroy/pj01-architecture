@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Article;
 use App\Models\Project;
 use App\Models\User;
+use App\Models\Word;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -69,6 +70,27 @@ class DatabaseSeeder extends Seeder
         ]);
         Article::factory()->create([
             "page"=>"intentions-projects",
+            "language" => "nl"
+        ]);
+        Word::factory()->create([
+            "is_primary" => true,
+            "title"=>"Words",
+            "slug" => "words-by-marc",
+            "content" => "No content available for now.",
+            "language" => "en"
+        ]);
+        Word::factory()->create([
+            "is_primary" => true,
+            "title"=>"Words",
+            "slug" => "words-by-marc",
+            "content" => "Pas de contenu disponible pour le moment",
+            "language" => "fr"
+        ]);
+        Word::factory()->create([
+            "is_primary" => true,
+            "title"=>"Words",
+            "slug" => "words-by-marc",
+            "content" => "Geen inhoud beschikbaar op dit moment",
             "language" => "nl"
         ]);
     }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('words', function (Blueprint $table) {
             $table->id();
-            $table->boolean("is_primary");
+            $table->boolean("is_primary")->default(false);
             $table->string('title');
             $table->string('slug')->nullable();
             $table->string('author');
