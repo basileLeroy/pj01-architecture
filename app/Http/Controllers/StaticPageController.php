@@ -6,6 +6,8 @@ use App\Models\Article;
 use App\Models\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
+
 
 class StaticPageController extends Controller
 {
@@ -97,28 +99,37 @@ class StaticPageController extends Controller
     {
         $page = 'intentions-projects';
 
-        $validated = $request->validate([
-            'content.*' => 'required|min:3',
+        $langTitles = [
+            "fr" => "Intensions d'un projet",
+            "en" => "Intentions of a project",
+            'nl' => "Intenties van een project"
+        ];
+
+        $request->validate([
+            'content.*' => 'required',
         ]);
 
-        // foreach ($request->content as $language => $content) {
-        //     $article = new Article();
-        //     // $article = Article::where(["language"=>$language, "page"=>$page])->first();
-        //     $article->title = "Intentions lors d'un projet";
-        //     $article->slug = $page;
-        //     $article->page = $page;
-        //     $article->content = $content;
-        //     $article->language = $language;
-        //     $article->save();
-        // }
 
-        foreach ($request->content as $language =>$content) {
-            $article = Article::where(["language"=>$language, "page"=>$page])->first();
-            $article->content = $content;
-            $article->save();
+        if ($request->no_article) {
+            foreach ($request->content as $language =>$content) {
+                Article::create([
+                    "title" => $langTitles[$language],
+                    "slug" => Str::slug($langTitles[$language]),
+                    "content" => $content,
+                    "language" => $language,
+                    "page" => $page,
+                    "language_title" => $langTitles[$language]
+                ]);
+            };
+        } else {
+            foreach ($request->content as $language =>$content) {
+                $article = Article::where(["language"=>$language, "page"=>$page])->first();
+                $article->content = $content;
+                $article->save();
+            };
         }
 
-        return redirect()->route("admin.dashboard")->with(["success"=>"Intentions lors d'un projet a correctement été mis a jour!"]);
+        return redirect()->back();
     }
 
     public function displayThoughts()
