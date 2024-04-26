@@ -32,7 +32,7 @@ class HomeController extends Controller
         $articles = Article::where('page', '=', $page)
             ->get();
 
-        return view("pages.admin.home.edit")->with('articles', $articles);
+        return view("pages.admin.home.edit", compact("articles"));
     }
     public function update (Request $request)
     {

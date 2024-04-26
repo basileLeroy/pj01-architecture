@@ -170,6 +170,43 @@ class StaticPageController extends Controller
         return redirect()->back();
     }
 
+    public function editBiographyPage ()
+    {
+        $articles = Article::where("page", "Biography")->get();
+
+        return view("pages.admin.creator.biography.edit", compact("articles"));
+
+    }
+    public function updateBiographyPage (Request $request)
+    {
+        $request->validate([
+            'fr.*' => 'required|min:3',
+            'en.*' => 'required|min:3',
+            'nl.*' => 'required|min:3',
+        ]);
+
+        if($request->no_article) {
+            foreach (["fr" => $request->fr, "en" => $request->en, "nl" => $request->nl] as $language => $content) {
+                Article::create([
+                    "title" => "Biography",
+                    "slug" => "biography",
+                    "content" => $content["content"],
+                    "language" => $language,
+                    "page" => "Biography",
+                    "language_title" => "Biography"
+                ]);
+            }
+        } else {
+            foreach (["fr" => $request->fr, "en" => $request->en, "nl" => $request->nl] as $language => $content) {
+                $article = Article::where(["language"=>$language, "page"=>"Biography"])->first();
+                $article->content = $content["content"];
+                $article->save();
+            }
+        }
+
+        return redirect()->back();
+    }
+
     public function displayStaticPreview()
     {
     }
