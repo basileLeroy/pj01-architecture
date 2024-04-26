@@ -127,6 +127,9 @@ Route::middleware(["auth"])->group(function () {
     Route::get("concepteur/biography/edit", [StaticPageController::class, "editBiographyPage"])->name("admin.creator.biography.edit");
     Route::Post("concepteur/biography/update", [StaticPageController::class, "updateBiographyPage"])->name("admin.creator.biography.update");
     
+    Route::get("thoughts/edit", [StaticPageController::class, "editThoughtsPage"])->name("admin.thoughts.edit");
+    Route::Post("thoughts/update", [StaticPageController::class, "updateThoughtsPage"])->name("admin.thoughts.update");
+    
     Route::get("preview/static-page", [StaticPageController::class, "displayStaticPreview"])->name("preview.static-page");
 
     Route::get('admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');

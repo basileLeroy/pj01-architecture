@@ -207,6 +207,42 @@ class StaticPageController extends Controller
         return redirect()->back();
     }
 
+    public function editThoughtsPage ()
+    {
+        $articles = Article::where("page", "Thoughts")->get();
+
+        return view("pages.admin.thoughts.edit", compact("articles"));
+    }
+
+    public function updateThoughtsPage (Request $request)
+    {
+        $request->validate([
+            'fr.*' => 'required|min:3',
+            'en.*' => 'required|min:3',
+            'nl.*' => 'required|min:3',
+        ]);
+
+        if($request->no_article) {
+            foreach (["fr" => $request->fr, "en" => $request->en, "nl" => $request->nl] as $language => $content) {
+                Article::create([
+                    "title" => "Thoughts",
+                    "slug" => "thoughts",
+                    "content" => $content["content"],
+                    "language" => $language,
+                    "page" => "Thoughts",
+                    "language_title" => "Thoughts"
+                ]);
+            }
+        } else {
+            foreach (["fr" => $request->fr, "en" => $request->en, "nl" => $request->nl] as $language => $content) {
+                $article = Article::where(["language"=>$language, "page"=>"Thoughts"])->first();
+                $article->content = $content["content"];
+                $article->save();
+            }
+        }
+        return redirect()->back();
+    }
+
     public function displayStaticPreview()
     {
     }
