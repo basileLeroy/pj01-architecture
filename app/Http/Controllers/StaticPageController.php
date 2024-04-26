@@ -36,17 +36,38 @@ class StaticPageController extends Controller
     {
         $page = 'intentions-site';
 
-        $validated = $request->validate([
+        $slugs = [
+            "fr" => "intensions-du-site",
+            "en" => "intentions-of-the-website",
+            'nl' => "intenties-van-de-website"
+        ];
+
+        $request->validate([
             'content.*' => 'required',
         ]);
 
-        foreach ($request->content as $language =>$content) {
-            $article = Article::where(["language"=>$language, "page"=>$page])->first();
-            $article->content = $content;
-            $article->save();
-        };
 
-        return redirect()->route("admin.dashboard")->with(["success"=>"'Intentions du site' a correctement été mis a jour!"]);
+        if ($request->no_article) {
+            foreach ($request->content as $language =>$content) {
+                Article::create([
+                    "title" => "Intention du Site",
+                    "slug" => $slugs[$language],
+                    "content" => $content,
+                    "language" => $language,
+                    "page" => $page,
+                    "language_title" => "Intention du Site"
+                ]);
+            };
+        } else {
+            foreach ($request->content as $language =>$content) {
+                $article = Article::where(["language"=>$language, "page"=>$page])->first();
+                $article->content = $content;
+                $article->save();
+            };
+        }
+
+        // return redirect()->route("admin.dashboard")->with(["success"=>"'Intentions du site' a correctement été mis a jour!"]);
+        return redirect()->back();
     }
 
     public function displayIntentionsProject()
