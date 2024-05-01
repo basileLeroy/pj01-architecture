@@ -1,13 +1,25 @@
-@font-face {
-  font-family: "MyriadProRegular";
-  src: url("../fonts/myriadPro/MyriadProLight.otf") format("otf");
-  font-style: normal;
-}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+p {
+  font-family: sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+  text-align: start;
 }
 
 @media only screen and (min-width: 750px) {
@@ -44,8 +56,6 @@
     width: 100%;
     max-width: 1250px;
     flex-flow: column wrap;
-    font-family: "MyriadProRegular", sans-serif;
-    font-size: 1.1em;
   }
   body button {
     width: 100%;
@@ -64,12 +74,21 @@
   }
   body header ul {
     list-style-type: none;
+    font-family: sans-serif;
   }
   body header ul li {
     padding: 0.125em 0;
     color: #a5a5a5;
   }
-  body header ul li:hover {
+  body header ul a:visited {
+    padding: 0.125em 0;
+    color: #a5a5a5;
+  }
+  body header ul a:link {
+    padding: 0.125em 0;
+    color: #a5a5a5;
+  }
+  body header ul a:hover {
     color: #444;
   }
   body header .logo-container {
@@ -156,13 +175,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: left;
-  }
-  body main .content h1 {
-    margin-bottom: 50px;
-  }
-  body main .content p {
-    text-align: start;
   }
   body main .content header {
     display: flex;
@@ -174,7 +186,6 @@
   }
   body main .content .text-box {
     max-width: 800px;
-    text-align: left;
   }
   body main .content .text-show-action:hover {
     cursor: pointer;
@@ -189,9 +200,6 @@
     text-align: center;
     margin-bottom: 50px;
     width: 800px;
-  }
-  body main .content .project-detail-card h3 {
-    font-size: 1.7em;
   }
   body main .content .project-detail-card img {
     width: 100%;
