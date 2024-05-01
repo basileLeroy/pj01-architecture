@@ -202,7 +202,7 @@ class WordController extends Controller
         // Get Primary article for the index page dedicated to other authors
         $primary = Word::where("language", app()->getLocale())
             ->where('is_primary', true)
-            ->where('author', 'Others')
+            ->where('author', 'Other')
             ->select('author','content')
             ->first();
     
@@ -248,7 +248,7 @@ class WordController extends Controller
 
     public function editOtherArticles () {
         $primary = Word::where('is_primary', true)
-        ->where('author', 'Others')
+        ->where('author', 'Other')
         ->select('slug','author','content', 'language')
         ->get();
 

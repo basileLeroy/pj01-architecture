@@ -12,7 +12,7 @@
     @vite(['resources/js/admin.js'])
 
     <div class="w-full mx-12 flex flex-col items-center ">
-        <h1 class="text-3xl font-bold my-12">Mots - Marc Belderbos</h1>
+        <h1 class="text-3xl font-bold my-12">Mots - Autres</h1>
 
         <form action="{{ route('admin.words.others.update') }}" method="POST" class="w-full">
             @csrf
