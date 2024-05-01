@@ -69,6 +69,9 @@
     margin-top: 1.25em;
     width: 100%;
   }
+  body header .overlay {
+    display: none;
+  }
   body header ul {
     list-style-type: none;
     font-family: sans-serif;
@@ -196,11 +199,6 @@
     cursor: pointer;
     color: #a5a5a5;
   }
-  body main .content .editSection {
-    display: block;
-    margin: 50px;
-    max-width: 800px;
-  }
   body main .content .project-detail-card {
     text-align: center;
     margin-bottom: 50px;
@@ -208,10 +206,6 @@
   }
   body main .content .project-detail-card img {
     width: 100%;
-  }
-  body main .content .project-detail-card a .delete-item {
-    background-color: lightcoral;
-    color: white;
   }
   body main .content .card-body {
     width: 100%;
@@ -265,18 +259,5 @@
   }
   body main .content .card-group .project-card a:hover {
     color: black;
-  }
-  body main .editSection {
-    width: 750px;
-    display: block;
-    position: relative;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 15px;
-    background-color: #eaeaea;
-  }
-  body main .editSection i {
-    position: relative;
-    margin-bottom: 15px;
   }
 }/*# sourceMappingURL=desktop.css.map */

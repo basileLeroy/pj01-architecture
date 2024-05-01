@@ -1,0 +1,330 @@
+
+@mixin heading-fonts--mobile {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+@mixin text-fonts--mobile {
+    font-family: sans-serif;
+    font-size: 1.1em;
+    line-height: 1.5;
+    text-align: center;
+}
+
+$normalFontSize: 1.1em;
+$titleFontSize: 1.7em;
+$mobileButtonColor: #a4a4a4;
+
+
+@media only screen and (max-width: 749px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @include heading-fonts--mobile();
+    }
+
+    p {
+        @include text-fonts--mobile();
+    }
+
+    i, em {
+        font-style: italic;
+    }
+
+    b, strong {
+        font-weight: bolder;
+    }
+
+    .login-card * {
+        display: none;
+    }
+    .not-available-for-mobile {
+        display: block;
+    }
+
+    body {
+
+        width: 100vw;
+        max-width: 100vw;
+        position: absolute;
+        flex-flow: column wrap;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2.2em;
+            text-align: center;
+        }
+        h3 {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            background-color: $mobileButtonColor;
+            font-weight: bold;
+        }
+
+        header {
+            box-sizing: border-box;
+            padding: 0 2em;
+            padding-top: 1em;
+            display: flex;
+            max-width: 100%;
+            flex-wrap: wrap;
+
+            .logo-container {
+                width: 75%;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+
+                .desktop {
+                    display: none;
+                }
+
+                a img {
+                    width: 50px;
+                    height: auto;
+                }
+            }
+            .nav-mobile--button {
+                font-family: sans-serif;
+                width: 25%;
+                background-color: transparent;
+                border: black solid 1px;
+            }
+
+            .overlay {
+                height: 0%;
+                width: 100%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                right: 0;
+                background-color: aliceblue;
+                overflow-y: auto;
+                transition: 0.5s;
+
+                .closebtn {
+                    position: absolute;
+                    background-color: transparent;
+                    width: auto;
+                    z-index: 1;
+                    right: 0;
+                    padding-right: 0.5em;
+                    font-size: 60px;
+                }
+
+                .nav-mobile {
+                    position: relative;
+                    width: 100%;
+                    text-align: center;
+                    margin-top: 30px;
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    
+                    .lang {
+
+                        
+                        ul {
+                            list-style-type: none;
+    
+                            display: flex;
+                            flex-direction: row;
+                            margin-bottom: 1em;
+                        }
+                    }
+                    .accordion {
+                        background-color: transparent;
+                        color: #444;
+                        cursor: pointer;
+                        width: 100%;
+                        border: none;
+                        text-align: center;
+                        outline: none;
+                        font-size: 15px;
+                        transition: 0.4s;
+                        margin: 1em;
+                        padding: 0;
+                        color: #444;
+                        font-size: 1.5em;
+                        font-family: sans-serif;
+                        text-decoration: none;
+                        font-weight: 400;
+                    }
+                    a {
+                        margin: 1em;
+                        padding: 0;
+                        color: #444;
+                        font-size: 1.5em;
+                        font-family: sans-serif;
+                        text-decoration: none;
+                        font-weight: 400;
+                    }
+    
+                    .panel {
+                        padding: 0 18px;
+                        background-color: transparent;
+                        list-style-type: none;
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: max-height 0.2s ease-out;
+                        li {
+                            text-align: center;
+                            width: 100%;
+                            margin-top: 0.8em;
+                            margin-bottom: 0.8em;
+    
+                            a {
+                                font-size: 1em;
+                                font-weight: 200;
+                            }
+                        }
+                    }
+                }
+            }
+            .nav-desktop {
+                display: none;
+            }
+        }
+
+        .admin-logout {
+            display: flex;
+            position: relative;
+
+            background-color: orange;
+            font-size: 1.1em;
+            padding: 30px 20px;
+            justify-content: space-between;
+            margin: 10px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 3em;
+            margin-bottom: 2em;
+
+            img {
+                margin-bottom: 50px;
+            }
+            .content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 60%;
+                }
+
+                h1 {
+                    margin-bottom: 50px;
+                }
+
+                .card-group {
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    gap: 3em;
+
+                    .project-card {
+                        align-self: center;
+                        a {
+                            font-family: sans-serif;
+                            font-size: 1em;
+                            text-align: center;
+                            text-decoration: none;
+                            color: #444;
+                            img {
+                                width: 200px;
+                                margin-bottom: 5px;
+                            }
+                        }
+                        a:hover {
+                            color: #a4a4a4;
+                        }
+                    }
+                }
+
+                .card-body {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    margin-left: 2em;
+                    margin-right: 2em;
+
+                    .project-detail-card {
+                        text-align: center;
+                        margin-bottom: 6em;
+                        h1 {
+                            font-size: 2em;
+                        }
+
+                        img {
+                            max-width: 300px;
+                        }
+
+                        a {
+                            font-family: sans-serif;
+                            
+                            button {
+                                width: 90%;
+                            }
+                        }
+                    }
+                    .card-content {
+
+                        .gallery {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-evenly;
+
+                            a img {
+                                width: 100px;
+                            }
+                        }
+                        .text-box {
+
+                        }
+                    }
+                }
+
+                #article-content, .text-box {
+                    padding: 0 2em;
+                }
+
+            }
+        }
+    }
+}

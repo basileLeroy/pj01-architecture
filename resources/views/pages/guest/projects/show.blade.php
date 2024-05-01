@@ -15,9 +15,9 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project->titl
             <?php
                 $title = str_replace("-", " ", $project->title)
             ?>
-            <h3>
+            <h1>
                 {!! ucwords($title) !!}
-            </h3>
+            </h1>
             <img alt="{{ucwords($title)}}" title="{{ ucwords($title) }}" src="{{ asset($project->cover) }}">
             <a class="thoughts" href="{{ route('thoughts-' . app()->getLocale()) }}"><button>{!! __('pagination.thoughts') !!}</button></a>
         </div>
