@@ -8,7 +8,12 @@
 <script>
     tinymce.init({
         selector: 'textarea#tinyMCETextArea', // Replace this CSS selector to match the placeholder element for TinyMCE
-        plugins: 'code table lists',
-        toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
+        plugins: 'code table lists link image',
+        toolbar: 'undo redo | link | image | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table',
+        // formats: {
+        //     // bold : {inline : 'b' },  
+        //     italic : {inline : 'i' },
+        //     //underline : {inline : 'u'}
+        // },
     });
 </script>
