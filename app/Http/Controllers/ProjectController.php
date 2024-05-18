@@ -201,6 +201,20 @@ class ProjectController extends Controller
         return redirect()->back();
     }
 
+    public function delete ($slug)
+    {
+        $projects = Project::where("slug", $slug)->get();
+
+        $projectFolder = 'images/projects/' . $slug;   
+        Storage::disk("public")->deleteDirectory($projectFolder);
+
+        foreach ($projects as $project) {
+            $project->delete();
+        }
+
+        return redirect()->back();
+    }
+
     public function updateListOrder (Request $request)
     {
         $request->validate([

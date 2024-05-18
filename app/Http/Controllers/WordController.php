@@ -197,6 +197,21 @@ class WordController extends Controller
         return redirect()->back();
     }
 
+    // deleting articles
+    public function delete ($slug)
+    {
+        $words = Word::where("slug", $slug)->get();
+
+        $wordFolder = 'images/words/' . $slug;
+        Storage::disk("public")->deleteDirectory($wordFolder);
+
+        foreach ($words as $word) {
+            $word->delete();
+        }
+
+        return redirect()->back();
+    }
+
     public function other () 
     {
         // Get Primary article for the index page dedicated to other authors
@@ -246,7 +261,8 @@ class WordController extends Controller
         return redirect()->back();
     }
 
-    public function editOtherArticles () {
+    public function editOtherArticles () 
+    {
         $primary = Word::where('is_primary', true)
         ->where('author', 'Other')
         ->select('slug','author','content', 'language')
@@ -262,7 +278,8 @@ class WordController extends Controller
         return view("pages.admin.words.others.index", compact('primary', 'articles'));
     }
 
-    public function updateOtherArticles (Request $request) {
+    public function updateOtherArticles (Request $request) 
+    {
         $languages = ["nl", "fr", "en"];
 
         $request->validate([

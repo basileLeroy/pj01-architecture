@@ -109,6 +109,7 @@ Route::middleware(["auth"])->group(function () {
     Route::post("architecturer/update-order", [ProjectController::class, "updateListOrder"])->name("admin.projects.update-order");
     Route::get("architecturer/{Project}/edit", [ProjectController::class, "edit"])->name("admin.projects.edit");
     Route::post("architecturer/{Project}/update", [ProjectController::class, "update"])->name("admin.projects.update");
+    Route::get("architecturer/{Project}/delete", [ProjectController::class, "delete"])->name("admin.projects.delete");
 
     Route::get("mots/marc-belderbos/edit", [WordController::class, "edit"])->name("admin.words.marc.edit");
     Route::Post("mots/marc-belderbos/update", [WordController::class, "update"])->name("admin.words.marc.update");
@@ -121,6 +122,8 @@ Route::middleware(["auth"])->group(function () {
     Route::Post("mots/others/store", [WordController::class, "storeOtherArticles"])->name("admin.words.others.store");
     Route::Post("mots/others/update-order", [WordController::class, "updateListOrder"])->name("admin.words.others.update-order");
     Route::get("mots/others/{Word}/edit", [WordController::class, "editOtherDetailArticles"])->name("admin.words.others.editDetail");
+
+    Route::get("mots/{Word}/delete", [WordController::class, "delete"])->name("admin.words.delete");
 
     Route::get("concepteur/contact/edit", [StaticPageController::class, "editContactPage"])->name("admin.creator.contact.edit");
     Route::Post("concepteur/contact/update", [StaticPageController::class, "updateContactPage"])->name("admin.creator.contact.update");
