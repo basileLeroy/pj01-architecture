@@ -130,7 +130,11 @@ Route::middleware(["auth"])->group(function () {
     Route::get("thoughts/edit", [StaticPageController::class, "editThoughtsPage"])->name("admin.thoughts.edit");
     Route::Post("thoughts/update", [StaticPageController::class, "updateThoughtsPage"])->name("admin.thoughts.update");
     
-    Route::get("preview/static-page", [StaticPageController::class, "displayStaticPreview"])->name("preview.static-page");
+    Route::get("editions/edit", [ProductController::class, "edit"])->name("admin.products.edit");
+    Route::Post("editions/update", [ProductController::class, "update"])->name("admin.products.update");
+    
+    // Next feature with preview options?
+    // Route::get("preview/static-page", [StaticPageController::class, "displayStaticPreview"])->name("preview.static-page");
 
     Route::get('admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('admin/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -16,14 +16,9 @@ return new class extends Migration
             $table->boolean("is_primary")->default(false);
             $table->string('title');
             $table->string('slug')->nullable();
-            $table->string('image')->nullable();
             $table->text('content');
-            $table->text('author')->nullable();
-            $table->date('published');
-            $table->text('publisher')->nullable();
+            $table->string('page');
             $table->string('language');
-            $table->text('url')->nullable();
-            $table->text('currency');
             $table->timestamps();
 
         });
