@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+    @vite(['resources/js/admin.js'])
     <div class="w-full mx-12 flex flex-col items-center ">
         <h1 class="text-3xl font-bold my-12">Architecturer - {{ $firstProject->title }}</h1>
 
@@ -37,15 +38,16 @@
                         {{-- image deletions: Gallery Checkboxes --}}
                         <h3 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cliquer sûr une image pour
                             supprimer</h3>
-                        <ul class="flex w-full gap-6 mb-5">
+                        <ul id="project-gallery" class=" w-full flex gap-6 mb-5">
                             @foreach ($firstProject->gallery as $image)
-                                <li>
+                                <li draggable="true">
+                                    <input type="hidden" name="currentGallery[]" value="{{$image}}">
                                     <input type="checkbox" id="project-image-{{ $loop->index }}" name="deletions[]"
                                         value="{{ $image }}" class="hidden peer">
                                     <label for="project-image-{{ $loop->index }}"
                                         class="inline-flex w-36 p-5 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:border-gray-700 peer-checked:border-red-600 hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700">
                                         <div class="block">
-                                            <img src="{{ asset($image) }}" alt="">
+                                            <img src="{{ asset($image) }}" draggable="false"  alt="Gallery image of {{$firstProject->title}}">
                                         </div>
                                     </label>
                                 </li>

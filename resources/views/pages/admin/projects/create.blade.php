@@ -96,7 +96,6 @@
                             alt="Bonnie image" />
                         <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ $project->title }}</h5>
                         <span class="text-sm text-gray-500 dark:text-gray-400">{{ $project->updated_at }}</span>
-
                     </div>
                 </div>
             @endforeach

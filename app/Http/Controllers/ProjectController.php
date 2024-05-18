@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 use function Pest\Laravel\json;
+use function PHPUnit\Framework\isEmpty;
 
 class ProjectController extends Controller
 {
@@ -128,6 +129,7 @@ class ProjectController extends Controller
 
         $cover = $request->cover ?? null;
         $newGallery = $request->gallery ?? [];
+        $currentGallery = $request->currentGallery ?? [];
         $toRemove = $request->deletions ?? [];
 
         // removing images from local storage
@@ -183,7 +185,10 @@ class ProjectController extends Controller
             }
 
             if (!empty($toRemove)) {
-                $project->gallery = array_values(array_diff($project->gallery, $toRemove));
+                $updatedGallery = array_values(array_diff($currentGallery, $toRemove));
+                $project->gallery = $updatedGallery;
+            } else  {
+                $project->gallery = $currentGallery;
             }
 
             if (!empty($gallery)) {
