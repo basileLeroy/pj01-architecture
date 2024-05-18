@@ -6,19 +6,21 @@ use App\Models\Article;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class ProductController extends Controller
 {
     public function index ()
     {
-        $primary = Product::where("language", app()->getLocale())
-            ->where("is_primary", true)
+        $page = 'Products';
+        $localeLanguage = App::getLocale();
+        $params = ['page' => $page, 'language' => $localeLanguage];
+
+        $article = Product::where("language", app()->getLocale())
+            ->where($params)
             ->first();
 
-        $products = Product::where("is_primary", false)
-            ->get();
-
-        return view("pages.guest.products.index", compact("primary","products"));
+        return view("pages.guest.products.index", compact("article"));
     }
 
     public function show ($language, $slug)
