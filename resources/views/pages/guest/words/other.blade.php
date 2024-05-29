@@ -24,7 +24,7 @@
                 @foreach ($articles as $article)
                     <div class="project-card">
                         <a href="{{ route('words.show-' . app()->getLocale(), ['Word' => $article->slug] )  }}" class="fullsizable">
-                            <img alt="{{ $article->title }}" title="{{ $article->title }}" src="{{ asset($article->image)}}">
+                            <img src="{{ asset($article->cover)}}" alt="{{ $article->title }}" title="{{ $article->title }}">
                             <p>{{ ucwords($article->title) }}</p>
                         </a>
                     </div>

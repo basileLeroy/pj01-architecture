@@ -5,17 +5,17 @@
 @endsection
 
 @section('title')
-    Intentions
+    {{$page->title}}
 @endsection
 
 @section('content')
     <div class="w-full mx-12 flex flex-col items-center ">
         <h1 class="text-3xl font-bold my-12">Mots - {{ $page->title }}</h1>
 
-        <form enctype="multipart/form-data" action="{{ route('admin.words.marc.update') }}" method="POST" class="w-full">
+        <form enctype="multipart/form-data" action="{{ route('admin.words.others.update') }}" method="POST" class="w-full">
             @csrf
             <input type="hidden" name="is_primary" value="0">
-            <input type="hidden" name="author" value="Marc Belderbos">
+            <input type="hidden" name="author" value="{{$page->author}}">
 
             <div id="accordion-collapse" class="w-full" data-accordion="collapse">
                 <h2 class="text-2xl mb-6 font-bold">Mettre a jour "{{ $page->title }}"</h2>

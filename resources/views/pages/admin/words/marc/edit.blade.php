@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-    Intentions
+    {{$page->title}}
 @endsection
 
 @section('content')

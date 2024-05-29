@@ -298,7 +298,7 @@ class WordController extends Controller
         $cover = $request->cover ?? null;
 
         $is_primary = $request->is_primary;
-        $author = $request->author;
+        $author = $request->author ?? 'N/A';
 
         foreach ($languages as $lang) {
             $title = "";

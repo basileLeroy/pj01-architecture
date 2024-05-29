@@ -210,7 +210,7 @@
                         <div class="cursor-move flex flex-col items-center pb-10">
                             <img class="h-36 w-auto mb-3 rounded-md shadow-lg" src="{{ asset($article->cover) }}"
                                 alt="Bonnie image" />
-                            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ $article->title }}</h5>
+                            <h5 class="mb-1 text-center mx-6 text-xl font-medium text-gray-900 dark:text-white">{{ $article->title }}</h5>
                             <span class="text-sm text-gray-500 dark:text-gray-400">{{ $article->updated_at }}</span>
 
                         </div>
