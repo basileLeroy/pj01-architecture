@@ -16,7 +16,7 @@ return new class extends Migration
             $table->boolean("is_primary")->default(false);
             $table->string('title');
             $table->string('slug')->nullable();
-            $table->text('content');
+            $table->longText('content');
             $table->string('page');
             $table->string('language');
             $table->timestamps();

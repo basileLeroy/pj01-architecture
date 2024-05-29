@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('author');
             $table->string("cover")->nullable();
-            $table->text('content');
+            $table->longText('content');
             $table->string('language');
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
