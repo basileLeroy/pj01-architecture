@@ -14,7 +14,6 @@
     ])
 @else
     @vite([
-        'resources/css/style.css', 
         'resources/js/app.js',
     ])
 @endif
