@@ -9,9 +9,8 @@
 
 @if(Route::currentRouteNamed('admin.*') || Route::currentRouteNamed('auth.*'))
     @vite([
-        "resources/css/admin.css",
-        'resources/css/tailwind.css', 
         'resources/js/app-tailwind.js',
+        'resources/js/tinymce/tinymce.js'
     ])
 @else
     @vite([
