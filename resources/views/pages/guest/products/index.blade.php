@@ -1,17 +1,28 @@
-@extends('layout')
+@extends("layout")
 
 @section('seo')
-belderbos, biography, bio, architecturer, about
+belderbos, marc, architecturer, products, projecten, projets, portfolio, achievements, images, gallery
 @endsection
 
 @section('title')
-    {{ __('nav.shop')}}
+    Editions
 @endsection
 
 @section('content')
     <div class="content">
-        <div class="text-box">
-            {!! $article->content ?? __('error.no_content') !!}
+        <div class="card-group">
+            @forelse ($products as $product)
+                <?php $title = str_replace("-", " ", $product->title) ?>
+                <div class="project-card">
+                    <a href="{{ $product->link }}" class="fullsizable">
+                        <img alt="{{ $title }}" title="{{ $title }}" src="{{ asset($product->cover)}}">
+                        <p>{{ ucwords($title) }}</p>
+                    </a>
+                </div>
+            @empty
+                {!! __('error.no_content') !!}
+            @endforelse
+
         </div>
     </div>
 @endsection
