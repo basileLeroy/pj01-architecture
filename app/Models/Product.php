@@ -10,11 +10,12 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        "is_primary",
-        "title",
-        "slug",
-        "content",
-        "language",
-        "page",
+        'title',
+        'description',
+        'slug',
+        'cover',
+        'link',
+        'language',
+        'index'
     ];
 }
