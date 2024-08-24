@@ -135,6 +135,7 @@ Route::middleware(["auth"])->group(function () {
     
     Route::get("editions/create", [ProductController::class, "create"])->name("admin.products.create");
     Route::Post("editions/store", [ProductController::class, "store"])->name("admin.products.store");
+    Route::Post("editions/intro/store", [ProductController::class, "updateIntro"])->name("admin.products.intro.update");
     Route::Post("editions/update-order", [ProductController::class, "updateListOrder"])->name("admin.products.update-order");
     Route::get("editions/{Product}/edit", [ProductController::class, "edit"])->name("admin.products.edit");
     Route::post("editions/{Product}/update", [ProductController::class, "update"])->name("admin.products.update");

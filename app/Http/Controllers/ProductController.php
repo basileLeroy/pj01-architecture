@@ -28,11 +28,16 @@ class ProductController extends Controller
 
     public function create ()
     {
-        $products = Product::where("language", "fr")->orderBy('index', 'ASC')->get();
+        $products = Product::where("language", "fr")
+        ->where('is_primary', false)
+        ->orderBy('index', 'ASC')
+        ->get();
 
-        return view("pages.admin.products.create")->with([
-            "products" => $products
-        ]);
+        $primary = Product::where('is_primary', true)
+        ->select('slug','title','description', 'language')
+        ->get();
+
+        return view("pages.admin.products.create", compact('primary', 'products'));
     }
 
     public function store (Request $request)
@@ -68,6 +73,7 @@ class ProductController extends Controller
             $urlString = strval($request->link);
 
             Product::create([
+                'is_primary' => false,
                 'title' => $request->title,
                 'slug' => $slug,
                 'description' => $content,
@@ -88,7 +94,56 @@ class ProductController extends Controller
 
         $firstProduct = Product::where(["slug" => $slug, "language" => "fr"])->first();
 
+
         return view("pages.admin.products.edit", compact('products', 'firstProduct'));
+    }
+
+    // admin POST request (update product info article)
+    public function updateIntro (Request $request)
+    {
+
+        $languages = ["nl", "fr", "en"];
+
+        foreach ($languages as $lang) {
+            if ($lang == "nl") {
+                $title = $request->nl["title"];
+                $content = $request->nl["content"];
+
+            } else if ($lang == "en") {
+                $title = $request->en["title"];
+                $content = $request->en["content"];
+
+            } else  {
+                $title = $request->fr["title"];
+                $content = $request->fr["content"];            
+            }
+
+            $isPrimary = (int)$request->is_primary;
+
+            $productsIntro = Product::where('is_primary', true)
+            ->where('slug', $request->slug)
+            ->where('language', $lang)
+            ->first();
+
+            if ($productsIntro == null) {
+                Product::create([
+                    'is_primary' => true,
+                    'title' => $title,
+                    'slug' => $request->slug,
+                    'description' => $content,
+                    'language' => $lang,
+                    'cover' => null,
+                    'link' => null,
+                    'index' => 0
+                ]);
+            } else {
+                $productsIntro->description = $content;
+                $productsIntro->save();
+            }
+        }
+
+        return redirect()->back();
+
     }
     
     // admin POST request (update product)
@@ -111,6 +166,7 @@ class ProductController extends Controller
         ]);
 
         $cover = $request->cover ?? null;
+
 
         foreach ($languages as $lang) {
             $title = "";
@@ -180,7 +236,9 @@ class ProductController extends Controller
         ]);
 
         foreach($request->products as $index => $slug) {
+            $index++;
             $products = Product::where("slug", $slug)->get();
+            
             foreach($products as $product) {
                 $product->index = $index;
                 $product->save();

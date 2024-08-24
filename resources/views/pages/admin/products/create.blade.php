@@ -14,6 +14,120 @@
     <div id="page" class="w-full mx-12 flex flex-col items-center ">
         <h1 class="text-3xl font-bold my-12">Architecturer - Editions</h1>
 
+        <form action="{{ route('admin.products.intro.update') }}" method="POST" class="w-full">
+            @csrf
+            <input type="hidden" name="is_primary" value="1">
+            <input type="hidden" name="title" value="Intro to products">
+            <input type="hidden" name="slug" value="intro-to-products">
+
+            <div id="accordion-collapse" class="w-full" data-accordion="collapse">
+                <h2 class="text-2xl mb-6 font-bold">Mettre a jour l'article d'introduction</h2>
+
+                @if ($primary->isEmpty())
+                    <h2 id="accordion-collapse-heading-fr">
+                        <button type="button"
+                            class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                            data-accordion-target="#accordion-collapse-body-fr" aria-expanded="false"
+                            aria-controls="accordion-collapse-body-fr">
+                            <span>FR</span>
+                            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5 5 1 1 5" />
+                            </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-collapse-body-fr" class="hidden w-full"
+                        aria-labelledby="accordion-collapse-heading-fr">
+                        <input type="hidden" name="fr[title]" value="Editions - Marc">
+
+                        <div class="flex flex-col gap-6 p-5 border border-b-0 border-gray-200 dark:border-gray-700 w-full">
+                            <textarea class="w-full" name="fr[content]" id="tinyMCETextArea" rows="10">Aucun contenu disponible pour le moment.</textarea>
+                        </div>
+                    </div>
+                    <h2 id="accordion-collapse-heading-en">
+                        <button type="button"
+                            class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                            data-accordion-target="#accordion-collapse-body-en" aria-expanded="false"
+                            aria-controls="accordion-collapse-body-en">
+                            <span>EN</span>
+                            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5 5 1 1 5" />
+                            </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-collapse-body-en" class="hidden" aria-labelledby="accordion-collapse-heading-en">
+                        <input type="hidden" name="en[title]" value="Editions - Marc">
+
+                        <div class="flex flex-col gap-6 p-5 border border-b-0 border-gray-200 dark:border-gray-700 w-full">
+                            <textarea class="w-full" name="en[content]" id="tinyMCETextArea" rows="10">No content available yet.</textarea>
+                        </div>
+                    </div>
+                    <h2 id="accordion-collapse-heading-nl">
+                        <button type="button"
+                            class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                            data-accordion-target="#accordion-collapse-body-nl" aria-expanded="false"
+                            aria-controls="accordion-collapse-body-nl">
+                            <span>NL</span>
+                            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5 5 1 1 5" />
+                            </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-collapse-body-nl" class="hidden" aria-labelledby="accordion-collapse-heading-nl">
+                        <input type="hidden" name="nl[title]" value="Edities - Marc">
+
+                        <div class="flex flex-col gap-6 p-5 border border-b-0 border-gray-200 dark:border-gray-700 w-full">
+                            <textarea class="w-full" name="nl[content]" id="tinyMCETextArea" rows="10">Er is nog geen inhoud beschikbaar.</textarea>
+                        </div>
+                    </div>
+                @endif
+                @foreach ($primary as $article)
+                    <h2 id="accordion-collapse-heading-{{ $article->language }}">
+                        <button type="button"
+                            class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                            data-accordion-target="#accordion-collapse-body-{{ $article->language }}" aria-expanded="false"
+                            aria-controls="accordion-collapse-body-{{ $article->language }}">
+                            <span>{{ strtoupper($article->language) }}</span>
+                            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M9 5 5 1 1 5" />
+                            </svg>
+                        </button>
+                    </h2>
+                    <div id="accordion-collapse-body-{{ $article->language }}" class="hidden"
+                        aria-labelledby="accordion-collapse-heading-{{ $article->language }}">
+                        <input type="hidden" name="{{ $article->language }}[title]" value="{{ $article->title }}">
+
+                        <div class="flex flex-col gap-6 p-5 border border-b-0 border-gray-200 dark:border-gray-700 w-full">
+                            <textarea class="w-full" name="{{ $article->language }}[content]" id="tinyMCETextArea" rows="10">{!! $article->content !!}</textarea>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="flex mt-20 w-full justify-center gap-16">
+                <button type="submit"
+                    class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-md px-14 py-2.5 me-2 mb-2  dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save</button>
+                <a href="{{ route('admin.home.edit') }}"
+                    class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Cancel</a>
+            </div>
+        </form>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <hr class="w-1/2 h-1 mx-auto my-4 bg-gray-300 border-0 rounded md:my-10 dark:bg-gray-700">
         <form enctype="multipart/form-data" method="POST" action="{{ route('admin.products.store') }}"
             class="w-full bg-slate-100 p-12 rounded-md">
             @csrf
@@ -59,13 +173,13 @@
             </div>
         @endif
         <hr class="w-1/2 h-1 mx-auto my-4 bg-gray-300 border-0 rounded md:my-10 dark:bg-gray-700">
-        <form action="{{ route('admin.projects.update-order') }}" method="post" id="projects-list"
+        <form action="{{ route('admin.products.update-order') }}" method="post" id="projects-list"
             class="w-full flex flex-wrap gap-7 justify-around bg-slate-100 p-12 mb-12 rounded-md">
             @csrf
             @forelse ($products as $product)
                 <div id="project-item" draggable="true"
                     class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <input type="hidden" name="projects[]" value="{{ $product->slug }}">
+                    <input type="hidden" name="products[]" value="{{ $product->slug }}">
                     <div class="flex justify-end px-4 pt-4">
                         <button id="{{ $product->slug }}" data-dropdown-toggle="dropdown-{{ $product->id }}"
                             class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
