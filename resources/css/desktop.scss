@@ -289,10 +289,12 @@ $mobileButtonColor: #a4a4a4;
                 .text-box {
                     max-width: 800px;
                 }
+
                 .text-show-action:hover {
                     cursor: pointer;
                     color: $linkColor;
                 }
+
                 .project-detail-card {
                     text-align: center;
                     margin-bottom: 50px;
@@ -301,6 +303,7 @@ $mobileButtonColor: #a4a4a4;
                         width: 100%;
                     }
                 }
+
                 .card-group {
                     width: 1000px;
                     display: flex;
