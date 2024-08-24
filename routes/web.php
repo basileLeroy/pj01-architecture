@@ -144,9 +144,12 @@ Route::middleware(["auth"])->group(function () {
     // Next feature with preview options?
     // Route::get("preview/static-page", [StaticPageController::class, "displayStaticPreview"])->name("preview.static-page");
 
-    Route::get('admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('admin/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('admin/profile', [ProfileController::class, 'index'])->name('admin.profile.index');
+    Route::post('admin/profile', [ProfileController::class, 'create'])->name('admin.profile.create');
+    Route::patch('admin/profile', [ProfileController::class, 'update'])->name('admin.profile.update');
+    Route::delete('admin/profile', [ProfileController::class, 'destroy'])->name('admin.profile.destroy');
+
+
 });
 
 require __DIR__.'/auth.php';

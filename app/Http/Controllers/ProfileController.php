@@ -3,14 +3,55 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    /**
+     * Display table of admins.
+     */
+    public function index (): View
+    {
+        $administrators = User::all();
+
+        return view('pages.admin.accounts.index', compact('administrators'));
+    }
+
+    /**
+     * Display create a new admin.
+     */
+    public function create (Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed',
+            'role' => 'required|boolean'
+        ]);
+
+        if(!Auth::user()->super_admin) {
+            return redirect("/401", 401);
+        }
+
+
+        $newAdmin = new User();
+
+        $newAdmin->name = $request->name;
+        $newAdmin->email = $request->email;
+        $newAdmin->super_admin = (int)$request->role;
+        $newAdmin->password = Hash::make($request->password);
+
+        $newAdmin->save();
+
+        return redirect()->back();
+    }
+
     /**
      * Display the user's profile form.
      */

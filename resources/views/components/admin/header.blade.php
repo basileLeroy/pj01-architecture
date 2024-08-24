@@ -5,7 +5,7 @@
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">B-Dash</span>
         </a>
         <div class="flex items-center space-x-6 rtl:space-x-reverse gap-12">
-            <a href="#" class="text-sm  text-gray-500 dark:text-white hover:underline">{{ Auth::user()->name}}</a>
+            <a href="{{ route('admin.profile.index')}}" class="text-sm  text-gray-500 dark:text-white hover:underline">{{ Auth::user()->name}}</a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
