@@ -20,5 +20,6 @@ return [
     'notAvailable' => 'No content available yet.',
     'OrderNow' => 'Order here',
     'ConfirmOrder' => 'Confirm Order',
-    'WrittenBy' => 'Written by'
+    'WrittenBy' => 'Written by',
+    'buyHere' => "Buy this book here!"
 ];

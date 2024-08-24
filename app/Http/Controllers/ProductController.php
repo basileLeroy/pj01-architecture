@@ -14,16 +14,28 @@ class ProductController extends Controller
     public function index ()
     {
         $localeLanguage = App::getLocale();
-        $params = ['language' => $localeLanguage];
 
-        $products = Product::where("language", $localeLanguage)->get();
+        $products = Product::where('is_primary', false)
+        ->where("language", $localeLanguage)
+        ->get();
 
-        return view("pages.guest.products.index", compact("products"));
+        $primary = Product::where('is_primary', true)
+        ->where('language', $localeLanguage)
+        ->select('description')
+        ->first();
+        return view("pages.guest.products.index", compact('primary', 'products'));
     }
 
     public function show ($language, $slug)
     {
+        $product = Product::where("slug", $slug)
+        ->where("language", App()->getLocale())
+        ->first();
 
+        
+        return view("pages.guest.products.show")->with([
+            "product" => $product
+        ]);
     }
 
     public function create ()

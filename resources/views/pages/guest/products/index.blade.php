@@ -10,11 +10,18 @@ belderbos, marc, architecturer, products, projecten, projets, portfolio, achieve
 
 @section('content')
     <div class="content">
+        <div class="text-box">
+            {!! $primary->description ?? "" !!}
+
+            <br>
+            <hr>
+        </div>
+
         <div class="card-group">
             @forelse ($products as $product)
                 <?php $title = str_replace("-", " ", $product->title) ?>
                 <div class="project-card">
-                    <a href="{{ $product->link }}" class="fullsizable">
+                    <a href="{{ route("products.show-" . $product->language, ["Product" => $product->slug]) }}" class="fullsizable">
                         <img alt="{{ $title }}" title="{{ $title }}" src="{{ asset($product->cover)}}">
                         <p>{{ ucwords($title) }}</p>
                     </a>

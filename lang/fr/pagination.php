@@ -20,6 +20,8 @@ return [
     'notAvailable' => 'Aucun contenu disponible pour le moment.',
     'OrderNow' => 'Commander ici',
     'ConfirmOrder' => 'Confirmer la commande',
-    'WrittenBy' => 'Ecrit par'
+    'WrittenBy' => 'Ecrit par',
+    'buyHere' => "Achetez ce livre ici !"
+
 
 ];

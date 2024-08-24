@@ -40,6 +40,7 @@
     flex-flow: column wrap;
     overflow-y: auto;
     overflow-x: hidden;
+    box-sizing: border-box;
   }
   body h1 {
     font-size: 2.5em;
@@ -206,6 +207,64 @@
   body main .content h1 {
     margin-bottom: 50px;
   }
+  body main .content .detail-display {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  body main .content .detail-display .detail-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  body main .content .detail-display .detail-card .detail-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 50px 0;
+  }
+  body main .content .detail-display .detail-card .detail-cover img {
+    width: 400px;
+  }
+  body main .content .detail-display .detail-card .detail-cover a {
+    width: 100%;
+    font-size: larger;
+  }
+  body main .content .detail-display .detail-card .detail-cover a button:hover {
+    cursor: pointer;
+    background-color: #777777;
+  }
+  body main .content .detail-display .detail-card .detail-cover .link-to-buy button {
+    margin: 0;
+    font-size: larger;
+    background-color: white;
+    border: 1px solid black;
+  }
+  body main .content .detail-display .detail-card .detail-cover .link-to-buy button:hover {
+    background-color: rgb(178, 178, 24);
+    cursor: pointer;
+  }
+  body main .content .detail-display .detail-card .detail-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+  }
+  body main .content .detail-display .detail-card .detail-content .detail-gallery {
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    max-width: 600px;
+    margin-bottom: 50px;
+    overflow-x: scroll;
+  }
+  body main .content .detail-display .detail-card .detail-content .detail-gallery a {
+    height: 100%;
+  }
+  body main .content .detail-display .detail-card .detail-content .detail-gallery a img {
+    height: 200px;
+    width: auto;
+  }
   body main .content .card-group {
     display: flex;
     flex-direction: column;
@@ -228,38 +287,6 @@
   }
   body main .content .card-group .project-card a:hover {
     color: #a4a4a4;
-  }
-  body main .content .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 2em;
-    margin-right: 2em;
-  }
-  body main .content .card-body .project-detail-card {
-    text-align: center;
-    margin-bottom: 6em;
-  }
-  body main .content .card-body .project-detail-card h1 {
-    font-size: 2em;
-  }
-  body main .content .card-body .project-detail-card img {
-    max-width: 300px;
-  }
-  body main .content .card-body .project-detail-card a {
-    font-family: sans-serif;
-  }
-  body main .content .card-body .project-detail-card a button {
-    width: 90%;
-  }
-  body main .content .card-body .card-content .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
-  body main .content .card-body .card-content .gallery a img {
-    width: 100px;
   }
   body main .content #article-content, body main .content .text-box {
     padding: 0 2em;

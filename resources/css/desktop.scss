@@ -219,6 +219,64 @@ $mobileButtonColor: #a4a4a4;
                 padding-top: 4em;
                 padding-bottom: 4em;
 
+                .detail-display {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    .detail-card {
+                        display: flex;
+
+                        .detail-cover {
+                            max-width: 300px;
+
+                            img {
+                                width: 100%;
+                            }
+
+                            a button:hover {
+                                cursor: pointer;
+                                background-color: #777777;
+                            }
+
+                            .link-to-buy button {
+                                margin: 0;
+                                font-size: larger;
+                                background-color: white;
+                                border: 1px solid black;
+                            }
+                            .link-to-buy button:hover {
+                                background-color: rgb(178, 178, 24);
+                                cursor: pointer;
+                            }
+                        }
+
+                        .detail-content {
+                            display: flex;
+                            flex-direction: column;
+                            margin: 0 25px;
+                            width: 100%;
+                            max-width: 700px;
+
+                            .detail-gallery {
+                                display: flex;
+                                flex-wrap: nowrap;
+                                position: relative;
+                                width: 100%;
+                                margin-bottom: 50px;
+                                overflow-x: scroll;
+                                a {
+                                    height: 100%;
+                                    img {
+                                        height: 200px;
+                                        width: auto;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
                 header {
                     display: flex;
                     flex-direction: column;
@@ -241,36 +299,6 @@ $mobileButtonColor: #a4a4a4;
                     width: 800px;
                     img {
                         width: 100%;
-                    }
-                }
-                .card-body {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: row;
-
-                    .project-detail-card {
-                        position: sticky;
-                        top: 20px;
-                        width: 30%;
-                        margin: 15px;
-                    }
-                    .card-content {
-                        width: 70%;
-                        flex-direction: column;
-                        .gallery {
-                            display: flex;
-                            flex-wrap: nowrap;
-                            position: relative;
-                            width: 100%;
-                            overflow-x: scroll;
-                            a {
-                                height: 100%;
-                                img {
-                                    height: 200px;
-                                    width: auto;
-                                }
-                            }
-                        }
                     }
                 }
                 .card-group {

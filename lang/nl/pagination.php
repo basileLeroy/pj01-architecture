@@ -21,8 +21,9 @@ return [
     'notAvailable' => 'Nog geen inhoud beschikbaar.',
     'OrderNow' => 'Bestel hier',
     'ConfirmOrder' => 'Bevestig je aankoop',
-    'WrittenBy' => 'Geschreven door'
-
+    'WrittenBy' => 'Geschreven door',
+    'buyHere' => 'Koop dit boek hier!'
+    
     
 
 ];

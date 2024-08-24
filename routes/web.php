@@ -72,13 +72,13 @@ $publicRoutes = function () {
 
     // Routes for books on display written by Marc
     Route::get("publisher", [ProductController::class, "index"])->name("products.index-en");
-    // Route::get("publisher/{Product}", [ProductController::class, "show"])->name("products.show-en");
+    Route::get("publisher/{Product}", [ProductController::class, "show"])->name("products.show-en");
 
     Route::get("edition", [ProductController::class, "index"])->name("products.index-fr");
-    // Route::get("edition/{Product}", [ProductController::class, "show"])->name("products.show-fr");
+    Route::get("edition/{Product}", [ProductController::class, "show"])->name("products.show-fr");
 
     Route::get("edities", [ProductController::class, "index"])->name("products.index-nl");
-    // Route::get("edities/{Product}", [ProductController::class, "show"])->name("products.show-nl");
+    Route::get("edities/{Product}", [ProductController::class, "show"])->name("products.show-nl");
 };
 
 Route::get("/", [LocaleController::class, "localeRedirect"]);
