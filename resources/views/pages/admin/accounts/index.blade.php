@@ -43,7 +43,7 @@
                     @if ($admin->super_admin)
                         True
                     @else
-                        false
+                        False
                     @endif
                 </td>
                 <td class="px-6 py-4">
@@ -51,11 +51,13 @@
                 </td>
                 <td class="px-6 py-4">
                     @if(auth()->user()->name != $admin->name)
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        <a href="{{ route("admin.profile.edit", ['slug' => $admin->slug]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                     @endif
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                    @if(auth()->user()->name != $admin->name)
+                        <a href="{{ route("admin.profile.destroy", ['slug' => $admin->slug]) }}" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                    @endif
                 </td>
             </tr>
             @endforeach
@@ -65,7 +67,7 @@
     <hr class="w-1/2 h-1 mx-auto my-4 bg-gray-300 border-0 rounded md:my-10 dark:bg-gray-700">
     @endif
 
-    <form method="POST" action="{{ route('admin.profile.update', ['user' => auth()->user()->slug]) }}"
+    <form method="POST" action="{{ route('admin.profile.update', ['slug' => auth()->user()->slug]) }}"
     class="w-full bg-slate-100 p-12 rounded-md">
         @csrf
         <h2 class="text-2xl font-bold">Mettre a jour votre compte</h2>

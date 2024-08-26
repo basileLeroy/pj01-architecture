@@ -6,6 +6,7 @@ use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -43,6 +44,7 @@ class ProfileController extends Controller
         $newAdmin = new User();
 
         $newAdmin->name = $request->name;
+        $newAdmin->slug = Str::slug($request->name);
         $newAdmin->email = $request->email;
         $newAdmin->super_admin = (int)$request->role;
         $newAdmin->password = Hash::make($request->password);
@@ -55,47 +57,63 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function edit($slug): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
+        return view('pages.admin.accounts.edit', [
+            'user' => User::where('slug', $slug)->firstOrFail()
         ]);
     }
 
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
+    public function update($slug, Request $request)
+    {   
+        $request->validate([
+            'name' => 'min:1|required',
+            'email' => 'min:1|email|required',
+            'password' => 'confirmed',
+        ]);
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $user = User::where('slug', $slug)->firstOrFail();
+
+        if ($request->name) {
+            $user->name = $request->name;
+
+            if($user->name != $request->name) {
+                $user->slug = Str::slug($request->name);
+            }
+        }
+        if ($request->email) {
+            $user->email = $request->email;
+        }
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
         }
 
-        $request->user()->save();
+        if(Auth::user()->super_admin) {
+            $user->super_admin = $request->role;
+        }
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        $user->save();
+
+        return Redirect::route('admin.profile.index')->with('status', $user->name . ' updated successfully!');
     }
 
     /**
      * Delete the user's account.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy($slug): RedirectResponse
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
 
-        $user = $request->user();
+        if($slug == Auth::user()->slug) {
+            return redirect()->back()->with('alert', 'Not allowed to remove your current account');
+        }
 
-        Auth::logout();
+        $user = User::where('slug', $slug)->firstOrFail();
 
         $user->delete();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        return redirect()->back()->with('status', Auth::user()->name . ' Has been successfully deleted');
     }
 }
