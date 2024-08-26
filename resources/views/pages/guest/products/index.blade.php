@@ -11,7 +11,7 @@ belderbos, marc, architecturer, products, projecten, projets, portfolio, achieve
 @section('content')
     <div class="content">
         <div class="text-box">
-            {!! $primary->description ?? "" !!}
+            {!! $primary->description ?? __('error.no_content') !!}
 
             <br>
             <hr>
