@@ -146,9 +146,9 @@ Route::middleware(["auth"])->group(function () {
 
     Route::get('admin/profile', [ProfileController::class, 'index'])->name('admin.profile.index');
     Route::post('admin/profile', [ProfileController::class, 'create'])->name('admin.profile.create');
-    Route::patch('admin/profile', [ProfileController::class, 'update'])->name('admin.profile.update');
-    Route::delete('admin/profile', [ProfileController::class, 'destroy'])->name('admin.profile.destroy');
-
+    Route::get('admin/profile/{slug}', [ProfileController::class, 'edit'])->name('admin.profile.edit');
+    Route::post('admin/profile/{slug}', [ProfileController::class, 'update'])->name('admin.profile.update');
+    Route::get('admin/delete/{slug}', [ProfileController::class, 'destroy'])->name('admin.profile.destroy');
 
 });
 
