@@ -85,7 +85,7 @@
                             <textarea class="w-full" name="nl[content]" id="tinyMCETextArea" rows="10">Er is nog geen inhoud beschikbaar.</textarea>
                         </div>
                     </div>
-                @endif
+                @else
                 @foreach ($primary as $article)
                     <h2 id="accordion-collapse-heading-{{ $article->language }}">
                         <button type="button"
@@ -105,10 +105,11 @@
                         <input type="hidden" name="{{ $article->language }}[title]" value="{{ $article->title }}">
 
                         <div class="flex flex-col gap-6 p-5 border border-b-0 border-gray-200 dark:border-gray-700 w-full">
-                            <textarea class="w-full" name="{{ $article->language }}[content]" id="tinyMCETextArea" rows="10">{!! $article->content !!}</textarea>
+                            <textarea class="w-full" name="{{ $article->language }}[content]" id="tinyMCETextArea" rows="10">{!! $article->description !!}</textarea>
                         </div>
                     </div>
                 @endforeach
+                @endif
             </div>
             <div class="flex mt-20 w-full justify-center gap-16">
                 <button type="submit"
