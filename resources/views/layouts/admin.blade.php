@@ -8,5 +8,7 @@
         @include("components.admin.sidebar")
 
         @yield("content")
+
+        @include('components.admin.flash')
     </main>
 </body>
