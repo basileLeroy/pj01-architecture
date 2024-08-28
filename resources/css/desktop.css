@@ -217,7 +217,8 @@
     border: 1px solid black;
   }
   body main .content .detail-display .detail-card .detail-cover .link-to-buy button:hover {
-    background-color: rgb(178, 178, 24);
+    background-color: rgb(58, 58, 58);
+    color: aliceblue;
     cursor: pointer;
   }
   body main .content .detail-display .detail-card .detail-content {
