@@ -20,7 +20,6 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project->titl
             <div class="detail-cover">
                 <img alt="{{ucwords($project->title)}}" title="{{ ucwords($project->title) }}" src="{{ asset($project->cover) }}">
                 <a class="thoughts" href="{{ route('thoughts-' . app()->getLocale()) }}"><button>{!! __('pagination.thoughts') !!}</button></a>    
-                <a class="link-to-buy" href="{{ $project->link }}"><button>{!! __('pagination.buyHere') !!}</button></a>    
             </div>
             <div class="detail-content">
                 <div class="detail-gallery" id="" >
