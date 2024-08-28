@@ -210,12 +210,14 @@
   body main .content .detail-display {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 100%;
   }
   body main .content .detail-display .detail-card {
+    margin: 0 20px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    justify-content: center;
   }
   body main .content .detail-display .detail-card .detail-cover {
     display: flex;
@@ -223,12 +225,15 @@
     align-items: center;
     width: 100%;
     margin: 50px 0;
+    padding-bottom: 20px;
+    box-sizing: border-box;
   }
   body main .content .detail-display .detail-card .detail-cover img {
-    width: 400px;
+    width: 100%;
+    max-width: 200px;
   }
   body main .content .detail-display .detail-card .detail-cover a {
-    width: 100%;
+    width: 75%;
     font-size: larger;
   }
   body main .content .detail-display .detail-card .detail-cover a button:hover {
@@ -242,7 +247,8 @@
     border: 1px solid black;
   }
   body main .content .detail-display .detail-card .detail-cover .link-to-buy button:hover {
-    background-color: rgb(178, 178, 24);
+    background-color: rgb(58, 58, 58);
+    color: aliceblue;
     cursor: pointer;
   }
   body main .content .detail-display .detail-card .detail-content {
@@ -252,17 +258,21 @@
   }
   body main .content .detail-display .detail-card .detail-content .detail-gallery {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
     position: relative;
     max-width: 600px;
-    margin-bottom: 50px;
-    overflow-x: scroll;
+    margin-bottom: 40px;
   }
   body main .content .detail-display .detail-card .detail-content .detail-gallery a {
-    height: 100%;
+    padding: 0;
   }
   body main .content .detail-display .detail-card .detail-content .detail-gallery a img {
-    height: 200px;
+    border: 1px solid black;
+    height: 100px;
+    width: auto;
+    margin-bottom: 0;
     width: auto;
   }
   body main .content .card-group {

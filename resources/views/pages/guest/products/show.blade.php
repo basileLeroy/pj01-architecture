@@ -23,6 +23,7 @@ belderbos, marc, architecturer, books, products, <?php echo str_replace("-", ", 
                 <a class="link-to-buy" href="{{ $product->link }}"><button>{!! __('pagination.buyHere') !!}</button></a>    
             </div>
             <div class="detail-content">
+                <h3>Synopsys:</h3>
                 {!! $product->description ?? __('error.no_content') !!}
             </div>
         </div>

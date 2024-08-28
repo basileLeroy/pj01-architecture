@@ -223,12 +223,21 @@ $mobileButtonColor: #a4a4a4;
                     display: flex;
                     flex-direction: column;
                     width: 100%;
+                    padding: 0 30px;
 
+                    .detail-title {
+                        font-size: x-large;
+                        margin: 20px 0;
+                    }
                     .detail-card {
                         display: flex;
 
                         .detail-cover {
-                            max-width: 300px;
+                            position: -webkit-sticky; /* Safari */
+                            position: sticky;
+                            top: 20px;
+                            max-height: 500px;
+                            width: 300px;
 
                             img {
                                 width: 100%;
@@ -255,14 +264,20 @@ $mobileButtonColor: #a4a4a4;
                             display: flex;
                             flex-direction: column;
                             margin: 0 25px;
-                            width: 100%;
-                            max-width: 700px;
+                            width: 700px;
+                            background-color: #d8d8d8;
+                            padding: 15px;
+                            border: 1px solid black;
+
+                            h3 {
+                                font-size:x-large;
+                                font-weight: 500;
+                            }
 
                             .detail-gallery {
                                 display: flex;
                                 flex-wrap: nowrap;
                                 position: relative;
-                                width: 100%;
                                 margin-bottom: 50px;
                                 overflow-x: scroll;
                                 a {

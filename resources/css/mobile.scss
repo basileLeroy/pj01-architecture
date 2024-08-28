@@ -253,12 +253,14 @@ $mobileButtonColor: #a4a4a4;
                 .detail-display {
                     display: flex;
                     flex-direction: column;
+                    justify-content: center;
                     width: 100%;
 
                     .detail-card {
+                        margin: 0 20px;
                         display: flex;
                         flex-direction: column;
-                        width: 100%;
+                        justify-content: center;
 
                         .detail-cover {
                             display: flex;
@@ -266,12 +268,16 @@ $mobileButtonColor: #a4a4a4;
                             align-items: center;
                             width: 100%;
                             margin: 50px 0;
+                            padding-bottom: 20px;
+                            box-sizing: border-box;
+
                             img {
-                                width: 400px;
+                                width: 100%;
+                                max-width: 200px;
                             }
 
                             a {
-                                width: 100%;
+                                width: 75%;
                                 font-size: larger;
                             }
 
@@ -287,7 +293,8 @@ $mobileButtonColor: #a4a4a4;
                                 border: 1px solid black;
                             }
                             .link-to-buy button:hover {
-                                background-color: rgb(178, 178, 24);
+                                background-color: rgb(58, 58, 58);
+                                color: aliceblue;
                                 cursor: pointer;
                             }
                         }
@@ -295,22 +302,24 @@ $mobileButtonColor: #a4a4a4;
                         .detail-content {
                             display: flex;
                             flex-direction: column;
-                            
                             max-width: 600px;
 
                             .detail-gallery {
                                 display: flex;
-                                flex-wrap: nowrap;
+                                flex-wrap: wrap;
+                                justify-content: space-evenly;
+                                gap: 10px;
                                 position: relative;
                                 max-width: 600px;
-                                margin-bottom: 50px;
-                                overflow-x: scroll;
+                                margin-bottom: 40px;
 
                                 a {
-                                    height: 100%;
+                                    padding : 0;
                                     img {
-                                        height: 200px;
+                                        border: 1px solid black;
+                                        height: 100px;
                                         width: auto;
+                                        margin-bottom: 0;                                        width: auto;
                                     }
                                 }
                             }

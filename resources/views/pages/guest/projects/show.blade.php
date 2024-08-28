@@ -20,6 +20,7 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project->titl
             <div class="detail-cover">
                 <img alt="{{ucwords($project->title)}}" title="{{ ucwords($project->title) }}" src="{{ asset($project->cover) }}">
                 <a class="thoughts" href="{{ route('thoughts-' . app()->getLocale()) }}"><button>{!! __('pagination.thoughts') !!}</button></a>    
+                <a class="link-to-buy" href="{{ $project->link }}"><button>{!! __('pagination.buyHere') !!}</button></a>    
             </div>
             <div class="detail-content">
                 <div class="detail-gallery" id="" >
@@ -39,6 +40,25 @@ belderbos, marc, architecturer, <?php echo str_replace("-", ", ", $project->titl
         </div>
     </div>
 </div>
+{{-- <div class="content">
+    <div class="detail-display">
+        <div class="detail-title">
+            <h1>
+                {!! ucwords($project->title) !!}
+            </h1>
+        </div>
+        <div x-data class="detail-card">
+            <div class="detail-cover">
+                <img alt="{{ucwords($project->title)}}" title="{{ ucwords($project->title) }}" src="{{ asset($project->cover) }}">
+                <a class="thoughts" href="{{ route('thoughts-' . app()->getLocale()) }}"><button>{!! __('pagination.thoughts') !!}</button></a>    
+            </div>
+            <div class="detail-content">
+
+                {!! $project->description ?? __('error.no_content') !!}
+            </div>
+        </div>
+    </div>
+</div> --}}
 @vite(['resources/js/lightbox/fslightbox.js'])
 
 @endsection
