@@ -4,7 +4,7 @@
 
 
 <!-- TinyMce text editor -->
-<script src="https://cdn.tiny.cloud/1/bh7c8td0xxcbzu9eu05sqsgdsvljms89j94daa9anh9sd3gb/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/sf3v8brui9qeos4y6ecrhrnppajr5cszu1v1fee179mgim23/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     tinymce.init({
         selector: 'textarea#tinyMCETextArea', // Replace this CSS selector to match the placeholder element for TinyMCE
